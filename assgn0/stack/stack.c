@@ -4,7 +4,7 @@
  * AUTHOR: Matthew Morgan, mdmorgan1@crimson.ua.edu
  *
  * DESCRIPTION:
- *   Implementation file stack class and methods.
+ *   Implementation file for stack class and methods.
  *
  * NOTES:
  *   The associated header file for this file is "stack.h".
@@ -16,7 +16,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stack.h"
-#include "sll.h"
 
 /* ============================================================================
  * newStack
