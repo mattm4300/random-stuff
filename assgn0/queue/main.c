@@ -18,5 +18,7 @@ Fatal(char *fmt, ...)
     }
 
 int main(void) {
-     
+     queue *myqueue = newQueue(displayInteger);
+     enqueue(myqueue, newInteger(50));
+     displayQueue(stdout, myqueue);
 }
