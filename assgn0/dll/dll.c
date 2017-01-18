@@ -300,7 +300,29 @@ int sizeDLL(dll *items) {
 */
 void displayDLL(FILE *fp, dll *items) {
      // If the list is empty, print out an empty list.
-     if()
+     if(items->size == 0) {
+          printf("[]");
+     // If the list has 1 element, print just that element.
+     } else if(items->size == 1) {
+          printf("[");
+          items->display(fp, items->head->value);
+     // If the list has >1 element, print out all the elements.
+     } else {
+          printf("[");
+          dllnode *spot = items->head;
+          int counter = 0;
+          while(counter < items->size) {
+               items->display(fp, spot->value);
+               if(counter + 1 == items->size) {
+                    break;
+               } else {
+                    printf(",");
+                    spot = spot->next;
+                    ++counter;
+               }
+          }
+          printf("]");
+     }
 }
 
 
