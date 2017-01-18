@@ -27,7 +27,7 @@
 #include "sll.h"
 
 /* ============================================================================
- * newsLL
+ * newSLL
  * ----------------------------------------------------------------------------
  * Creates a new singly-linked list.
  *
@@ -270,7 +270,7 @@ int sizeSLL(sll *items) {
 /* ============================================================================
  * displaySLL
  * ----------------------------------------------------------------------------
- * Displays the contents of a SLL in a [x1,x2,x3,...,x4] style.
+ * Displays the contents of a SLL in a [x1,x2,x3,...,xN] style.
  *
  * fp: The file (generally stdout) to which write the list.
  * items: The list to write out.

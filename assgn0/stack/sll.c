@@ -280,7 +280,7 @@ int sizeSLL(sll *items) {
 */
 void displaySLL(FILE *fp, sll *items) {
 	// If the list is empty, print an empty list.
-	if((items->head == 0) || (items->size == 0)) {
+	if(items->size == 0) {
 		printf("[]");
 	// If the list has 1 element, print just that element.
 	} else if(items->size == 1) {

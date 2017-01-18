@@ -18,6 +18,12 @@ Fatal(char *fmt, ...)
     exit(-1);
     }
 
+static void showItems(dll *items) {
+     printf("The items are ");
+     displayDLL(stdout, items);
+     printf(".\n");
+}
+
 int main(void) {
      srand(time(NULL));
     dll *mydll = newDLL(displayInteger);
@@ -28,14 +34,35 @@ int main(void) {
          arr[i] = val;
          insertDLL(mydll, i, newInteger(val));
     }
-    for(i = 0; i < 100; i++) {
-         printf("%d ", arr[i]);
-    }
-    printf("=================================================\n");
     dllnode *spot = mydll->head;
+    printf("Frontwards:\n\n");
     for(i = 0; i < 100; i++) {
-         printf("%d ", getInteger((integer *) spot->value));
+         printf("%d | %d\n", arr[i], getInteger((integer *) spot->value));
          spot = spot->next;
     }
+    printf("Head wrap-around: %d | %d\n", arr[0], getInteger((integer *) spot->value));
+    spot = mydll->tail;
+    printf("\n\nBackwards:\n\n");
+    for(i = 99; i >= 0; i--) {
+         printf("%d | %d\n", arr[i], getInteger((integer *) spot->value));
+         spot = spot->previous;
+    }
+    printf("Tail wrap-around: %d | %d\n", arr[99], getInteger((integer *) spot->value));
+
+    printf("\n\n");
+
+    printf("h->");
+    spot = mydll->head;
+    int counter = 0;
+    while(counter < mydll->size - 1) {
+         printf("[%d]=", getInteger((integer *) spot->value));
+         spot = spot->next;
+         ++counter;
+    }
+    printf("[%d]", getInteger(spot->value));
+    printf("<-t\n");
+
+    showItems(mydll);
+
     return 0;
 }
