@@ -1,0 +1,135 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "sll.h"
+#include "integer.h"
+
+sll *newSLL(void (*d)(FILE *, void *)) {
+    sll *items = malloc(sizeof(sll));
+    if(items == 0) {
+        fprintf(stderr, "out of memory.");
+        exit(-1);
+    }
+    items->head = 0;
+    items->tail = 0;
+    items->size = 0;
+    items->display = d;
+    return items;
+}
+
+void displaySLL(FILE *fp, sll *items) {
+    printf("displaying\n");
+    if((items->head == 0) || (items->size == 0)) {
+        printf("[]");
+    } else if(items->size == 1) {
+        printf("[");
+        items->display(fp, items->head->value);
+        printf("]");
+    } else {
+        printf("[");
+        sllnode *spot = items->head;
+        while(1) {
+            items->display(fp, spot->value);
+            if(spot->next == 0) {
+                break;
+            } else {
+                printf(",");
+                spot = spot->next;
+            }
+        }
+        printf("]");
+    }
+}
+
+
+void insertSLL(sll *items, int index, void *value) {
+    if(items->size == 0) {
+        printf("Empty. adding to head.\n");
+        items->head = malloc(sizeof(sllnode));
+        items->tail = malloc(sizeof(sllnode));
+        items->head->value = value;
+        items->head->next = 0;
+        items->tail = items->head;
+        items->tail->next = 0;
+        ++items->size;
+    } else {
+        printf("Not empty. adding to middle.\n");
+        if((index < 0) || (index > items->size + 1)) {
+            fprintf(stderr, "index error\n");
+            exit(-1);
+        } else if(index == 0) {
+            printf("Index 0. adding to head.\n");
+            sllnode *newnode = malloc(sizeof(sllnode));
+            newnode->next = items->head;
+            newnode->value = value;
+            items->head = newnode;
+            ++items->size;
+        } else if(index == items->size) {
+             printf("At length. adding to end.\n");
+             sllnode *newnode = malloc(sizeof(sllnode));
+             newnode->next = 0;
+             newnode->value = value;
+             items->tail->next = newnode;
+             items->tail = newnode;
+             ++items->size;
+        } else {
+            printf("Middle.\n");
+            sllnode *spot = items->head;
+            int counter = 0;
+            while(counter < index - 1) {
+                spot = spot->next;
+                ++counter;
+            }
+            sllnode *newnode = malloc(sizeof(sllnode));
+            newnode->next = spot->next;
+            spot->next = newnode;
+            newnode->value = value;
+            ++items->size;
+        }
+    }
+}
+
+void *removeSLL(sll *items, int index) {
+    if((items->head == 0) || (index > items->size - 1)) return NULL;
+
+    if(index == 0) {
+        void *value = items->head->value;
+        sllnode *spot = items->head;
+        items->head = items->head->next;
+        free(spot);
+        return value;
+    } else if(index == items->size - 1) {
+        sllnode *spot = items->head;
+        int counter = 0;
+        while(counter < items->size - 2) {
+            spot = spot->next;
+            ++counter;
+        }
+        items->tail = spot;
+        spot = spot->next;
+        void *value = spot->value;
+        free(spot);
+        items->tail->next = 0;
+        return value;
+    } else {
+        int counter = 0;
+        sllnode *spot = items->head;
+        while(counter != index - 1) {
+            spot = spot->next;
+            ++counter;
+        }
+        void *value = spot->next->value;
+        sllnode *temp = spot->next;
+        spot->next = spot->next->next;
+        free(temp);
+        --items->size;
+        return value;
+    }
+}
+
+int sizeSLL(sll *items) {
+    return items->size;
+}
+
+void unionSLL(sll *recipient, sll *donor) {
+
+}
