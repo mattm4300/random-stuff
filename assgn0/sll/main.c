@@ -43,7 +43,7 @@ static void showItems(sll *items)
       showItems(items);
       printf("The value ");
       displayInteger(stdout,removeSLL(items,0));          //remove from front
-      printf("was removed.\n");
+      printf(" was removed.\n");
       showItems(items);
       int x = getInteger((integer *) getSLL(items,0));   //get the first item
       printf("The first item is %d.\n",x);
