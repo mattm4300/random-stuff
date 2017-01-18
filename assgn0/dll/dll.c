@@ -196,12 +196,72 @@ void *removeDLL(dll *items, int index) {
      // If removing from someplace in the middle of the list:
      } else {
           // Create a placeholder node pointer and associated counter.
-
-          // CONTINUE HERE ****
-
+          dllnode *spot = items->head;
+          int counter = 0;
+          // Advance to the node before the current index node.
+          while(counter < index - 1) {
+               spot = spot->next;
+               ++counter;
+          }
+          // Save the value.
+          void *value = spot->next->value;
+          // Create a temporary node pointer to keep a reference to the
+          // next node.
+          dllnode *temp = spot->next;
+          // Set the placeholder node pointer's next pointer to the
+          // next, next node.
+          spot->next = spot->next->next;
+          // Set the spot's next, next node's previous pointer back to spot.
+          spot->next->previous = spot;
+          // Free the old node.
+          free(temp);
+          // Decrement the size and return the value.
+          --items->size;
+          return value.
      }
 }
 
+/* ============================================================================
+ * unionDLL
+ * ----------------------------------------------------------------------------
+ * Joins two DLLs together.
+ *
+ * recipient: The list to which keep a reference to (the first part of the
+ * 	   	    joined lists).
+ * donor: The list to which join to the tail of the recipient list (the second
+ * 		part of the joined lists.)
+ *
+ * returns: void.
+ * ============================================================================
+*/
+void unionDLL(dll *recipient, dll *donor) {
+     // Make the recipient's tail->next pointer point to the
+     // head of the donor list, and make the donors's head->previous
+     // pointer point to the tail of the recipient list.
+     recipient->tail->next = donor->head;
+     donor->head->previous = recipient->tail;
+     // Make the recipient's head->previous pointer point to the tail
+     // of the donor list, and make the donor's tail->next pointer
+     // point to the head of the recipient list.
+     recipient->head->previous = donor->tail;
+     donor->tail->next = recipient->head;
+     // Add the donor's size to the recipient's size.
+     recipient->size += donor->size;
+}
 
+/* ============================================================================
+ * getDLL
+ * ----------------------------------------------------------------------------
+ * Returns the data stored at a given index in the list.
+ *
+ * items: The list to which extract data from.
+ * index: The index at which to extract data.
+ *
+ * returns: The data stored at the given 0-based index of the list.
+ * ============================================================================
+*/
+void *getDLL(dll *items, int index) {
+     
+}
 
 // EOF
