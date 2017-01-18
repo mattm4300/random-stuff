@@ -261,7 +261,47 @@ void unionDLL(dll *recipient, dll *donor) {
  * ============================================================================
 */
 void *getDLL(dll *items, int index) {
-     
+     // Create a placeholder pointer and associated counter.
+     dllnode *spot = items->head;
+     int counter = 0;
+     // Advance to the desired index.
+     while(counter < index) {
+          spot = spot->next;
+          ++counter;
+     }
+     // Return the data stored at the desired index.
+     return spot->value;
 }
+
+/* ============================================================================
+ * sizeDLL
+ * ----------------------------------------------------------------------------
+ * Returns the current size of a DLL.
+ *
+ * items: The list of which to determine the size.
+ *
+ * returns: The items->size member of the given list.
+ * ============================================================================
+*/
+int sizeDLL(dll *items) {
+     return items->size;
+}
+
+/* ============================================================================
+ * displayDLL
+ * ----------------------------------------------------------------------------
+ * Displays the contents of a DLL in a [x1,x2,x3,...,x4] style.
+ *
+ * fp: The file (generally stdout) to which write the list.
+ * items: The list to write out.
+ *
+ * returns: void.
+ * ============================================================================
+*/
+void displayDLL(FILE *fp, dll *items) {
+     // If the list is empty, print out an empty list.
+     if()
+}
+
 
 // EOF
