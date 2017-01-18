@@ -217,7 +217,7 @@ void *removeDLL(dll *items, int index) {
           free(temp);
           // Decrement the size and return the value.
           --items->size;
-          return value.
+          return value;
      }
 }
 
