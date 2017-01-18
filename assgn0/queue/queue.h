@@ -20,9 +20,9 @@
 #include <stdlib.h>
 #include "sll.h"
 
-// NOTE: we will use the head of the underlying SLL object
-// as the "front" (enqueue) of the queue, and use the tail
-// as the "back" (dequeue).
+// NOTE: we will use the tail of the underlying SLL as the "back" of
+// the queue and use the head of the underlying SLL as the "front" of the
+// queue.
 
 // The queue structure.
 typedef struct queue {

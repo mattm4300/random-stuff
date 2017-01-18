@@ -37,7 +37,7 @@ queue *newQueue(void (*d)(FILE *, void *)) {
           fprintf(stderr, "out of memory");
           exit(-1);
      }
-     // Initialize the underlying SLL object the stack
+     // Initialize the underlying SLL object the queue
      // is built on.
      items->list = newSLL(d);
 
@@ -47,45 +47,45 @@ queue *newQueue(void (*d)(FILE *, void *)) {
 /* ============================================================================
  * enqueue
  * ----------------------------------------------------------------------------
- * Pushes a value onto the front of the queue.
+ * Pushes a value onto the back of the queue.
  *
  * items: The queue to push the value to.
- * value : The value to store on top of the stack.
+ * value : The value to store on the back of the queue.
  *
  * returns: void.
  * ============================================================================
 */
 void enqueue(queue *items, void *value) {
      // Insert data at the head of the underlying SLL.
-     insertSLL(items->list, 0, value);
+     insertSLL(items->list, items->list->size, value);
 }
 
 /* ============================================================================
  * dequeue
  * ----------------------------------------------------------------------------
- * Removes and returns the data at the "back" (tail) of the queue.
+ * Removes and returns the data at the front of the queue.
  *
- * items: The queue to which remove the tail from.
+ * items: The queue to which remove the front from.
  *
  * returns: A generic data pointer.
  * ============================================================================
 */
 void *dequeue(queue *items) {
-     return removeSLL(items->list, sizeSLL(items->list) - 1);
+     return removeSLL(items->list, 0);
 }
 
 /* ============================================================================
  * peekQueue
  * ----------------------------------------------------------------------------
- * Returns the data at the "back" (tail) of the queue.
+ * Returns the data at the front of the queue.
  *
- * items: The queue to which return the tail from.
+ * items: The queue to which return the front from.
  *
  * returns: A generic data pointer.
  * ============================================================================
 */
 void *peekQueue(queue *items) {
-     return getSLL(items->list, sizeSLL(items->list) - 1);
+     return getSLL(items->list, 0);
 }
 
 /* ============================================================================
