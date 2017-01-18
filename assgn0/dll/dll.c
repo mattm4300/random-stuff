@@ -116,7 +116,7 @@ void insertDLL(dll *items, int index, void *value) {
                newnode->previous = items->tail;
                // Set the new node as the new tail.
                items->tail = newnode;
-               // Incremtn the size.
+               // Increment the size.
                ++items->size;
           // If data is to be inserted someplace in the middle of the list:
           } else {
@@ -144,5 +144,64 @@ void insertDLL(dll *items, int index, void *value) {
           }
      }
 }
+
+
+/* ============================================================================
+ * removeDLL
+ * ----------------------------------------------------------------------------
+ * Removes the data at a given index from a list and returns the data
+ * back to the user.
+ *
+ * items: The list to which remove data.
+ * index: The index at which to remove the data.
+ *
+ * returns: The data removed from the list.
+ * ============================================================================
+*/
+void *removeDLL(dll *items, int index) {
+     // If removing from the head of the list:
+     if(index == 0) {
+          // Go ahead and save the return value.
+          void *value = items->head->value;
+          // Create a temporary node pointer to point at the current head,
+          // and move the head pointer to the pointer's next pointer.
+          dllnode *temp = items->head;
+          items->head = items->head->next;
+          // Set the new head's previous point to the tail, and set the tail's
+          // next pointer to the new head.
+          items->head->previous = items->tail;
+          items->tail->next = items->head;
+          // Free the old head.
+          free(temp);
+          // Decrement the size and return the extracted value.
+          --items->size;
+          return value;
+     // If removing form the back (tail) of the list:
+     } else if(index == items->size - 1) {
+          // Go ahead and save the return value.
+          void *value = items->tail->value;
+          // Create a temporary node pointer to point at the current tail,
+          // and move the tail pointer to the pointer's previous pointer.
+          dllnode *temp = items->tail;
+          items->tail = items->tail->previous;
+          // Set the new tail's next pointer to the head, and set the head's
+          // previous pointer to the new tail.
+          items->tail->next = items->head;
+          items->head->previous = items->tail;
+          // Free the old tail.
+          free(temp);
+          // Decrement the size and return the extracted value.
+          --items->size;
+          return value;
+     // If removing from someplace in the middle of the list:
+     } else {
+          // Create a placeholder node pointer and associated counter.
+
+          // CONTINUE HERE ****
+
+     }
+}
+
+
 
 // EOF
