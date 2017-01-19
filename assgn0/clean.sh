@@ -13,3 +13,7 @@ cd ./..
 cd ./queue/
 make clean
 cd ./..
+
+cd ./testdir/
+make clean
+cd ./..

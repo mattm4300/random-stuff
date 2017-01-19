@@ -245,16 +245,25 @@ void unionSLL(sll *recipient, sll *donor) {
  * ============================================================================
 */
 void *getSLL(sll *items, int index) {
-	// Create a placeholder node pointer and associated counter.
-	sllnode *spot = items->head;
-	int counter = 0;
-	// Advance to the desired index.
-	while(counter < index) {
-		spot = spot->next;
-		++counter;
+	// If getting from the head.
+	if(index == 0) {
+		return items->head->value;
+	// If getting from the tail.
+	} else if(index == (sizeSLL(items) - 1)) {
+		return items->tail->value;
+	// If getting form somewhere in the middle.
+	} else {
+		// Create a placeholder node pointer and associated counter.
+		sllnode *spot = items->head;
+		int counter = 0;
+		// Advance to the desired index.
+		while(counter < index) {
+			spot = spot->next;
+			++counter;
+		}
+		// Return the data stored at the desired index.
+		return spot->value;
 	}
-	// Return the data stored at the desired index.
-	return spot->value;
 }
 
 /* ============================================================================
