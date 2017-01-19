@@ -245,8 +245,13 @@ void unionDLL(dll *recipient, dll *donor) {
      // point to the head of the recipient list.
      recipient->head->previous = donor->tail;
      donor->tail->next = recipient->head;
+     // Change the recipient's tail to the donor's tail.
+     recipient->tail = donor->tail;
      // Add the donor's size to the recipient's size.
      recipient->size += donor->size;
+     // Make the donor list an empty list.
+     donor->head = donor->tail = 0;
+     donor->size = 0;
 }
 
 /* ============================================================================

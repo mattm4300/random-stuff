@@ -24,45 +24,40 @@ static void showItems(dll *items) {
      printf(".\n");
 }
 
+void diagnose_dll(dll *items) {
+     printf("=============\n");
+     if(sizeDLL(items) != 0) {
+          printf("Head: %d\n", getInteger(items->head->value));
+          printf("Tail: %d\n", getInteger(items->tail->value));
+          printf("Head->prev.: %d\n", getInteger(items->head->previous->value));
+          printf("Tail->next: %d\n", getInteger(items->tail->next->value));
+     }
+     printf("Size: %d\n", sizeDLL(items));
+     displayDLL(stdout, items);
+     printf("\n=================\n");
+}
+
 int main(void) {
      srand(time(NULL));
-    dll *mydll = newDLL(displayInteger);
-    int arr[100];
-    int i;
-    for(i = 0; i< 100; i++) {
+
+    dll *a = newDLL(displayInteger);
+    dll *b = newDLL(displayInteger);
+
+    int i = 0;
+    for (i = 0; i < (rand() % 10) + 2; i++) {
          int val = rand() % 100;
-         arr[i] = val;
-         insertDLL(mydll, i, newInteger(val));
+         insertDLL(a, sizeDLL(a), newInteger(val));
     }
-    dllnode *spot = mydll->head;
-    printf("Frontwards:\n\n");
-    for(i = 0; i < 100; i++) {
-         printf("%d | %d\n", arr[i], getInteger((integer *) spot->value));
-         spot = spot->next;
+    for (i = 0; i < (rand() % 10) + 2; i++) {
+         int val = rand() % 100;
+         insertDLL(b, sizeDLL(b), newInteger(val));
     }
-    printf("Head wrap-around: %d | %d\n", arr[0], getInteger((integer *) spot->value));
-    spot = mydll->tail;
-    printf("\n\nBackwards:\n\n");
-    for(i = 99; i >= 0; i--) {
-         printf("%d | %d\n", arr[i], getInteger((integer *) spot->value));
-         spot = spot->previous;
-    }
-    printf("Tail wrap-around: %d | %d\n", arr[99], getInteger((integer *) spot->value));
-
-    printf("\n\n");
-
-    printf("h->");
-    spot = mydll->head;
-    int counter = 0;
-    while(counter < mydll->size - 1) {
-         printf("[%d]=", getInteger((integer *) spot->value));
-         spot = spot->next;
-         ++counter;
-    }
-    printf("[%d]", getInteger(spot->value));
-    printf("<-t\n");
-
-    showItems(mydll);
+    diagnose_dll(a);
+    diagnose_dll(b);
+    printf("\njoining\n");
+    unionDLL(a, b);
+    diagnose_dll(a);
+    diagnose_dll(b);
 
     return 0;
 }

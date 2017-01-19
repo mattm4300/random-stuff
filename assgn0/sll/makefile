@@ -8,4 +8,4 @@ sll.o: sll.c sll.h integer.h
 integer.o: integer.c integer.h
 	gcc $(FLAGS) -c integer.c
 clean:
-	rm main.o sll.o app integer.o
+	rm -f main.o sll.o app integer.o

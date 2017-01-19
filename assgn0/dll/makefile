@@ -8,5 +8,8 @@ dll.o: dll.c dll.h
 	gcc $(FLAGS) -c dll.c
 integer.o: integer.c integer.h
 	gcc $(FLAGS) -c integer.c
+all:
+	make clean
+	make app
 clean:
-	rm main.o dll.o integer.o app
+	rm -f main.o dll.o integer.o app

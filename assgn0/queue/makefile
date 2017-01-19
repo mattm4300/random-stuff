@@ -10,4 +10,4 @@ sll.o: sll.c sll.h
 queue.o: queue.c queue.h sll.h
 	gcc $(FLAGS) -c queue.c
 clean:
-	rm app main.o integer.o sll.o queue.o
+	rm -f app main.o integer.o sll.o queue.o

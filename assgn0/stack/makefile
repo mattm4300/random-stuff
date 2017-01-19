@@ -11,4 +11,4 @@ stack.o: stack.c stack.h sll.h
 sll.o: sll.h sll.c
 	gcc $(FLAGS) -c sll.c
 clean:
-	rm main.o integer.o stack.o sll.o app
+	rm -f main.o integer.o stack.o sll.o app
