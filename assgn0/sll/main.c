@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <time.h>
 #include "sll.h"
 #include "integer.h"
 
@@ -19,11 +20,15 @@ Fatal(char *fmt, ...)
 
 
 void diagnose_sll(sll *items) {
-    printf("Head: %d\n", getInteger(items->head->value));
-    printf("Tail: %d\n", getInteger(items->tail->value));
+    printf("=======================================\n");
+    if (sizeSLL(items) != 0) {
+         printf("Head: %d\n", getInteger(items->head->value));
+         printf("Tail: %d\n", getInteger(items->tail->value));
+    }
     printf("Size: %d\n", sizeSLL(items));
     displaySLL(stdout, items);
     printf("\n");
+    printf("=======================================\n");
 }
 
 static void showItems(sll *items)
@@ -33,19 +38,31 @@ static void showItems(sll *items)
       printf(".\n");
       }
 
+
+
  int main(void)
       {
-      sll *items = newSLL(displayInteger);
-      showItems(items);
-      insertSLL(items,0,newInteger(3));                   //insert at front
-      insertSLL(items,sizeSLL(items),newInteger(2));      //insert at back
-      insertSLL(items,1,newInteger(1));                   //insert at middle
-      showItems(items);
-      printf("The value ");
-      displayInteger(stdout,removeSLL(items,0));          //remove from front
-      printf(" was removed.\n");
-      showItems(items);
-      int x = getInteger((integer *) getSLL(items,0));   //get the first item
-      printf("The first item is %d.\n",x);
+      srand(time(NULL));
+     sll *a = newSLL(displayInteger);
+     sll *b = newSLL(displayInteger);
+
+     int i = 0;
+     for(i = 0; i < (rand() % 10) + 2; i++) {
+          int val = rand() % 100;
+          //printf("Inserting %d into %d in a.\n", val, sizeSLL(a));
+          insertSLL(a, sizeSLL(a), newInteger(val));
+     }
+     for(i = 0; i < (rand() % 10) + 2; i++) {
+          int val = rand() % 100;
+          //printf("Inserting %d into %d in b.\n", val, sizeSLL(b));
+          insertSLL(b, sizeSLL(b), newInteger(val));
+     }
+     diagnose_sll(a);
+     diagnose_sll(b);
+     printf("\n\n joining \n\n");
+     unionSLL(a, b);
+     diagnose_sll(a);
+     diagnose_sll(b);
+
       return 0;
       }
