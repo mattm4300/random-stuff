@@ -208,7 +208,8 @@ void *removeSLL(sll *items, int index) {
 /* ============================================================================
  * unionSLL
  * ----------------------------------------------------------------------------
- * Joins two SLLs together.
+ * Joins two SLLs together.  The donor list is rendered empty after the
+ * procedure.
  *
  * recipient: The list to which keep a reference to (the first part of the
  * 	   	    joined lists).
@@ -227,6 +228,9 @@ void unionSLL(sll *recipient, sll *donor) {
 	recipient->tail = donor->tail;
 	// Add the donor's size to the recipient's size
 	recipient->size += donor->size;
+	// Make the donor list an empty list.
+	donor->head = donor->tail = 0;
+	donor->size = 0;
 }
 
 /* ============================================================================
