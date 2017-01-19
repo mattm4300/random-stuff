@@ -68,7 +68,7 @@ sll *newSLL(void (*d)(FILE *, void *)) {
 */
 void insertSLL(sll *items, int index, void *value) {
 	// In the case that the list is empty (items->size == 0):
-	if(items->size == 0) {
+	if((items->size == 0) && (index == 0)) {
 		// Allocate memory for the node to be inserted into the list,
 		// and point the list's head and tail node pointers to the newly
 		// constructed node.

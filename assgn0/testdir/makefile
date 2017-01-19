@@ -2,6 +2,7 @@ FLAGS = -Wall -Wextra -std=c99
 
 all:
 	make test-sll
+	make test-dll
 
 test-sll: test-sll.c integer.o sll.o
 	gcc $(FLAGS) test-sll.c integer.o sll.o -o test-sll
@@ -15,4 +16,4 @@ sll.o: sll.c sll.h
 dll.o: dll.c dll.h
 	gcc $(FLAGS) -c dll.c	
 clean:
-	rm -f test-sll integer.o sll.o
+	rm -f test-sll test-dll integer.o sll.o dll.o
