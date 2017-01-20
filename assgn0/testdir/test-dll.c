@@ -120,5 +120,20 @@ int main(void) {
      }
 	printf("\n");
 
+     printf("\nRunning remove all + add a couple back (%d elements)=>\n", sizeDLL(a));
+     displayDLL(stdout, a); printf("\n");
+     while(sizeDLL(a) != 0) {
+          removeDLL(a, 0);
+          displayDLL(stdout, a); printf("\n");
+     }
+     printf("List should be empty now and have size 0: \n"); diagnose_dll(a);
+
+     printf("Adding 3 elements: \n");
+     for(counter = 0; counter < 3; ++counter) {
+          insertDLL(a, 0, newInteger(rand() % 100));
+          displayDLL(stdout, a); printf("\n");
+     }
+     printf("List should have 3 elements: \n"); diagnose_dll(a);
+
 	return 0;
 }

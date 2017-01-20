@@ -102,5 +102,20 @@ int main(void) {
     }
     printf("\n");
 
+    printf("\nRunning remove all + add a couple back (%d elements)=>\n", sizeSLL(a));
+    displaySLL(stdout, a); printf("\n");
+    while(sizeSLL(a) != 0) {
+         removeSLL(a, 0);
+         displaySLL(stdout, a); printf("\n");
+    }
+    printf("List should be empty now and have size 0: \n"); diagnose_sll(a);
+
+    printf("Adding 3 elements: \n");
+    for(counter = 0; counter < 3; ++counter) {
+         insertSLL(a, 0, newInteger(rand() % 100));
+         displaySLL(stdout, a); printf("\n");
+    }
+    printf("List should have 3 elements: \n"); diagnose_sll(a);
+
     return 0;
 }
