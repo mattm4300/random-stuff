@@ -1,19 +1,36 @@
 FLAGS = -Wall -Wextra -std=c99
 
-all:
-	make test-sll
-	make test-dll
+default: test-sll test-dll test-stack
 
-test-sll: test-sll.c integer.o sll.o
-	gcc $(FLAGS) test-sll.c integer.o sll.o -o test-sll
-test-dll: test-dll.c integer.o dll.o
-	gcc $(FLAGS) test-dll.c integer.o dll.o -o test-dll
+clean: clean-sll clean-dll clean-stack
+
+test-sll: test-sll.o sll.o integer.o
+	gcc $(FLAGS) test-sll.o sll.o integer.o -o test-sll
+test-sll.o: test-sll.c sll.h integer.h
+	gcc $(FLAGS) -c test-sll.c
+sll.o: sll.c sll.h
+	gcc $(FLAGS) -c sll.c
+clean-sll:
+	rm -f test-sll test-sll.o sll.o integer.o
+
+
+test-dll: test-dll.o dll.o integer.o
+	gcc $(FLAGS) test-dll.o dll.o integer.o -o test-dll
+test-dll.o: test-dll.c dll.h integer.h
+	gcc $(FLAGS) -c test-dll.c
+dll.o: dll.c dll.h
+	gcc $(FLAGS) -c dll.c
+clean-dll:
+	rm -f test-dll test-dll.o dll.o integer.o
+
+test-stack: test-stack.o stack.o integer.o dll.o
+	gcc $(FLAGS) test-stack.o stack.o integer.o dll.o -o test-stack
+test-stack.o: test-stack.c stack.h integer.h
+	gcc $(FLAGS) -c test-stack.c
+stack.o: stack.c stack.h dll.h
+	gcc $(FLAGS) -c stack.c
+clean-stack:
+	rm -f test-stack test-stack.o stack.o integer.o
 
 integer.o: integer.c integer.h
 	gcc $(FLAGS) -c integer.c
-sll.o: sll.c sll.h
-	gcc $(FLAGS) -c sll.c
-dll.o: dll.c dll.h
-	gcc $(FLAGS) -c dll.c	
-clean:
-	rm -f test-sll test-dll integer.o sll.o dll.o
