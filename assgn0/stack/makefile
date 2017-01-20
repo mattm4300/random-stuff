@@ -1,14 +1,14 @@
 FLAGS = -std=c99 -Wall -Wextra
 
-app: main.o integer.o stack.o sll.o
-	gcc $(FLAGS) main.o integer.o stack.o sll.o -o app
+app: main.o integer.o stack.o dll.o
+	gcc $(FLAGS) main.o integer.o stack.o dll.o -o app
 main.o: main.c integer.h stack.h
 	gcc $(FLAGS) -c main.c
 integer.o: integer.c integer.h
 	gcc $(FLAGS) -c integer.c
-stack.o: stack.c stack.h sll.h
+stack.o: stack.c stack.h dll.h
 	gcc $(FLAGS) -c stack.c
-sll.o: sll.h sll.c
-	gcc $(FLAGS) -c sll.c
+dll.o: dll.h dll.c
+	gcc $(FLAGS) -c dll.c
 clean:
-	rm -f main.o integer.o stack.o sll.o app
+	rm -f main.o integer.o stack.o dll.o app

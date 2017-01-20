@@ -389,6 +389,7 @@ void displayDLL(FILE *fp, dll *items) {
      } else if(items->size == 1) {
           printf("[");
           items->display(fp, items->head->value);
+          printf("]");
      // If the list has >1 element, print out all the elements.
      } else {
           printf("[");

@@ -1,5 +1,5 @@
 /* ============================================================================
- * FILENAME: sll.c
+ * FILENAME: DLL.c
  *
  * AUTHOR: Matthew Morgan, mdmorgan1@crimson.ua.edu
  *
@@ -36,9 +36,9 @@ stack *newStack(void (*d)(FILE *, void *)) {
           fprintf(stderr, "out of memory.");
           exit(-1);
      }
-     // Initialize the underlying SLL object the stack
+     // Initialize the underlying DLL object the stack
      // is built on.
-     items->list = newSLL(d);
+     items->list = newDLL(d);
 
      return items;
 }
@@ -55,8 +55,8 @@ stack *newStack(void (*d)(FILE *, void *)) {
  * ============================================================================
 */
 void push(stack *items, void *value) {
-     // Insert the data at the head of the underlying SLL.
-     insertSLL(items->list, STACK_TOP, value);
+     // Insert the data at the head of the underlying DLL.
+     insertDLL(items->list, STACK_TOP, value);
 }
 
 /* ============================================================================
@@ -70,7 +70,7 @@ void push(stack *items, void *value) {
  * ============================================================================
 */
 void *pop(stack *items) {
-     return removeSLL(items->list, STACK_TOP);
+     return removeDLL(items->list, STACK_TOP);
 }
 
 /* ============================================================================
@@ -84,7 +84,7 @@ void *pop(stack *items) {
  * ============================================================================
 */
 void *peekStack(stack *items) {
-     return getSLL(items->list, STACK_TOP);
+     return getDLL(items->list, STACK_TOP);
 }
 
 /* ============================================================================
@@ -98,7 +98,7 @@ void *peekStack(stack *items) {
  * ============================================================================
 */
 int sizeStack(stack *items) {
-     return sizeSLL(items->list);
+     return sizeDLL(items->list);
 }
 
 /* ============================================================================
@@ -112,7 +112,7 @@ int sizeStack(stack *items) {
  * ============================================================================
 */
 void displayStack(FILE *fp, stack *items) {
-     displaySLL(fp, items->list);
+     displayDLL(fp, items->list);
 }
 
 // EOF
