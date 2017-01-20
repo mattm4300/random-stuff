@@ -73,7 +73,7 @@ int main(void) {
 	diagnose_dll(a);
 
 	val = rand() % 100;
-	printf("@ index just before tail with val %d: \n", val);
+	printf("@ index just before tail (index %d) with val %d: \n", sizeDLL(a) - 2, val);
 	insertDLL(a, sizeDLL(a) - 2, newInteger(val));
 	diagnose_dll(a);
 
@@ -92,6 +92,11 @@ int main(void) {
      printf("@ index %d: %d\n", index, getInteger(removeDLL(a, index)));
      diagnose_dll(a);
 
+	printf("@ index 1: %d\n", getInteger(removeDLL(a, 1)));
+	diagnose_dll(a);
+	printf("@ index just before the tail (index %d): %d\n", (sizeDLL(a) - 2), getInteger(removeDLL(a, (sizeDLL(a) - 2))));
+	diagnose_dll(a);
+
      printf("Building second list => \n");
      dll *b = newDLL(displayInteger);
      amount = (rand() % 5) + 3;
@@ -108,7 +113,8 @@ int main(void) {
      printf("Second list: \n"); diagnose_dll(b);
 
      printf("Testing get function on first list =>\n");
-     printf("List is: "); displayDLL(stdout, a); printf("\n");
+     printf("List is: (should print %d items)\n", sizeDLL(a)); displayDLL(stdout, a); printf("\n");
+	printf(" ");
      for(counter = 0; counter < sizeDLL(a); ++counter) {
 	     printf("%d ",getInteger(getDLL(a, counter)));
      }

@@ -96,7 +96,7 @@ int main(void) {
     printf("Second list: \n"); diagnose_sll(b);
 
     printf("Testing get function on first list =>\n");
-    printf("List is: "); displaySLL(stdout, a); printf("\n");
+    printf("List is: (should print %d items)\n", sizeSLL(a)); displaySLL(stdout, a); printf("\n");
     for(counter = 0; counter < sizeSLL(a); ++counter) {
          printf("%d ",getInteger(getSLL(a, counter)));
     }

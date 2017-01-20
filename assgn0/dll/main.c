@@ -39,7 +39,7 @@ void diagnose_dll(dll *items) {
 
 int main(void) {
      srand(time(NULL));
-
+    /*
     dll *a = newDLL(displayInteger);
     dll *b = newDLL(displayInteger);
 
@@ -58,6 +58,17 @@ int main(void) {
     unionDLL(a, b);
     diagnose_dll(a);
     diagnose_dll(b);
-
+    */
+    dll *a = newDLL(displayInteger);
+    int i = 0;
+    for(i = 0; i < 6; i++) {
+        insertDLL(a, 0, newInteger(rand() % 100));
+    }
+    diagnose_dll(a);
+    int val = rand() % 1000;
+    int index = 4;
+    printf("Inserting %d @ %d\n", val, index);
+    insertDLL(a, index, newInteger(val));
+    diagnose_dll(a);
     return 0;
 }

@@ -121,7 +121,7 @@ void insertDLL(dll *items, int index, void *value) {
           // If data is to be inserted someplace in the middle of the list:
           } else {
                // If index is closer to head than tail:
-               if(index < (items->size / 2)) {
+               if(index <= (items->size / 2)) {
                     // Allocate memory for a new node and set its member's data.
                     dllnode *newnode = malloc(sizeof(dllnode));
                     newnode->value = value;
@@ -145,7 +145,6 @@ void insertDLL(dll *items, int index, void *value) {
                     ++items->size;
                // If index is closer to the tail than head:
                } else {
-                    printf("using tail side half for insert.\n");
                     // Allocate memory for a new node and set its member's data.
                     dllnode *newnode = malloc(sizeof(dllnode));
                     newnode->value = value;
@@ -153,7 +152,7 @@ void insertDLL(dll *items, int index, void *value) {
                     dllnode *spot = items->tail;
                     int counter = 0;
                     // Loop to the node just before the insert index.
-                    while(counter < index) {
+                    while(counter < (items->size - index)) {
                          spot = spot->previous;
                          ++counter;
                     }
@@ -223,7 +222,7 @@ void *removeDLL(dll *items, int index) {
      // If removing from someplace in the middle of the list:
      } else {
           // If index is closer to head than tail:
-          if(index < (items->size / 2)) {
+          if(index <= (items->size / 2)) {
                // Create a placeholder node pointer and associated counter.
                dllnode *spot = items->head;
                int counter = 0;
@@ -253,7 +252,7 @@ void *removeDLL(dll *items, int index) {
                dllnode *spot = items->tail;
                int counter = 0;
                // Advance to the node before the current index node.
-               while(counter < index) {
+               while(counter < (items->size - index)) {
                     spot = spot->previous;
                     ++counter;
                }
@@ -321,32 +320,40 @@ void unionDLL(dll *recipient, dll *donor) {
  * ============================================================================
 */
 void *getDLL(dll *items, int index) {
-     // If index is closer to head than tail:
-     if(index < (items->size / 2)) {
-          // Create a placeholder pointer and associated counter.
-          dllnode *spot = items->head;
-          int counter = 0;
-          // Advance to the desired index.
-          while(counter < index) {
-               spot = spot->next;
-               ++counter;
-          }
-          // Return the data stored at the desired index.
-          return spot->value;
-     // If index is closer to tail than head:
+     // If getting from the head:
+     if(index == 0) {
+          return items->head->value;
+     // If getting from the tail:
+     } else if(index == sizeDLL(items) - 1) {
+          return items->tail->value;
+     // If getting from someplace in the middle:
      } else {
-          // Create a placeholder pointer and associated counter.
-          dllnode *spot = items->tail;
-          int counter = 0;
-          // Advance to the desired index.
-          while(counter < (items->size - index)) {
-               spot = spot->previous;
-               ++counter;
+          // If index is closer to head than tail:
+          if(index <= (items->size / 2)) {
+               // Create a placeholder pointer and associated counter.
+               dllnode *spot = items->head;
+               int counter = 0;
+               // Advance to the desired index.
+               while(counter < index) {
+                    spot = spot->next;
+                    ++counter;
+               }
+               // Return the data stored at the desired index.
+               return spot->value;
+          // If index is closer to tail than head:
+          } else {
+               // Create a placeholder pointer and associated counter.
+               dllnode *spot = items->tail;
+               int counter = 0;
+               // Advance to the desired index.
+               while(counter < (items->size - index - 1)) {
+                    spot = spot->previous;
+                    ++counter;
+               }
+               // Return the data stored at the desired index.
+               return spot->value;
           }
-          // Return the data stored at the desired index.
-          return spot->value;
      }
-
 }
 
 /* ============================================================================
