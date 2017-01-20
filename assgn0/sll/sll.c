@@ -294,26 +294,26 @@ int sizeSLL(sll *items) {
 void displaySLL(FILE *fp, sll *items) {
 	// If the list is empty, print an empty list.
 	if(items->size == 0) {
-		printf("[]");
+		fprintf(fp, "[]");
 	// If the list has 1 element, print just that element.
 	} else if(items->size == 1) {
-		printf("[");
+		fprintf(fp, "[");
 		items->display(fp, items->head->value);
-		printf("]");
+		fprintf(fp, "]");
 	// If the list has >1 element, print out all the elements.
 	} else {
-		printf("[");
+		fprintf(fp, "[");
 		sllnode *spot = items->head;
 		while(1) {
 			items->display(fp, spot->value);
 			if(spot->next == 0) {
 				break;
 			} else {
-				printf(",");
+				fprintf(fp, ",");
 				spot = spot->next;
 			}
 		}
-		printf("]");
+		fprintf(fp, "]");
 	}
 }
 
