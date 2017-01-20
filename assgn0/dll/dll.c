@@ -400,12 +400,12 @@ void displayDLL(FILE *fp, dll *items) {
                if(counter + 1 == items->size) {
                     break;
                } else {
-                    printf(",");
+                    fprintf(fp, ",");
                     spot = spot->next;
                     ++counter;
                }
           }
-          printf("]");
+          fprintf(fp, "]");
      }
 }
 

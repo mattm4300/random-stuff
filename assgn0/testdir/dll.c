@@ -384,15 +384,15 @@ int sizeDLL(dll *items) {
 void displayDLL(FILE *fp, dll *items) {
      // If the list is empty, print out an empty list.
      if(items->size == 0) {
-          printf("[]");
+          fprintf(fp, "[]");
      // If the list has 1 element, print just that element.
      } else if(items->size == 1) {
-          printf("[");
+          fprintf(fp, "[");
           items->display(fp, items->head->value);
-          printf("]");
+          fprintf(fp, "]");
      // If the list has >1 element, print out all the elements.
      } else {
-          printf("[");
+          fprintf(fp, "[");
           dllnode *spot = items->head;
           int counter = 0;
           while(counter < items->size) {
@@ -400,12 +400,12 @@ void displayDLL(FILE *fp, dll *items) {
                if(counter + 1 == items->size) {
                     break;
                } else {
-                    printf(",");
+                    fprintf(fp, ",");
                     spot = spot->next;
                     ++counter;
                }
           }
-          printf("]");
+          fprintf(fp, "]");
      }
 }
 

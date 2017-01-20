@@ -19,6 +19,6 @@ Fatal(char *fmt, ...)
     }
 
 int main(void) {
-
+     
      return 0;
 }
