@@ -289,23 +289,34 @@ void *removeDLL(dll *items, int index) {
  * ============================================================================
 */
 void unionDLL(dll *recipient, dll *donor) {
-     // Make the recipient's tail->next pointer point to the
-     // head of the donor list, and make the donors's head->previous
-     // pointer point to the tail of the recipient list.
-     recipient->tail->next = donor->head;
-     donor->head->previous = recipient->tail;
-     // Make the recipient's head->previous pointer point to the tail
-     // of the donor list, and make the donor's tail->next pointer
-     // point to the head of the recipient list.
-     recipient->head->previous = donor->tail;
-     donor->tail->next = recipient->head;
-     // Change the recipient's tail to the donor's tail.
-     recipient->tail = donor->tail;
-     // Add the donor's size to the recipient's size.
-     recipient->size += donor->size;
-     // Make the donor list an empty list.
-     donor->head = donor->tail = 0;
-     donor->size = 0;
+     if(donor->size == 0) {
+          return;
+     } else if(recipient->size == 0) {
+          recipient->head = donor->head;
+          recipient->tail = donor->tail;
+          recipient->size = donor->size;
+          donor->head = donor->tail = 0;
+          donor->size = 0;
+          return;
+     } else {
+          // Make the recipient's tail->next pointer point to the
+          // head of the donor list, and make the donors's head->previous
+          // pointer point to the tail of the recipient list.
+          recipient->tail->next = donor->head;
+          donor->head->previous = recipient->tail;
+          // Make the recipient's head->previous pointer point to the tail
+          // of the donor list, and make the donor's tail->next pointer
+          // point to the head of the recipient list.
+          recipient->head->previous = donor->tail;
+          donor->tail->next = recipient->head;
+          // Change the recipient's tail to the donor's tail.
+          recipient->tail = donor->tail;
+          // Add the donor's size to the recipient's size.
+          recipient->size += donor->size;
+          // Make the donor list an empty list.
+          donor->head = donor->tail = 0;
+          donor->size = 0;
+     }
 }
 
 /* ============================================================================

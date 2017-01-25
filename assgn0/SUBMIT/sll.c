@@ -220,17 +220,28 @@ void *removeSLL(sll *items, int index) {
  * ============================================================================
 */
 void unionSLL(sll *recipient, sll *donor) {
-	// Make the recipient's tail's next pointer point to
-	// thead head of the donor list.
-	recipient->tail->next = donor->head;
-	// Change the recipient's tail pointer to the
-	// donor's tail pointer.
-	recipient->tail = donor->tail;
-	// Add the donor's size to the recipient's size
-	recipient->size += donor->size;
-	// Make the donor list an empty list.
-	donor->head = donor->tail = 0;
-	donor->size = 0;
+	if(donor->size == 0) {
+		return;
+	} else if(recipient->size == 0) {
+		recipient->head = donor->head;
+		recipient->tail = donor->tail;
+		recipient->size = donor->size;
+		donor->head = donor->tail = 0;
+		donor->size = 0;
+		return;
+	} else {
+		// Make the recipient's tail's next pointer point to
+		// thead head of the donor list.
+	    	recipient->tail->next = donor->head;
+	    	// Change the recipient's tail pointer to the
+	    	// donor's tail pointer.
+	    	recipient->tail = donor->tail;
+	    	// Add the donor's size to the recipient's size
+	    	recipient->size += donor->size;
+	    	// Make the donor list an empty list.
+	    	donor->head = donor->tail = 0;
+	    	donor->size = 0;
+    	}
 }
 
 /* ============================================================================

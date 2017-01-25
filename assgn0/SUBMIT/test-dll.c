@@ -135,6 +135,12 @@ int main(void) {
      }
      printf("List should have 3 elements: \n"); diagnose_dll(a);
 
+     printf("Testing empty union: =>\n");
+     printf("a, b\n");
+     unionDLL(a, b);  diagnose_dll(a);
+     printf("b, a\n");
+     unionDLL(b, a); diagnose_dll(b);
+
      printf("\n\n\n");
 	return 0;
 }
