@@ -31,7 +31,7 @@ setInteger(integer *v,int x)
 void 
 displayInteger(FILE *fp,void *v)
     {
-    fprintf(fp,"%d",getInteger(v));
+    fprintf(fp,"%d",getInteger((integer *) v));
     }
 
 int
