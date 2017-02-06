@@ -52,8 +52,22 @@ int main(int argc, char **argv) {
           }
      }
 
-     queue *input;
+     queue *input = newQueue(print);
+     queue *output = newQueue(print);
+     stack *middle = newStack(print);
+
+     if(argc == 2) {
+          read(stdin, input);
+     } else if(argc == 3) {
+          FILE *fp = fopen(argv[2], "r");
+          read(fp, input);
+          fclose(fp);
+     } else {
+          printf("Too many arguments.\n");
+     }
+
      
+
 
      return 0;
 }
