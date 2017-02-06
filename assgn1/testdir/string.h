@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <string.h>
 
-#ifndef _STRING_H_
-#define _STRING_H_
+#ifndef ____STRING_H_
+#define ____STRING_H_
 
 typedef struct string {
      char *value;

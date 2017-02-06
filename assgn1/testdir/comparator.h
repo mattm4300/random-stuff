@@ -1,6 +1,8 @@
 #include "integer.h"
 #include "real.h"
 #include "string.h"
+#include <stdlib.h>
+#include <string.h>
 
 #ifndef _COMPARATOR_H_
 #define _COMPARATOR_H_

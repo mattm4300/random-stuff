@@ -36,4 +36,6 @@ extern void *peekQueue(queue *items);               //returns a generic value
 extern int sizeQueue(queue *items);
 extern void displayQueue(FILE *fp,queue *items);
 
+extern void unionQueue(queue *, queue *);
+
 #endif

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <limits.h>
 #include "string.h"
@@ -27,7 +28,7 @@ char *setString(string *v, char *x) {
 }
 
 void displayString(FILE *fp, void *v) {
-     fprintf(fp, "%s", getString((string *) v));
+     fprintf(fp, "\"%s\"", getString((string *) v));
 }
 
 int compareString(void *v, void *w) {
