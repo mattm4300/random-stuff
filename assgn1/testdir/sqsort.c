@@ -22,74 +22,59 @@ Fatal(char *fmt, ...)
 
 int sort(queue *input, queue *output, stack *middle) {
      int stackUsed = 0; // bool
-     void *lastValEnqueued = NULL;
-     //int passcount = 0;
      while(sizeQueue(input)) {
-          /*
-          displayQueue(stdout, input);
-          printf(" -> "); displayQueue(stdout, output);
-          printf(" | "); displayStack(stdout, middle); printf(" | ");
-          printf("Passcount: %d", passcount);
-          printf("\n");
-          ++passcount;
-          */
-          // empty stack
-          if(sizeStack(middle) == 0) {
-               void *val = dequeue(input);
-               // input queue is not NOT empty after getting element
-               if(sizeQueue(input)) {
-                    int compRes = comp(val, peekQueue(input));
-                    // dequeued val is less than or equal to the next val
-                    // <=
-                    if(compRes <= 0) {
-                         enqueue(output, val);
-                         lastValEnqueued = val;
-                         continue;
-                    // dequeued val is greater than the next val
-                    } else {
-                         push(middle, val);
-                         stackUsed = 1;
-                         continue;
-                    }
-               // input queue is now EMPTY after getting element
-               } else {
-                    enqueue(output, val);
-                    continue;
-               }
-          // Stack is not empty.
-          } else {
-               // If the value on top of the stack is less than/= the next value
-               // on the input queue and greater than/= the last value
-               // enqueued on the output queue, move top stack to output
-               // <= & >=
-               if(comp(peekStack(middle), peekQueue(input)) <= 0 &&
-                         comp(peekStack(middle), lastValEnqueued) >= 0) {
-                    void *val = pop(middle);
-                    enqueue(output, val);
-                    lastValEnqueued = val;
-                    continue;
-               } else {
+          /*displayQueue(stdout, input); printf(" -> ");
+          displayQueue(stdout, output); printf("\ns: ");
+          displayStack(stdout, middle); printf("\n");*/
+          // stack isn't empty.
+          if(sizeStack(middle)) {
+               // if stack top > queue front, move stack top to output
+               if(comp(peekStack(middle), peekQueue(input)) > 0) {
+                    enqueue(output, pop(middle));
+               // if stack top == queue front, move queue front to stack.
+               } else if(comp(peekStack(middle), peekQueue(input)) == 0) {
+                    push(middle, dequeue(input));
+                    stackUsed = 1;
+               // input queue front is > stack top
+               } else if(comp(peekStack(middle), peekQueue(input)) < 0) {
                     void *val = dequeue(input);
-                    // input queue is not NOT empty after getting element
+                    // if the input queue is not empty after getting a value off
                     if(sizeQueue(input)) {
-                         int compRes = comp(val, peekQueue(input));
-                         // dequeued val is less than or equal to the next val
-                         // <=
-                         if(compRes <= 0) {
+                         // if the dequeued value is >= the next value
+                         // move to output queue
+                         if(comp(val, peekQueue(input)) >= 0) {
                               enqueue(output, val);
-                              lastValEnqueued = val;
-                              continue;
-                         // dequeued val is greater than the next val
+                         // if the dequeued value is < the next value, move
+                         // to the stack
                          } else {
                               push(middle, val);
                               stackUsed = 1;
-                              continue;
                          }
-                    // input queue is now EMPTY after getting element
+                    // if the input queue IS empty after getting a value off,
+                    // push to output queue
                     } else {
                          enqueue(output, val);
-                         continue;
                     }
+               }
+          // stack is empty
+          } else {
+               void *val = dequeue(input);
+               // if the input queue is not empty after getting a value off
+               if(sizeQueue(input)) {
+                    // if the dequeued value is >= the next value
+                    // move to output queue
+                    if(comp(val, peekQueue(input)) >= 0) {
+                         enqueue(output, val);
+                    // if the dequeued value is < the next value, move
+                    // to the stack
+                    } else {
+                         push(middle, val);
+                         stackUsed = 1;
+                    }
+               // if the input queue IS empty after getting a value off,
+               // push to output queue
+               } else {
+                    enqueue(output, val);
                }
           }
      }
@@ -157,6 +142,9 @@ int main(int argc, char **argv) {
           //printf("%d:\t", passes);
           displayQueue(stdout, input); printf("\n");
           ret = sort(input, output, middle);
+     }
+     if(passes == 0) {
+          displayQueue(stdout, input); printf("\n");
      }
      return 0;
 }

@@ -9,9 +9,9 @@ int intComparator(void *a, void *b) {
      if(v1 == v2) {
           return 0;
      } else if(v1 < v2) {
-          return 1;
-     } else {
           return -1;
+     } else {
+          return 1;
      }
 }
 
@@ -22,9 +22,9 @@ int realComparator(void *a, void *b) {
      if(v1 == v2) {
           return 0;
      } else if(v1 < v2) {
-          return 1;
-     } else {
           return -1;
+     } else {
+          return 1;
      }
 }
 
@@ -34,9 +34,9 @@ int stringComparator(void *a, void *b) {
      v2 = ((string *) b)->value;
      int val = strcmp(v1, v2);
      if(val > 0) {
-          return -1;
-     } else if(val < 0) {
           return 1;
+     } else if(val < 0) {
+          return -1;
      } else {
           return 0;
      }
