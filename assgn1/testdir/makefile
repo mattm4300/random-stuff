@@ -28,3 +28,21 @@ queue.o: queue.c sll.h
 	gcc $(FLAGS) -c queue.c
 clean:
 	rm -f sqsort sqsort.o comparator.o string.o real.o integer.o scanner.o sll.o dll.o stack.o queue.o reader.o
+
+test :
+	echo running sqsort on random integers with no repeats
+	./sqsort -d testInteger1.txt
+	echo running sqort on random integers with repeats
+	./sqsort -d testInteger2.txt
+	echo running sqort on homogenized integer list with two non-homogeneous embedded sequential integer
+	./sqsort -d testInteger3.txt
+	echo running sqort on homogenized integer list
+	./sqsort -d testInteger4.txt
+	echo running sqsort on reals with no repeats
+	./sqsort -r testReal1.txt
+	echo running sqsort on reals with repeats
+	./sqsort -r testReal2.txt
+	echo running sqsort on strings with no repeats
+	./sqsort -s testString1.txt
+	echo running sqsort on strings with repeats
+	./sqsort -s testString2.txt

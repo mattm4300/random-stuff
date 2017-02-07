@@ -23,14 +23,24 @@ Fatal(char *fmt, ...)
 int sort(queue *input, queue *output, stack *middle) {
      int stackUsed = 0; // bool
      void *lastValEnqueued = NULL;
+     //int passcount = 0;
      while(sizeQueue(input)) {
+          /*
+          displayQueue(stdout, input);
+          printf(" -> "); displayQueue(stdout, output);
+          printf(" | "); displayStack(stdout, middle); printf(" | ");
+          printf("Passcount: %d", passcount);
+          printf("\n");
+          ++passcount;
+          */
           // empty stack
-          if(!sizeStack(middle)) {
+          if(sizeStack(middle) == 0) {
                void *val = dequeue(input);
                // input queue is not NOT empty after getting element
                if(sizeQueue(input)) {
                     int compRes = comp(val, peekQueue(input));
                     // dequeued val is less than or equal to the next val
+                    // <=
                     if(compRes <= 0) {
                          enqueue(output, val);
                          lastValEnqueued = val;
@@ -51,6 +61,7 @@ int sort(queue *input, queue *output, stack *middle) {
                // If the value on top of the stack is less than/= the next value
                // on the input queue and greater than/= the last value
                // enqueued on the output queue, move top stack to output
+               // <= & >=
                if(comp(peekStack(middle), peekQueue(input)) <= 0 &&
                          comp(peekStack(middle), lastValEnqueued) >= 0) {
                     void *val = pop(middle);
@@ -58,12 +69,12 @@ int sort(queue *input, queue *output, stack *middle) {
                     lastValEnqueued = val;
                     continue;
                } else {
-
                     void *val = dequeue(input);
                     // input queue is not NOT empty after getting element
                     if(sizeQueue(input)) {
                          int compRes = comp(val, peekQueue(input));
                          // dequeued val is less than or equal to the next val
+                         // <=
                          if(compRes <= 0) {
                               enqueue(output, val);
                               lastValEnqueued = val;
@@ -81,9 +92,6 @@ int sort(queue *input, queue *output, stack *middle) {
                     }
                }
           }
-          displayQueue(stdout, input);
-          printf(" -> "); displayQueue(stdout, output);
-          printf(" | "); displayStack(stdout, middle); printf("\n");
      }
      // move extra stack items over to output
      while(sizeStack(middle)) {
@@ -140,12 +148,15 @@ int main(int argc, char **argv) {
           printf("Too many arguments.\n");
      }
 
+     int passes = 0;
+     printf("0:\t");
      displayQueue(stdout, input); printf("\n");
      int ret = sort(input, output, middle);
      while(ret == 1) {
+          ++passes;
+          printf("%d:\t", passes);
           displayQueue(stdout, input); printf("\n");
           ret = sort(input, output, middle);
      }
-     displayQueue(stdout, input); printf("\n");
      return 0;
 }

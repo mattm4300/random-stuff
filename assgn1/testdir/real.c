@@ -23,7 +23,7 @@ double setReal(real *v, double x) {
 }
 
 void displayReal(FILE *fp, void *v) {
-     fprintf(fp, "%lf", getReal((real *) v));
+     fprintf(fp, "%f", getReal((real *) v));
 }
 
 int compareReal(void *v, void *w) {

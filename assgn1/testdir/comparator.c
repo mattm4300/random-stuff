@@ -33,11 +33,11 @@ int stringComparator(void *a, void *b) {
      v1 = ((string *) a)->value;
      v2 = ((string *) b)->value;
      int val = strcmp(v1, v2);
-     if(val == 0) {
-          return 0;
+     if(val > 0) {
+          return -1;
      } else if(val < 0) {
           return 1;
      } else {
-          return -1;
+          return 0;
      }
 }
