@@ -1,22 +1,13 @@
-/Users/matthewmorgan/cs201/random-stuff/assgn1/testdir
-Tue Feb  7 12:22:19 CST 2017
-WORKING				real_data
-abc				results.txt
-comparator.c			scanner.c
-comparator.h			scanner.h
-dll.c				sll.c
-dll.h				sll.h
-int_data0			sqsort.c
-int_data1			stack.c
-int_data2			stack.h
-integer.c			string.c
-integer.h			string.h
-makefile			string_data
-mdmorgan1@crimson.ua.edu	testInteger1.txt
-myresults.txt			testInteger2.txt
-queue.c				testInteger3.txt
-queue.h				testInteger4.txt
-reader.c			testReal1.txt
-reader.h			testReal2.txt
-real.c				testString1.txt
-real.h				testString2.txt
+/mnt/c/Users/MORGAN/Desktop/CS201/random-stuff/assgn1/testdir
+Tue Feb  7 16:41:20 STD 2017
+abc	      mdmorgan1@crimson.ua.edu	scanner.c	  testInteger2.txt
+comparator.c  myresults.txt		scanner.h	  testInteger3.txt
+comparator.h  newResults.txt		sll.c		  testInteger4.txt
+dll.c	      queue.c			sll.h		  testReal1.txt
+dll.h	      queue.h			sqsort.c	  testReal2.txt
+int_data0     reader.c			stack.c		  testString1.txt
+int_data1     reader.h			stack.h		  testString2.txt
+int_data2     real.c			string.c	  WORKING
+integer.c     real_data			string_data
+integer.h     real.h			string.h
+makefile      results.txt		testInteger1.txt
