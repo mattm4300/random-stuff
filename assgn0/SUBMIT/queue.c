@@ -116,4 +116,10 @@ void displayQueue(FILE *fp, queue *items) {
      displaySLL(fp, items->list);
 }
 
+
+void unionQueue(queue *a, queue *b) {
+     unionSLL(a->list, b->list);
+}
+
+
 // EOF
