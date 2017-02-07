@@ -24,14 +24,11 @@ int sort(queue *input, queue *output, stack *middle) {
      int stackUsed = 0; // bool
      void *lastValEnqueued = NULL;
      while(sizeQueue(input)) {
-          printf("inputSize: %d\n", sizeQueue(input));
           // empty stack
           if(!sizeStack(middle)) {
-               printf("Stack empty.\n");
                void *val = dequeue(input);
                // input queue is not NOT empty after getting element
                if(sizeQueue(input)) {
-                    printf("Queue new size: %d\n", sizeQueue(input));
                     int compRes = comp(val, peekQueue(input));
                     // dequeued val is less than or equal to the next val
                     if(compRes <= 0) {
@@ -46,19 +43,16 @@ int sort(queue *input, queue *output, stack *middle) {
                     }
                // input queue is now EMPTY after getting element
                } else {
-                    printf("Queue is not empty.\n");
                     enqueue(output, val);
                     continue;
                }
           // Stack is not empty.
           } else {
-               printf("Stack size: %d\n", sizeStack(middle));
                // If the value on top of the stack is less than/= the next value
                // on the input queue and greater than/= the last value
                // enqueued on the output queue, move top stack to output
                if(comp(peekStack(middle), peekQueue(input)) <= 0 &&
                          comp(peekStack(middle), lastValEnqueued) >= 0) {
-                    printf("Moving stack top to output.\n");
                     void *val = pop(middle);
                     enqueue(output, val);
                     lastValEnqueued = val;
@@ -87,6 +81,9 @@ int sort(queue *input, queue *output, stack *middle) {
                     }
                }
           }
+          displayQueue(stdout, input);
+          printf(" -> "); displayQueue(stdout, output);
+          printf(" | "); displayStack(stdout, middle); printf("\n");
      }
      // move extra stack items over to output
      while(sizeStack(middle)) {
