@@ -31,10 +31,9 @@ int sort(queue *input, queue *output, stack *middle) {
                // if stack top > queue front, move stack top to output
                if(comp(peekStack(middle), peekQueue(input)) > 0) {
                     enqueue(output, pop(middle));
-               // if stack top == queue front, move queue front to stack.
+               // if stack top == queue front, move stack top to output.
                } else if(comp(peekStack(middle), peekQueue(input)) == 0) {
-                    push(middle, dequeue(input));
-                    stackUsed = 1;
+                    enqueue(output, pop(middle));
                // input queue front is > stack top
                } else if(comp(peekStack(middle), peekQueue(input)) < 0) {
                     void *val = dequeue(input);
