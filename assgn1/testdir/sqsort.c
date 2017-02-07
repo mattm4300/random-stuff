@@ -149,12 +149,12 @@ int main(int argc, char **argv) {
      }
 
      int passes = 0;
-     printf("0:\t");
+     //printf("0:\t");
      displayQueue(stdout, input); printf("\n");
      int ret = sort(input, output, middle);
      while(ret == 1) {
           ++passes;
-          printf("%d:\t", passes);
+          //printf("%d:\t", passes);
           displayQueue(stdout, input); printf("\n");
           ret = sort(input, output, middle);
      }
