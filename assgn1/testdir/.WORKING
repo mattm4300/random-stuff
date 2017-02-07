@@ -1,6 +1,7 @@
 /Users/matthewmorgan/cs201/random-stuff/assgn1/testdir
-Tue Feb  7 08:01:56 CST 2017
-WORKING				results.txt
+Tue Feb  7 12:22:19 CST 2017
+WORKING				real_data
+abc				results.txt
 comparator.c			scanner.c
 comparator.h			scanner.h
 dll.c				sll.c
@@ -12,11 +13,10 @@ integer.c			string.c
 integer.h			string.h
 makefile			string_data
 mdmorgan1@crimson.ua.edu	testInteger1.txt
-myResults.txt			testInteger2.txt
+myresults.txt			testInteger2.txt
 queue.c				testInteger3.txt
 queue.h				testInteger4.txt
 reader.c			testReal1.txt
 reader.h			testReal2.txt
 real.c				testString1.txt
 real.h				testString2.txt
-real_data
