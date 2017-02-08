@@ -1,3 +1,31 @@
+/* =======================================================================
+ * FILENAME: sqsort.c
+ *
+ * AUTHOR: Matthew Morgan, mdmorgan1@crimson.ua.edu
+ *
+ * DESCRIPTION:
+ *   Contains an implementation for a sorting algorithm using two queues
+ *   and a stack.
+ *
+ * NOTES:
+ *
+ *
+ * LEGAL:
+ *   This program is the top program of my "program tree", which are all
+ *   the files I use in order to compile and execute my sorting algorithm.
+ *
+ *   In my program tree, I use integer.c, integer.h, scanner.c, and
+ *   scanner.h. These files were published by Dr. Lusth (University of
+ *   Alabama) for free distribution, modificatin, and use.
+ *
+ *   I have not modified any files provided by Dr. Lusth, they are all
+ *   used as published.
+ *
+ *
+ * VERSION 1.0
+ * =======================================================================
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -133,12 +161,11 @@ int main(int argc, char **argv) {
      }
 
      int passes = 0;
-     //printf("0:\t");
+
      displayQueue(stdout, input); printf("\n");
      int ret = sort(input, output, middle);
      while(ret == 1) {
           ++passes;
-          //printf("%d:\t", passes);
           displayQueue(stdout, input); printf("\n");
           ret = sort(input, output, middle);
      }

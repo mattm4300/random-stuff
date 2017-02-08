@@ -1,13 +1,11 @@
 /mnt/c/Users/MORGAN/Desktop/CS201/random-stuff/assgn1/testdir
-Tue Feb  7 16:41:20 STD 2017
-abc	      mdmorgan1@crimson.ua.edu	scanner.c	  testInteger2.txt
-comparator.c  myresults.txt		scanner.h	  testInteger3.txt
-comparator.h  newResults.txt		sll.c		  testInteger4.txt
-dll.c	      queue.c			sll.h		  testReal1.txt
-dll.h	      queue.h			sqsort.c	  testReal2.txt
-int_data0     reader.c			stack.c		  testString1.txt
-int_data1     reader.h			stack.h		  testString2.txt
-int_data2     real.c			string.c	  WORKING
-integer.c     real_data			string_data
-integer.h     real.h			string.h
-makefile      results.txt		testInteger1.txt
+Wed Feb  8 15:39:17 STD 2017
+comparator.c		  newResults.txt  sll.c		    testInteger3.txt
+comparator.h		  queue.c	  sll.h		    testInteger4.txt
+dll.c			  queue.h	  sqsort.c	    testReal1.txt
+dll.h			  reader.c	  stack.c	    testReal2.txt
+integer.c		  reader.h	  stack.h	    testString1.txt
+integer.h		  real.c	  string.c	    testString2.txt
+makefile		  real.h	  string.h	    WORKING
+mdmorgan1@crimson.ua.edu  scanner.c	  testInteger1.txt
+myresults.txt		  scanner.h	  testInteger2.txt

@@ -1,3 +1,17 @@
+/* =======================================================================
+ * FILENAME: string.h
+ *
+ * AUTHOR: Matthew Morgan, mdmorgan1@crimson.ua.edu
+ *
+ * DESCRIPTION:
+ *   Header file for "string" data structure.
+ *
+ * NOTES:
+ *   The associated implementation file for this file is "string.c".
+ *
+ * VERSION: 1.0
+ * =======================================================================
+ */
 #include <stdio.h>
 
 #ifndef ____STRING_H_
