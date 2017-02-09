@@ -44,3 +44,28 @@ test :
 	./sqsort -s testString1.txt
 	echo running sqsort on strings with repeats
 	./sqsort -s testString2.txt
+
+
+jakeTest:
+	echo running sqsort on integer ex 1 from assigment instructions
+	./sqsort -d t-int1.txt
+	echo running sqsort on integer ex 2 from ass instructions
+	./sqsort -d t-int2.txt
+	echo running sqsort on random integers some reapeats
+	./sqsort -d t-int3.txt
+	echo running sqsort on all but one integer the same
+	./sqsort -d t-int4.txt
+	echo running sqsort on mostly the same integers
+	./sqsort -d t-int5.txt
+	echo running sqsort on real ex
+	./sqsort -r t-real1.txt
+	echo running sqsort on real all similar
+	./sqsort -r t-real2.txt
+	echo running sqsort on real all but 1 similar
+	./sqsort -r t-real3.txt
+	echo running sqsort on string ex
+	./sqsort -s t-str1.txt
+	echo running sqsort on string similar
+	./sqsort -s t-str2.txt
+	echo running sqsort on string all but 1 similar
+	./sqsort -s t-str3.txt
