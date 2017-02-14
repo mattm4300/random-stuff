@@ -18,6 +18,7 @@ real.o: real.c real.h
 string.o:
 	gcc $(FLAGS) -c string.c
 cleanbuild:
+	clear
 	make clean
 	make
 clean:

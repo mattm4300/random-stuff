@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <time.h>
 #include "bst.h"
 #include "scanner.h"
 #include "comparator.h"
@@ -22,9 +23,11 @@ Fatal(char *fmt, ...)
     }
 
 int main(void) {
-     bst *mytree = newBST(displayString, stringComparator);
-
-     displayString(stdout, insertBST(mytree, newString("test"))->value);
-     printf("\n");
+     srand(time(NULL));
+     bst *mytree = newBST(displayInteger, intComparator);
+     insertBST(mytree, newInteger(50));
+     insertBST(mytree, newInteger(100));
+     bstNode *temp = findBSTNode(mytree, newInteger(100));
+     mytree->display(stdout, temp->value); printf("\n");
      return 0;
 }
