@@ -26,8 +26,7 @@ queue.o: queue.c sll.h
 	gcc $(FLAGS) -c queue.c
 clean:
 	rm -f sqsort sqsort.o comparator.o string.o real.o integer.o scanner.o sll.o dll.o stack.o queue.o reader.o
-
-test :
+test:
 	echo running sqsort on random integers with no repeats
 	./sqsort -d testInteger1.txt
 	echo running sqort on random integers with repeats
@@ -44,8 +43,6 @@ test :
 	./sqsort -s testString1.txt
 	echo running sqsort on strings with repeats
 	./sqsort -s testString2.txt
-
-
 jakeTest:
 	echo running sqsort on integer ex 1 from assigment instructions
 	./sqsort -d t-int1.txt
