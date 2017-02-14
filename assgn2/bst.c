@@ -17,19 +17,13 @@ bstNode *insertBST(bst *tree, void *val) {
      z->value = val;
      z->parent = z->right = z->left = NULL;
      while(x != NULL) {
-          printf("X was not null.\n");
           y = x;
-          printf("comparing\n");
-          printf("X val: "); tree->display(stdout, x->value); printf("\n");
           if(tree->compare(z->value, x->value) < 0) {
-               printf("z val was less than x val\n");
                x = x->left;
           } else {
-               printf("z val was greater than x val\n");
                x = x->right;
           }
      }
-     printf("spot1\n");
      z->parent = y;
      if(y == NULL) {
           tree->root = z;
@@ -38,7 +32,6 @@ bstNode *insertBST(bst *tree, void *val) {
      } else {
           y->right = z;
      }
-     printf("Spot3\n");
      return z;
 }
 
