@@ -13,14 +13,18 @@ char cleanChar(char ch) {
 }
 
 void addCharToString(char *str, size_t *currentSize, char ch) {
-     str = realloc(str, *currentSize + 1);
+     printf("current string (before add): %s\n", str);
+     printf("current size: %ld | strlen: %d\n", *currentSize, (int) strlen(str));
      *currentSize += 1;
+     str = realloc(str, *currentSize);
      str[*currentSize - 1] = '\0';
      str[*currentSize - 2] = ch;
+     printf("string after add: %s\n", str);
 
 }
 
 string *grabString(FILE *fp) {
+     printf("starting grab.\n");
      // Setup.
      size_t *currentSize = malloc(sizeof(size_t));
      *currentSize = 1;
@@ -31,12 +35,16 @@ string *grabString(FILE *fp) {
      strcpy(str, "");
      // Note the use of readChar, not readRawChar here to skip over
      // whitespace to the next non-whitespace character or EOF.
+     printf("attempting first read\n");
      char spot = readChar(fp);
+     printf("read\n");
      // EOF
      if(spot == -1) { return NULL; }
      // Token
      if(spot != '\"') {
+          printf("reading token\n");
           while(!isspace(spot) && spot != -1) {
+               printf("building: %s\n", str);
                spot = cleanChar(spot);
                if(spot != 0) {
                     addCharToString(str, currentSize, spot);
@@ -44,16 +52,24 @@ string *grabString(FILE *fp) {
                spot = readRawChar(fp);
                if(isspace(spot)) break;
           }
+          printf("token read.\n");
      // String
      } else {
+          printf("reading string\n");
           char lastSpot = spot;
           // Toss the quotation mark.
           spot = readRawChar(fp);
           while(spot != '\"') {
+               printf("building string: %s\n", str);
+               printf("current char: %c\n", spot);
                if(!isspace(spot)) {
+                    printf("cleaning char: %c\n", spot);
                     spot = cleanChar(spot);
+                    printf("char cleaned to: %c\n", spot);
                     if(spot != 0) {
+                         printf("adding char to string: %c\n", spot);
                          addCharToString(str, currentSize, spot);
+                         printf("char added.\n");
                          lastSpot = spot;
                     }
                     spot = readRawChar(fp);
@@ -65,9 +81,11 @@ string *grabString(FILE *fp) {
                     spot = readRawChar(fp);
                }
           }
+          printf("string read\n");
      }
      // If last thing read from file was quoted string, we probably read
-     // an empty string now, so check for empty string.
+     // an empty string now or a token of all invalid characters,
+     // so check for empty string.
      if(strlen(str) == 0) {
           free(str);
           free(currentSize);
@@ -75,9 +93,11 @@ string *grabString(FILE *fp) {
      }
 
      // Cleanup.
+     printf("returning: %s\n", str);
      string *retString = newString(str);
      free(str);
      free(currentSize);
+
 
      return retString;
 }

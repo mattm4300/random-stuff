@@ -23,18 +23,18 @@ Fatal(char *fmt, ...)
     exit(-1);
     }
 
-
-
 int main(int argc, const char **argv) {
      FILE *fp = fopen(argv[1], "r");
      bst *mytree = newBST(displayString, stringComparator);
      string *str = grabString(fp);
      while(1) {
-          if(str == 0 && feof(fp)) break;
+          if(feof(fp)) break;
           if(str != 0) {
-               displayString(stdout, str); printf("\n");
+               printf("Word read: "); displayString(stdout, str); printf("\n");
                if(!findBST(mytree, str)) {
+                    printf("attempting insert.\n");
                     insertBST(mytree, str);
+                    printf("insert successfull\n");
                }
 
           }

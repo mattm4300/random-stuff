@@ -28,4 +28,4 @@ cleanbuild:
 	make clean
 	make
 clean:
-	rm -f bstrees.o bst.o scanner.o comparator.o integer.o real.o string.o bstrees
+	rm -f bstrees.o bst.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o bstrees
