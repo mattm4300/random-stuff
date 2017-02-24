@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "bst.h"
+#include "queue.h"
 
 bst *newBST(void (*display)(FILE *, void *), int (*compare)(void *, void *)) {
      bst *newTree = malloc(sizeof(bst));
@@ -94,5 +95,34 @@ bstNode *findBSTNode(bst *tree, void *val) {
 }
 
 bstNode *swapToLeafBSTNode(bstNode *n) {
-     
+     return n;
+}
+
+void displayBST(FILE *fp, bst *tree) {
+     if(tree->root == NULL) { return; }
+     queue *helpQueue = newQueue(tree->display);
+     enqueue(helpQueue, tree->root);
+     enqueue(helpQueue, NULL);
+     int currentLevel = 0;
+     fprintf(fp, "%d: ", currentLevel);
+     while(sizeQueue(helpQueue)) {
+          bstNode *x = dequeue(helpQueue);
+          if(!sizeQueue(helpQueue)) {
+               fprintf(fp, "\n");
+               break;
+          }
+          else if(x == NULL) {
+               fprintf(fp,"\n");
+               enqueue(helpQueue, NULL);
+               ++currentLevel;
+               if(sizeQueue(helpQueue) != 1) {
+                    fprintf(fp, "%d: ", currentLevel);
+               }
+          } else {
+               tree->display(fp, x->value); fprintf(fp, " ");
+               if(x->left != NULL) { enqueue(helpQueue, x->left); }
+               if(x->right != NULL) { enqueue(helpQueue, x->right); }
+          }
+     }
+     return;
 }

@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdarg.h>
 #include <time.h>
 #include "bst.h"
-#include "scanner.h"
 #include "comparator.h"
 #include "string.h"
 #include "real.h"
 #include "integer.h"
+#include "stringgrabber.h"
 
 void
 Fatal(char *fmt, ...)
@@ -22,8 +23,17 @@ Fatal(char *fmt, ...)
     exit(-1);
     }
 
-int main(void) {
-     bst *mytree = newBST(displayInteger, intComparator);
 
+int main(int argc, const char **argv) {
+     FILE *fp = fopen(argv[1], "r");
+     bst *mytree = newBST(displayString, stringComparator);
+     string *str = grabString(fp);
+     while(str != 0 && !feof(fp)) {
+          insertBST(mytree, str);
+          str = grabString(fp);
+     }
+     fclose(fp);
+     displayBST(stdout, mytree);
+     printf("done.\n");
      return 0;
 }
