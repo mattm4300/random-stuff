@@ -25,6 +25,9 @@ string *grabString(FILE *fp) {
      size_t *currentSize = malloc(sizeof(size_t));
      *currentSize = 1;
      char *str = malloc(*currentSize);
+     if(str == 0) {
+          Fatal("Could not allocate memory for string.\n");
+     }
      strcpy(str, "");
      // Note the use of readChar, not readRawChar here to skip over
      // whitespace to the next non-whitespace character or EOF.

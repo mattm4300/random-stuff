@@ -24,12 +24,20 @@ Fatal(char *fmt, ...)
     }
 
 
+
 int main(int argc, const char **argv) {
      FILE *fp = fopen(argv[1], "r");
      bst *mytree = newBST(displayString, stringComparator);
      string *str = grabString(fp);
-     while(str != 0 && !feof(fp)) {
-          insertBST(mytree, str);
+     while(1) {
+          if(str == 0 && feof(fp)) break;
+          if(str != 0) {
+               displayString(stdout, str); printf("\n");
+               if(!findBST(mytree, str)) {
+                    insertBST(mytree, str);
+               }
+
+          }
           str = grabString(fp);
      }
      fclose(fp);
