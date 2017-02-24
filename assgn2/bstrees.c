@@ -23,11 +23,7 @@ Fatal(char *fmt, ...)
     }
 
 int main(void) {
-     srand(time(NULL));
      bst *mytree = newBST(displayInteger, intComparator);
-     insertBST(mytree, newInteger(50));
-     insertBST(mytree, newInteger(100));
-     bstNode *temp = findBSTNode(mytree, newInteger(100));
-     mytree->display(stdout, temp->value); printf("\n");
+
      return 0;
 }

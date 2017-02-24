@@ -92,3 +92,7 @@ bstNode *findBSTNode(bst *tree, void *val) {
           }
      }
 }
+
+bstNode *swapToLeafBSTNode(bstNode *n) {
+     
+}
