@@ -10,6 +10,8 @@
 #include "integer.h"
 #include "stringgrabber.h"
 
+#include "queue.h"
+
 void
 Fatal(char *fmt, ...)
     {
@@ -23,25 +25,24 @@ Fatal(char *fmt, ...)
     exit(-1);
     }
 
-int main(int argc, const char **argv) {
-     FILE *fp = fopen(argv[1], "r");
-     bst *mytree = newBST(displayString, stringComparator);
+void readCorpus(bst *tree, FILE *fp) {
      string *str = grabString(fp);
-     while(1) {
-          if(feof(fp)) break;
-          if(str != 0) {
-               printf("Word read: "); displayString(stdout, str); printf("\n");
-               if(!findBST(mytree, str)) {
-                    printf("attempting insert.\n");
-                    insertBST(mytree, str);
-                    printf("insert successfull\n");
-               }
-
+     while(str != NULL || !feof(fp)) {
+          if(str != NULL && !findBST(tree, str)) {
+               displayString(stdout, str); printf("\n");
+               insertBST(tree, str);
           }
           str = grabString(fp);
      }
+}
+
+int main(int argc, char **argv) {
+     FILE *fp = fopen(argv[1], "r");
+     bst *tree = newBST(displayString, stringComparator);
+     readCorpus(tree, fp);
      fclose(fp);
-     displayBST(stdout, mytree);
+     displayBST(stdout, tree);
+     printf("Word <%s> found result: %d\n", argv[2], findBST(tree, newString(argv[2])));
      printf("done.\n");
      return 0;
 }

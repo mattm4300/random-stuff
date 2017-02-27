@@ -41,7 +41,7 @@ extern void Fatal(char *, ...);
 string *newString(char *x) {
      string *p = malloc(sizeof(string));
      if(p == 0) { Fatal("out of memory\n"); }
-     p->value = malloc(sizeof(strlen(x)));
+     p->value = malloc(strlen(x) + 1);
      strcpy(p->value, x);
      return p;
 }
@@ -73,10 +73,10 @@ char *getString(string *v) {
  * ============================================================================
 */
 char *setString(string *v, char *x) {
-     char *old = malloc(sizeof(strlen(v->value)));
+     char *old = malloc(strlen(v->value) + 1);
      strcpy(old, v->value);
      free(v->value);
-     v->value = malloc(sizeof(strlen(x)));
+     v->value = malloc(strlen(x) + 1);
      strcpy(v->value, x);
      return old;
 }

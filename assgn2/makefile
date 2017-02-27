@@ -15,7 +15,7 @@ integer.o: integer.c integer.h
 	gcc $(FLAGS) -c integer.c
 real.o: real.c real.h
 	gcc $(FLAGS) -c real.c
-string.o:
+string.o: string.c string.h
 	gcc $(FLAGS) -c string.c
 sll.o: sll.c sll.h
 	gcc $(FLAGS) -c sll.c

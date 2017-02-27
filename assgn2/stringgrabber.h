@@ -8,7 +8,8 @@
 #define _STRINGGRABBER__H_
 
 extern char cleanChar(char);
-extern void addCharToString(char *, size_t *, char);
+extern int isValid(char);
+extern char *appendCharToString(char *, char);
 extern string *grabString(FILE *);
 
 #endif
