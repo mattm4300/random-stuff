@@ -29,11 +29,14 @@ void readCorpus(bst *tree, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
           if(str != NULL && !findBST(tree, str)) {
-               displayString(stdout, str); printf("\n");
                insertBST(tree, str);
           }
           str = grabString(fp);
      }
+}
+
+void interpretInstructions(bst *tree, FILE *fp) {
+     
 }
 
 int main(int argc, char **argv) {
@@ -42,7 +45,7 @@ int main(int argc, char **argv) {
      readCorpus(tree, fp);
      fclose(fp);
      displayBST(stdout, tree);
-     printf("Word <%s> found result: %d\n", argv[2], findBST(tree, newString(argv[2])));
+
      printf("done.\n");
      return 0;
 }

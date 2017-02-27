@@ -94,8 +94,39 @@ bstNode *findBSTNode(bst *tree, void *val) {
      }
 }
 
+static void swapNodes(bstNode *a, bstNode *b) {
+     bstNode *temp = a;
+     a = b;
+     b = temp;
+}
+
 bstNode *swapToLeafBSTNode(bstNode *n) {
-     return n;
+     bstNode *spot;
+     if(n->left == NULL && n->right == NULL) return n;
+     else if(n->left != NULL) {
+          spot = n->left;
+          while(1) {
+               if(spot->right == NULL) {
+                    swapNodes(n, spot);
+                    return n;
+               }
+               spot = spot->right;
+          }
+     } else {
+          spot = n->right;
+          while(1) {
+               if(spot->left == NULL) {
+                    swapNodes(n, spot);
+                    return n;
+               }
+               spot = spot->left;
+          }
+     }
+}
+
+void pruneBSTNode(bstNode *n) {
+     if(n->parent->left == n) n->parent->left = NULL;
+     else n->parent->right = NULL;
 }
 
 void displayBST(FILE *fp, bst *tree) {
