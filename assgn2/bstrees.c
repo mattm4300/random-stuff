@@ -35,17 +35,27 @@ void readCorpus(bst *tree, FILE *fp) {
      }
 }
 
-void interpretInstructions(bst *tree, FILE *fp) {
-     
-}
-
 int main(int argc, char **argv) {
      FILE *fp = fopen(argv[1], "r");
      bst *tree = newBST(displayString, stringComparator);
      readCorpus(tree, fp);
      fclose(fp);
      displayBST(stdout, tree);
-
+     printf("attempting to delete all:\n");
+     int i;
+     for(i = 97; i <= 122; i++) {
+          char ch[2]; ch[0] = (char) i; ch[1] = '\0';
+          printf("Attempting to find and delete <%s>\n", ch);
+          bstNode *p = findBSTNode(tree, newString(ch));
+          if(p) {
+               printf("<%s> found\n", ch);
+               p = swapToLeafBSTNode(p);
+               pruneBSTNode(p);
+               printf("<%s> deleted\n", ch);
+          }
+          displayBST(stdout, tree);
+     }
+     displayBST(stdout, tree);
      printf("done.\n");
      return 0;
 }

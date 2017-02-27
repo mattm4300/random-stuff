@@ -150,7 +150,15 @@ void displayBST(FILE *fp, bst *tree) {
                     fprintf(fp, "%d: ", currentLevel);
                }
           } else {
-               tree->display(fp, x->value); fprintf(fp, " ");
+               tree->display(fp, x->value);
+               if(x->parent != NULL) {
+                    fprintf(fp, " (");
+                    tree->display(fp, x->parent->value);
+                    fprintf(fp, ") ");
+               } else {
+                    fprintf(fp, " (root)");
+               }
+
                if(x->left != NULL) { enqueue(helpQueue, x->left); }
                if(x->right != NULL) { enqueue(helpQueue, x->right); }
           }
