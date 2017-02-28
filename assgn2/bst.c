@@ -94,39 +94,46 @@ bstNode *findBSTNode(bst *tree, void *val) {
      }
 }
 
-static void swapNodes(bstNode *a, bstNode *b) {
-     bstNode *temp = a;
-     a = b;
-     b = temp;
-}
-
 bstNode *swapToLeafBSTNode(bstNode *n) {
      bstNode *spot;
-     if(n->left == NULL && n->right == NULL) return n;
-     else if(n->left != NULL) {
+     void *val;
+     if(n->left == NULL && n->right == NULL) {
+          return n;
+     } else if(n->left != NULL) {
           spot = n->left;
-          while(1) {
-               if(spot->right == NULL) {
-                    swapNodes(n, spot);
-                    return n;
-               }
+          while(spot->right != NULL) {
                spot = spot->right;
           }
+          val = n->value;
+          n->value = spot->value;
+          spot->value = val;
      } else {
           spot = n->right;
-          while(1) {
-               if(spot->left == NULL) {
-                    swapNodes(n, spot);
-                    return n;
-               }
+          while(spot->left != NULL) {
                spot = spot->left;
           }
+          val = n->value;
+          n->value = spot->value;
+          spot->value = val;
      }
+     return n;
 }
 
 void pruneBSTNode(bstNode *n) {
-     if(n->parent->left == n) n->parent->left = NULL;
-     else n->parent->right = NULL;
+     if(n->parent == NULL && n->left == NULL && n->right == NULL) {
+          free(n);
+          n = NULL;
+     } else if(n->left == NULL && n->right == NULL) {
+          if(n->parent->left == n) {
+               free(n);
+               n = NULL;
+          } else {
+               free(n);
+               n = NULL;
+          }
+     } else {
+
+     }
 }
 
 void displayBST(FILE *fp, bst *tree) {

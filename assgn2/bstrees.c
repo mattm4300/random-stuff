@@ -41,20 +41,9 @@ int main(int argc, char **argv) {
      readCorpus(tree, fp);
      fclose(fp);
      displayBST(stdout, tree);
-     printf("attempting to delete all:\n");
-     int i;
-     for(i = 97; i <= 122; i++) {
-          char ch[2]; ch[0] = (char) i; ch[1] = '\0';
-          printf("Attempting to find and delete <%s>\n", ch);
-          bstNode *p = findBSTNode(tree, newString(ch));
-          if(p) {
-               printf("<%s> found\n", ch);
-               p = swapToLeafBSTNode(p);
-               pruneBSTNode(p);
-               printf("<%s> deleted\n", ch);
-          }
-          displayBST(stdout, tree);
-     }
+     bstNode *n = findBSTNode(tree, newString("f"));
+     n = swapToLeafBSTNode(n);
+     pruneBSTNode(n);
      displayBST(stdout, tree);
      printf("done.\n");
      return 0;
