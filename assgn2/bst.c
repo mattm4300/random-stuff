@@ -6,12 +6,14 @@
 bst *newBST(void (*display)(FILE *, void *), int (*compare)(void *, void *)) {
      bst *newTree = malloc(sizeof(bst));
      newTree->root = NULL;
+     newTree->size = 0;
      newTree->display = display;
      newTree->compare = compare;
      return newTree;
 }
 
 bstNode *insertBST(bst *tree, void *val) {
+     ++tree->size;
      bstNode *y = NULL;
      bstNode *x = tree->root;
      bstNode *z = malloc(sizeof(bstNode));
@@ -119,21 +121,56 @@ bstNode *swapToLeafBSTNode(bstNode *n) {
      return n;
 }
 
-void pruneBSTNode(bstNode *n) {
+void pruneBSTNode(bst *tree, bstNode *n) {
+     --tree->size;
      if(n->parent == NULL && n->left == NULL && n->right == NULL) {
           free(n);
           n = NULL;
+          tree->root = NULL;
      } else if(n->left == NULL && n->right == NULL) {
           if(n->parent->left == n) {
+               n->parent->left = NULL;
                free(n);
-               n = NULL;
           } else {
+               n->parent->right = NULL;
                free(n);
-               n = NULL;
           }
-     } else {
-
      }
+}
+
+int sizeBST(bst *tree) {
+     return tree->size;
+}
+
+static int maxHeight(bstNode *n) {
+     if(n == NULL) return 0;
+     int leftHeight = maxHeight(n->left);
+     int rightHeight = maxHeight(n->right);
+     if(leftHeight > rightHeight) {
+          return leftHeight + 1;
+     } else {
+          return rightHeight + 1;
+     }
+}
+
+static int minHeight(bstNode *n) {
+     if(n == NULL) return 0;
+     else if(n->left == NULL && n->right == NULL) return 1;
+     else if(n->left == NULL) return minHeight(n->right) + 1;
+     else if(n->right == NULL) return minHeight(n->left) + 1;
+     else {
+          int leftHeight = minHeight(n->left);
+          int rightHeight = minHeight(n->right);
+          if(leftHeight < rightHeight) return leftHeight;
+          else return rightHeight;
+     }
+
+}
+
+void statisticsBST(bst *tree, FILE *fp) {
+     fprintf(fp, "Nodes: %d\n", sizeBST(tree));
+     fprintf(fp, "Minimum depth: %d\n", minHeight(tree->root));
+     fprintf(fp, "Maximum depth: %d\n", maxHeight(tree->root));
 }
 
 void displayBST(FILE *fp, bst *tree) {
@@ -157,13 +194,19 @@ void displayBST(FILE *fp, bst *tree) {
                     fprintf(fp, "%d: ", currentLevel);
                }
           } else {
+               if(x->left == NULL && x->right == NULL) fprintf(fp, "=");
                tree->display(fp, x->value);
                if(x->parent != NULL) {
-                    fprintf(fp, " (");
+                    fprintf(fp, "(");
                     tree->display(fp, x->parent->value);
-                    fprintf(fp, ") ");
+                    fprintf(fp, ")");
+                    if(x->parent->left == x) fprintf(fp, "-l");
+                    else fprintf(fp, "-r");
+                    if(peekQueue(helpQueue) != NULL) fprintf(fp, " ");
                } else {
-                    fprintf(fp, " (root)");
+                    fprintf(fp, "(");
+                    tree->display(fp, tree->root->value);
+                    fprintf(fp, ")-");
                }
 
                if(x->left != NULL) { enqueue(helpQueue, x->left); }

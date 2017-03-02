@@ -4,12 +4,12 @@
 #include <stdarg.h>
 #include <time.h>
 #include "bst.h"
+#include "vbst.h"
 #include "comparator.h"
 #include "string.h"
 #include "real.h"
 #include "integer.h"
 #include "stringgrabber.h"
-
 #include "queue.h"
 
 void
@@ -41,10 +41,15 @@ int main(int argc, char **argv) {
      readCorpus(tree, fp);
      fclose(fp);
      displayBST(stdout, tree);
+     statisticsBST(tree, stdout); printf("\n");
      bstNode *n = findBSTNode(tree, newString("f"));
-     n = swapToLeafBSTNode(n);
-     pruneBSTNode(n);
+     if(n != NULL) {
+          n = swapToLeafBSTNode(n);
+          pruneBSTNode(tree, n);
+     }
      displayBST(stdout, tree);
+     printf("stats:\n");
+     statisticsBST(tree, stdout);
      printf("done.\n");
      return 0;
 }
