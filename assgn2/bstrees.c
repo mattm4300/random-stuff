@@ -35,21 +35,69 @@ void readCorpus(bst *tree, FILE *fp) {
      }
 }
 
-int main(int argc, char **argv) {
-     FILE *fp = fopen(argv[1], "r");
-     bst *tree = newBST(displayString, stringComparator);
-     readCorpus(tree, fp);
-     fclose(fp);
-     displayBST(stdout, tree);
-     statisticsBST(tree, stdout); printf("\n");
-     bstNode *n = findBSTNode(tree, newString("f"));
-     if(n != NULL) {
-          n = swapToLeafBSTNode(n);
-          pruneBSTNode(tree, n);
+void readCommands(queue *q, FILE *fp) {
+     string *str = grabString(fp);
+     while(str != NULL || !feof(fp)) {
+          if(str != NULL) {
+               enqueue(q, str);
+          }
+          str = grabString(fp);
      }
-     displayBST(stdout, tree);
-     printf("stats:\n");
-     statisticsBST(tree, stdout);
+}
+
+int main(int argc, char **argv) {
+     if(argc != 4 && argc != 5) {
+          fprintf(stderr, "Invalid # of command arguments.\n");
+          exit(-1);
+     }
+     // Gather and process command-line args.
+     char treeType = argv[1][1];
+     FILE *corpus = fopen(argv[2], "r");
+     FILE *commands = fopen(argv[3], "r");
+     FILE *output;
+     if(argc == 5) output = fopen(argv[4], "w");
+     else output = stdout;
+     // Get the commands.
+     queue *q = newQueue(displayString);
+     readCommands(q, commands);
+     // Read the corpus.
+     bst *tree = newBST(displayString, stringComparator);
+     readCorpus(tree, corpus);
+     // Execute commands.
+     while(sizeQueue(q)) {
+          char command = getString(dequeue(q))[0];
+          switch(command) {
+               case 'i': {
+                    string *str = dequeue(q);
+                    if(str == NULL) fprintf(stderr, "Nothing to insert!\n");
+                    insertBST(tree, str);
+                    break;
+               } case 'd': {
+                    string *str = dequeue(q);
+                    bstNode *n = findBSTNode(tree, str);
+                    if(n == NULL) {
+                         fprintf(stderr, "Value ");
+                         displayString(stderr, str);
+                         fprintf(stderr, " not found.\n");
+                         break;
+                    }
+                    n = swapToLeafBSTNode(n);
+                    pruneBSTNode(tree, n);
+                    break;
+               } case 'f': {
+                    break;
+               } case 's': {
+                    displayBST(output, tree);
+                    break;
+               } case 'r': {
+                    break;
+               }
+          }
+     }
+     // close files.
+     fclose(corpus);
+     fclose(commands);
+     if(argc == 5) fclose(output);
      printf("done.\n");
      return 0;
 }

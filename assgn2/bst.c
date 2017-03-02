@@ -118,7 +118,7 @@ bstNode *swapToLeafBSTNode(bstNode *n) {
           n->value = spot->value;
           spot->value = val;
      }
-     return n;
+     return swapToLeafBSTNode(spot);
 }
 
 void pruneBSTNode(bst *tree, bstNode *n) {
@@ -135,6 +135,8 @@ void pruneBSTNode(bst *tree, bstNode *n) {
                n->parent->right = NULL;
                free(n);
           }
+     } else {
+          printf("error\n");
      }
 }
 
@@ -153,23 +155,29 @@ static int maxHeight(bstNode *n) {
      }
 }
 
-static int minHeight(bstNode *n) {
-     if(n == NULL) return 0;
-     else if(n->left == NULL && n->right == NULL) return 1;
-     else if(n->left == NULL) return minHeight(n->right) + 1;
-     else if(n->right == NULL) return minHeight(n->left) + 1;
-     else {
-          int leftHeight = minHeight(n->left);
-          int rightHeight = minHeight(n->right);
-          if(leftHeight < rightHeight) return leftHeight;
-          else return rightHeight;
+static int minHeight(bst *tree) {
+     queue *q = newQueue(tree->display);
+     enqueue(q, tree->root);
+     enqueue(q, NULL);
+     int depth = 1;
+     while(sizeQueue(q)) {
+          bstNode *x = dequeue(q);
+          if(x == NULL) {
+               enqueue(q, NULL);
+               ++depth;
+          } else if(x->left == NULL && x->right == NULL) {
+               return depth;
+          } else {
+               if(x->left != NULL) enqueue(q, x->left);
+               if(x->right != NULL) enqueue(q, x->right);
+          }
      }
-
+     return depth;
 }
 
 void statisticsBST(bst *tree, FILE *fp) {
      fprintf(fp, "Nodes: %d\n", sizeBST(tree));
-     fprintf(fp, "Minimum depth: %d\n", minHeight(tree->root));
+     fprintf(fp, "Minimum depth: %d\n", minHeight(tree));
      fprintf(fp, "Maximum depth: %d\n", maxHeight(tree->root));
 }
 
