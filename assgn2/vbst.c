@@ -6,3 +6,9 @@ typedef struct vbstValue {
      void (*display)(FILE *,void *);
      int (*compare)(void *,void *);
 } vbstValue;
+
+vbst *newVBST(void (*display)(FILE *,void *),int (*compare)(void *,void *)) {
+     vbst *newTree = malloc(sizeof(vbst));
+     newTree->tree = newBST(display, compare);
+     
+}

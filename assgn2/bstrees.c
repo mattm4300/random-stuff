@@ -25,7 +25,7 @@ Fatal(char *fmt, ...)
     exit(-1);
     }
 
-void readCorpus(bst *tree, FILE *fp) {
+void readCorpusBST(bst *tree, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
           if(str != NULL && !findBST(tree, str)) {
@@ -61,36 +61,53 @@ int main(int argc, char **argv) {
      queue *q = newQueue(displayString);
      readCommands(q, commands);
      // Read the corpus.
-     bst *tree = newBST(displayString, stringComparator);
-     readCorpus(tree, corpus);
+     void *tree = NULL;
+     switch(treeType) {
+          case 'v':
+               break;
+          case 'r':
+               break;
+          default:
+               tree = (bst *) newBST(displayString, stringComparator);
+               readCorpusBST(tree, corpus);
+               break;
+     }
      // Execute commands.
-     while(sizeQueue(q)) {
-          char command = getString(dequeue(q))[0];
-          switch(command) {
-               case 'i': {
-                    string *str = dequeue(q);
-                    if(str == NULL) fprintf(stderr, "Nothing to insert!\n");
-                    insertBST(tree, str);
-                    break;
-               } case 'd': {
-                    string *str = dequeue(q);
-                    bstNode *n = findBSTNode(tree, str);
-                    if(n == NULL) {
-                         fprintf(stderr, "Value ");
-                         displayString(stderr, str);
-                         fprintf(stderr, " not found.\n");
+     if(treeType == 'v') {
+
+     } else if(treeType == 'r') {
+
+     } else {
+          while(sizeQueue(q)) {
+               char command = getString(dequeue(q))[0];
+               switch(command) {
+                    case 'i': {
+                         string *str = dequeue(q);
+                         if(str == NULL) fprintf(stderr, "Nothing to insert!\n");
+                         insertBST(tree, str);
+                         break;
+                    } case 'd': {
+                         string *str = dequeue(q);
+                         bstNode *n = findBSTNode(tree, str);
+                         if(n == NULL) {
+                              fprintf(stderr, "Value ");
+                              displayString(stderr, str);
+                              fprintf(stderr, " not found.\n");
+                              break;
+                         }
+                         n = swapToLeafBSTNode(n);
+                         pruneBSTNode(tree, n);
+                         break;
+                    } case 'f': {
+                         fprintf(stderr, "No tree type for base bst.\n");
+                         break;
+                    } case 's': {
+                         displayBST(output, tree);
+                         break;
+                    } case 'r': {
+                         statisticsBST(tree, output);
                          break;
                     }
-                    n = swapToLeafBSTNode(n);
-                    pruneBSTNode(tree, n);
-                    break;
-               } case 'f': {
-                    break;
-               } case 's': {
-                    displayBST(output, tree);
-                    break;
-               } case 'r': {
-                    break;
                }
           }
      }

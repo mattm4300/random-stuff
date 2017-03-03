@@ -165,7 +165,7 @@ static int minHeight(bst *tree) {
           if(x == NULL) {
                enqueue(q, NULL);
                ++depth;
-          } else if(x->left == NULL && x->right == NULL) {
+          } else if(x->left == NULL || x->right == NULL) {
                return depth;
           } else {
                if(x->left != NULL) enqueue(q, x->left);
