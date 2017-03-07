@@ -63,18 +63,24 @@ int main(int argc, char **argv) {
      // Read the corpus.
      void *tree = NULL;
      switch(treeType) {
-          case 'v':
+          case 'v': {
+               tree = (vbst *) newVBST(displayString, stringComparator);
                break;
-          case 'r':
+          } case 'r':
                break;
-          default:
+          default: {
                tree = (bst *) newBST(displayString, stringComparator);
                readCorpusBST(tree, corpus);
                break;
+          }
      }
      // Execute commands.
      if(treeType == 'v') {
-
+          insertVBST(tree, newString("test"));
+          printf("abcdedf\n");
+          insertVBST(tree, newString("tes"));
+          printf("starting stats stuff\n");
+          statisticsVBST(tree, output);
      } else if(treeType == 'r') {
 
      } else {
