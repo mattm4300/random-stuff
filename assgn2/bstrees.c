@@ -35,6 +35,16 @@ void readCorpusBST(bst *tree, FILE *fp) {
      }
 }
 
+void readCorpusVBST(vbst *tree, FILE *fp) {
+     string *str = grabString(fp);
+     while(str != NULL || !feof(fp)) {
+          if(str != NULL) {
+               insertVBST(tree, str);
+          }
+          str = grabString(fp);
+     }
+}
+
 void readCommands(queue *q, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
@@ -65,6 +75,7 @@ int main(int argc, char **argv) {
      switch(treeType) {
           case 'v': {
                tree = (vbst *) newVBST(displayString, stringComparator);
+               readCorpusVBST(tree, corpus);
                break;
           } case 'r':
                break;
@@ -76,11 +87,11 @@ int main(int argc, char **argv) {
      }
      // Execute commands.
      if(treeType == 'v') {
-          insertVBST(tree, newString("test"));
-          printf("abcdedf\n");
-          insertVBST(tree, newString("tes"));
-          printf("starting stats stuff\n");
+          //insertVBST(tree, newString("test"));
+          //insertVBST(tree, newString("abc"));
+          //insertVBST(tree, newString("test"));
           statisticsVBST(tree, output);
+          //displayVBST(output, tree);
      } else if(treeType == 'r') {
 
      } else {
