@@ -85,13 +85,44 @@ int main(int argc, char **argv) {
                break;
           }
      }
+     printf("Corpus read\n");
      // Execute commands.
      if(treeType == 'v') {
-          //insertVBST(tree, newString("test"));
-          //insertVBST(tree, newString("abc"));
-          //insertVBST(tree, newString("test"));
-          statisticsVBST(tree, output);
-          //displayVBST(output, tree);
+          displayVBST(output, tree);
+          exit(1);
+          while(sizeQueue(q)) {
+               char command = getString(dequeue(q))[0];
+               switch(command) {
+                    case 'i': {
+                         string *str = dequeue(q);
+                         if(str == NULL) fprintf(stderr, "Nothing to insert!\n");
+                         insertVBST(tree, str);
+                         break;
+                    } case 'd': {
+                         string *str = dequeue(q);
+                         int n = findVBST(tree, str);
+                         if(n == 0) {
+                              fprintf(stderr, "Value ");
+                              displayString(stderr, str);
+                              fprintf(stderr, " not found.\n");
+                              break;
+                         }
+                         deleteVBST(tree, str);
+                         break;
+                    } case 'f': {
+                         string *str = dequeue(q);
+                         fprintf(output, "Frequency of \"%s\": %d",
+                              getString(str), findVBST(tree, str));
+                         break;
+                    } case 's': {
+                         displayBST(output, tree);
+                         break;
+                    } case 'r': {
+                         statisticsBST(tree, output);
+                         break;
+                    }
+               }
+          }
      } else if(treeType == 'r') {
 
      } else {

@@ -13,7 +13,6 @@ static void displayVBSTValue(FILE *fp, void *val) {
      if(v->freq > 1) {
           fprintf(fp, "-%d", v->freq);
      }
-     printf("vbstval display done.\n");
 }
 
 static int vbstComparator(void *a, void *b) {
@@ -45,15 +44,11 @@ void insertVBST(vbst *tree, void *val) {
      // Allocate a new vbst value.
      vbstValue *newVal = newVBSTValue(tree->display, tree->compare);
      newVal->val = val;
-     printf("insert potential: "); displayVBSTValue(stdout, newVal); printf("\n");
      // See if the value is already in the tree.
-     printf("Checking for present value...");
      bstNode *n = findBSTNode(tree->tree, newVal);
-     printf("result received.\n");
      // if n is null, then the value is not in the tree so we need to
      // create a new vbstValue and store it in the tree.
      if(n == NULL) {
-          printf("case A:\n");
           // put the new vbst value into the underlying bst.
           insertBST(tree->tree, newVal);
           // We put a new node into the vbst, so we need to increment BOTH
@@ -63,16 +58,12 @@ void insertVBST(vbst *tree, void *val) {
      // if n is not null, then we just need to increment the frequency of
      // the value.
      } else {
-          printf("case B:\n");
           // Increment the freqency inside the underlying node.
           vbstValue *temp = n->value;
           temp->freq += 1;
           // We didn't put a new node into the underlying bst, so just
           // increment the word count.
           tree->words += 1;
-          // free up the newVal and temp;
-          free(temp);
-          free(newVal);
      }
 }
 
