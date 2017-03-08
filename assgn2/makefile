@@ -31,3 +31,22 @@ cleanbuild:
 	make
 clean:
 	rm -f bstrees.o bst.o vbst.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o bstrees
+test-v:
+	./bstrees -v sampleCorpus1.txt sampleCommands1.txt myOutput1.txt
+	./bstrees -v sampleCorpus2.txt sampleCommands2.txt myOutput2.txt
+	./bstrees -v sampleCorpus3.txt sampleCommands3.txt myOutput3.txt
+	./bstrees -v sampleCorpus4.txt sampleCommands4.txt myOutput4.txt
+	./bstrees -v sampleCorpus4.txt sampleCommands5.txt myOutput9.txt
+	./bstrees -v corpus0.txt commands0.txt myExtraOutput1.txt
+	./bstrees -v corpus1.txt commands1.txt myExtraOutput3.txt
+	./bstrees -v corpus2.txt commands3.txt myExtraOutput5.txt
+	./bstrees -v corpus3.txt commands5.txt myExtraOutput7.txt
+	diff myOutput1.txt out1.txt
+	diff myOutput2.txt out2.txt
+	diff myOutput3.txt out3.txt
+	diff myOutput4.txt out4.txt
+	diff myOutput9.txt out9.txt
+	diff myExtraOutput1.txt output1.txt
+	diff myExtraOutput3.txt output3.txc
+	diff myExtraOutput5.txt output5.txt
+	diff myExtraOutput7.txt output7.txt

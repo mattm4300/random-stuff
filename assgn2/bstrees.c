@@ -48,7 +48,9 @@ void readCorpusVBST(vbst *tree, FILE *fp) {
 void readCommands(queue *q, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
-          if(str != NULL) {
+          if(str == NULL) {
+               enqueue(q, NULL);
+          } else {
                enqueue(q, str);
           }
           str = grabString(fp);
@@ -85,17 +87,14 @@ int main(int argc, char **argv) {
                break;
           }
      }
-     printf("Corpus read\n");
      // Execute commands.
      if(treeType == 'v') {
-          displayVBST(output, tree);
-          exit(1);
           while(sizeQueue(q)) {
                char command = getString(dequeue(q))[0];
                switch(command) {
                     case 'i': {
                          string *str = dequeue(q);
-                         if(str == NULL) fprintf(stderr, "Nothing to insert!\n");
+                         if(str == NULL) break;
                          insertVBST(tree, str);
                          break;
                     } case 'd': {
@@ -111,14 +110,14 @@ int main(int argc, char **argv) {
                          break;
                     } case 'f': {
                          string *str = dequeue(q);
-                         fprintf(output, "Frequency of \"%s\": %d",
+                         fprintf(output, "Frequency of \"%s\": %d\n",
                               getString(str), findVBST(tree, str));
                          break;
                     } case 's': {
-                         displayBST(output, tree);
+                         displayVBST(output, tree);
                          break;
                     } case 'r': {
-                         statisticsBST(tree, output);
+                         statisticsVBST(tree, output);
                          break;
                     }
                }
@@ -131,7 +130,7 @@ int main(int argc, char **argv) {
                switch(command) {
                     case 'i': {
                          string *str = dequeue(q);
-                         if(str == NULL) fprintf(stderr, "Nothing to insert!\n");
+                         if(str == NULL) break;
                          insertBST(tree, str);
                          break;
                     } case 'd': {
@@ -163,6 +162,5 @@ int main(int argc, char **argv) {
      fclose(corpus);
      fclose(commands);
      if(argc == 5) fclose(output);
-     printf("done.\n");
      return 0;
 }
