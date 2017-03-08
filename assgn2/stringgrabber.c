@@ -16,6 +16,7 @@ int isValid(char ch) {
      return cleanChar(ch);
 }
 
+/*
 char *appendCharToString(char *str, char ch) {
      size_t currentSize = strlen(str);
      char *newStr = realloc(str, currentSize + 2);
@@ -70,4 +71,41 @@ string *grabString(FILE *fp) {
      string *retString = newString(str);
      free(str);
      return retString;
+}
+*/
+
+static void cleanString(char *s) {
+     int i = 0;
+     int j = 0;
+     while(j < (int) strlen(s)) {
+          if(isValid(s[j])) {
+               s[i] = s[j];
+               ++i; ++j;
+          } else if(isspace(s[j])) {
+               if(isspace(s[i])) {
+                    ++j;
+               } else {
+                    s[i] = ' ';
+                    ++i; ++j;
+               }
+          } else {
+               ++j;
+          }
+     }
+     s[i] = '\0';
+}
+
+string *grabString(FILE *fp) {
+     char *s;
+     if(stringPending(fp)) {
+          s = readString(fp);
+          cleanString(s);
+          if(!strcmp("", s)) return NULL;
+          else return newString(s);
+     } else {
+          s = readToken(fp);
+          cleanString(s);
+          if(!strcmp("", s)) return NULL;
+          else return newString(s);
+     }
 }

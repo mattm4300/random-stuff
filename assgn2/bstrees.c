@@ -58,6 +58,18 @@ void readCommands(queue *q, FILE *fp) {
 }
 
 int main(int argc, char **argv) {
+     FILE *fp = fopen("test.txt", "r");
+     string *s = grabString(fp);
+     while(s != NULL || !feof(fp)) {
+          if(s != NULL) {
+               displayString(stdout, s); printf("\n");
+          }
+          if(feof(fp)) break;
+          s = grabString(fp);
+     }
+     fclose(fp);
+     exit(0);
+
      if(argc != 4 && argc != 5) {
           fprintf(stderr, "Invalid # of command arguments.\n");
           exit(-1);

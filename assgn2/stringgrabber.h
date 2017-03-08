@@ -9,7 +9,7 @@
 
 extern char cleanChar(char);
 extern int isValid(char);
-extern char *appendCharToString(char *, char);
+
 extern string *grabString(FILE *);
 
 #endif
