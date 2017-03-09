@@ -29,6 +29,7 @@ bstNode *insertBST(bst *tree, void *val) {
      }
      z->parent = y;
      if(y == NULL) {
+          z->parent = z;
           tree->root = z;
      } else if(tree->compare(z->value, y->value) < 0) {
           y->left = z;
@@ -123,7 +124,7 @@ bstNode *swapToLeafBSTNode(bstNode *n) {
 
 void pruneBSTNode(bst *tree, bstNode *n) {
      --tree->size;
-     if(n->parent == NULL && n->left == NULL && n->right == NULL) {
+     if(n == tree->root && n->left == NULL && n->right == NULL) {
           free(n);
           n = NULL;
           tree->root = NULL;
@@ -182,6 +183,14 @@ void statisticsBST(bst *tree, FILE *fp) {
      fprintf(fp, "Maximum depth: %d\n", maxHeight(tree->root));
 }
 
+static int isLeftChild(bstNode *n) {
+     return n == n->parent->left;
+}
+
+static int isRightChild(bstNode *n) {
+     return n == n->parent->right;
+}
+
 void displayBST(FILE *fp, bst *tree) {
      if(tree->root == NULL) {
           fprintf(fp, "0:\n");
@@ -208,19 +217,13 @@ void displayBST(FILE *fp, bst *tree) {
           } else {
                if(x->left == NULL && x->right == NULL) fprintf(fp, "=");
                tree->display(fp, x->value);
-               if(x->parent != NULL) {
-                    fprintf(fp, "(");
-                    tree->display(fp, x->parent->value);
-                    fprintf(fp, ")");
-                    if(x->parent->left == x) fprintf(fp, "-l");
-                    else fprintf(fp, "-r");
-                    if(peekQueue(helpQueue) != NULL) fprintf(fp, " ");
-               } else {
-                    fprintf(fp, "(");
-                    tree->display(fp, tree->root->value);
-                    fprintf(fp, ")-");
-               }
-
+               fprintf(fp, "(");
+               tree->display(fp, x->parent->value);
+               fprintf(fp, ")");
+               if(isLeftChild(x)) fprintf(fp, "-l");
+               else if (isRightChild(x)) fprintf(fp, "-r");
+               else fprintf(fp, "-");
+               if(peekQueue(helpQueue) != NULL) fprintf(fp, " ");
                if(x->left != NULL) { enqueue(helpQueue, x->left); }
                if(x->right != NULL) { enqueue(helpQueue, x->right); }
           }

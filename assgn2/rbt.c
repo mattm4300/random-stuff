@@ -184,3 +184,34 @@ void insertRBT(rbt *tree, void *val) {
           tree->words += 1;
      }
 }
+
+int findRBT(rbt *tree, void *val) {
+     rbtValue *temp = newRBTValue(tree->display, tree->compare);
+     temp->val = val;
+     bstNode *n = findBSTNode(tree->tree, temp);
+     if(n == NULL) {
+          free(temp);
+          return 0;
+     } else {
+          free(temp);
+          temp = n->value;
+          return temp->freq;
+     }
+}
+
+int sizeRBT(rbt *tree) {
+     return tree->size;
+}
+
+int wordsRBT(rbt *tree) {
+     return tree->words;
+}
+
+void statisticsRBT(rbt *tree, FILE *fp) {
+     fprintf(fp, "Words/Phrases: %d\n", tree->words);
+     statisticsBST(tree->tree, fp);
+}
+
+void displayRBT(FILE *fp, rbt *tree) {
+     displayBST(fp, tree->tree);
+}

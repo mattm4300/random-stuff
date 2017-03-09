@@ -110,11 +110,13 @@ int main(int argc, char **argv) {
                char command = getString(dequeue(q))[0];
                switch(command) {
                     case 'i': {
+                         printf("inserting\n");
                          string *str = dequeue(q);
                          if(str == NULL) break;
                          insertVBST(tree, str);
                          break;
                     } case 'd': {
+                         printf("delteing\n");
                          string *str = dequeue(q);
                          int n = findVBST(tree, str);
                          if(n == 0) {
@@ -152,6 +154,19 @@ int main(int argc, char **argv) {
                          // We're not implementing delete, so just toss the
                          // value that would be deleted.
                          string *str = dequeue(q);
+                         // Suppress compiler warning for used variable.
+                         free(str);
+                         break;
+                    } case 'f': {
+                         string *str = dequeue(q);
+                         fprintf(output, "Frequency of \"%s\": %d\n",
+                              getString(str), findRBT(tree, str));
+                         break;
+                    } case 's': {
+                         displayRBT(output, tree);
+                         break;
+                    } case 'r': {
+                         statisticsRBT(tree, output);
                          break;
                     }
                }
