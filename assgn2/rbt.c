@@ -9,8 +9,9 @@ typedef struct rbtValue {
      int (*compare)(void *,void *);
 } rbtValue;
 
-static int color(rbtValue *v) {
-     return v->color;
+static int color(bstNode *v) {
+     if(v == NULL) return 0;
+     return ((rbtValue *) v->value)->color;
 }
 
 static void displayRBTValue(FILE *fp, void *val) {
@@ -130,11 +131,11 @@ static void insertionFixupRBT(bst *tree, bstNode *n) {
           //printf("Foever loop: <%d>\n", temploop++);
           if(tree->root == n) break;
           p = n->parent;
-          if(color((rbtValue *) p->value) == 0) break;
+          if(color(p) == 0) break;
           uncle = getUncle(n);
           gp = n->parent->parent;
           // Uncle exists and its color is red.
-          if(uncle != NULL && color(((rbtValue *) uncle->value)) == 1) {
+          if(color(uncle) == 1) {
                ((rbtValue *) p->value)->color = 0;
                ((rbtValue *) uncle->value)->color = 0;
                ((rbtValue *) gp->value)->color = 1;
@@ -158,18 +159,18 @@ static void insertionFixupRBT(bst *tree, bstNode *n) {
 }
 
 void insertRBT(rbt *tree, void *val) {
-     printf("-----abc----\n");
+     //printf("-----abc----\n");
      // Allocate a new rbt value.
      rbtValue *newVal = newRBTValue(tree->display, tree->compare);
      newVal->val = val;
-     printf("made new val to search with\n");
+     //printf("made new val to search with\n");
      // See if the value is already in the tree.
-     printf("Searching to see if value already present...");
-     printf("abc\n");
-     printf("123\n");
+     //printf("Searching to see if value already present...");
+     //printf("abc\n");
+     //printf("123\n");
      bstNode *n = findBSTNode(tree->tree, newVal);
-     printf("search result: <%d>\n", !(n == NULL));
-     printf("Got my results back\n" );
+     //printf("search result: <%d>\n", !(n == NULL));
+     //printf("Got my results back\n" );
      // if n is null, then the value is not in the tree so we need to
      // create a new rbtValue and store it in the tree.
      if(n == NULL) {
@@ -177,9 +178,9 @@ void insertRBT(rbt *tree, void *val) {
           // inserted node.
           n = insertBST(tree->tree, newVal);
           // We need to call the fixup routine.
-          printf("running fixup... ");
+     //     printf("running fixup... ");
           insertionFixupRBT(tree->tree, n);
-          printf("fixup done.\n");
+     //     printf("fixup done.\n");
           // We put a new node into the rbt, so we need to increment BOTH
           // the rbt size and word count.
           tree->size += 1;
