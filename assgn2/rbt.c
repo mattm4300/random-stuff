@@ -125,13 +125,13 @@ static void rotateRBTValue(bst *tree, bstNode *n) {
 
 static void insertionFixupRBT(bst *tree, bstNode *n) {
      bstNode *uncle = NULL, *p = NULL, *gp = NULL, *prevP = NULL, *prevN = NULL;
-     int temploop = 1;
+     //int temploop = 1;
      while(1) {
-          printf("Foever loop: <%d>\n", temploop++);
+          //printf("Foever loop: <%d>\n", temploop++);
           if(tree->root == n) break;
-          if(color((rbtValue *) n->parent->value) == 0) break;
-          uncle = getUncle(n);
           p = n->parent;
+          if(color((rbtValue *) p->value) == 0) break;
+          uncle = getUncle(n);
           gp = n->parent->parent;
           // Uncle exists and its color is red.
           if(uncle != NULL && color(((rbtValue *) uncle->value)) == 1) {

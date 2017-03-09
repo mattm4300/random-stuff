@@ -80,10 +80,10 @@ bstNode *findBSTNode(bst *tree, void *val) {
           // Progress down tree until value is found or null pointer
           // is reached.
           bstNode *spot = tree->root;
-          int temploop = 1;
+          //int temploop = 1;
           while(1) {
-               printf("temploop2: <%d> | ", temploop++);
-               tree->display(stdout, spot->value); printf("\n");
+          //     printf("temploop2: <%d> | ", temploop++);
+          //     tree->display(stdout, spot->value); printf("\n");
                if(tree->compare(val, spot->value) < 0) {
                     spot = spot->left;
                } else {
