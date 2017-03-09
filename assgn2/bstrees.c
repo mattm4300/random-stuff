@@ -5,6 +5,7 @@
 #include <time.h>
 #include "bst.h"
 #include "vbst.h"
+#include "rbt.h"
 #include "comparator.h"
 #include "string.h"
 #include "real.h"
@@ -40,6 +41,16 @@ void readCorpusVBST(vbst *tree, FILE *fp) {
      while(str != NULL || !feof(fp)) {
           if(str != NULL) {
                insertVBST(tree, str);
+          }
+          str = grabString(fp);
+     }
+}
+
+void readCorpsRBT(rbt *tree, FILE *fp) {
+     string *str = grabString(fp);
+     while(str != NULL || !feof(fp)) {
+          if(str != NULL) {
+               insertRBT(tree, str);
           }
           str = grabString(fp);
      }
@@ -83,6 +94,7 @@ int main(int argc, char **argv) {
                readCorpusVBST(tree, corpus);
                break;
           } case 'r':
+               tree = (rbt *) newRBT(displayString, stringComparator);
                break;
           default: {
                tree = (bst *) newBST(displayString, stringComparator);
@@ -128,7 +140,22 @@ int main(int argc, char **argv) {
                }
           }
      } else if(treeType == 'r') {
-
+          while(sizeQueue(q)) {
+               char command = getString(dequeue(q))[0];
+               switch (command) {
+                    case 'i': {
+                         string *str = dequeue(q);
+                         if(str == NULL) break;
+                         insertRBT(tree, str);
+                         break;
+                    } case 'd': {
+                         // We're not implementing delete, so just toss the
+                         // value that would be deleted.
+                         string *str = dequeue(q);
+                         break;
+                    }
+               }
+          }
      } else {
           while(sizeQueue(q)) {
                char command = getString(dequeue(q))[0];

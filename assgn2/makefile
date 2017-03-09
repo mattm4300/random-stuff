@@ -1,14 +1,16 @@
 
 FLAGS = -Wall -Wextra -std=c99
 
-bstrees: bstrees.o bst.o vbst.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o
-	gcc $(FLAGS) bstrees.o bst.o vbst.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o -o bstrees
+bstrees: bstrees.o bst.o vbst.o rbt.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o
+	gcc $(FLAGS) bstrees.o bst.o vbst.o rbt.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o -o bstrees
 bstrees.o: bstrees.c bst.h vbst.h comparator.h integer.h real.h string.h stringgrabber.h
 	gcc $(FLAGS) -c bstrees.c
 bst.o: bst.c bst.h
 	gcc $(FLAGS) -c bst.c
 vbst.o: vbst.c vbst.h bst.h
 	gcc $(FLAGS) -c vbst.c
+rbt.o: rbt.c rbt.h bst.h
+	gcc $(FLAGS) -c rbt.c
 scanner.o: scanner.c scanner.h
 	gcc $(FLAGS) -c scanner.c
 comparator.o: comparator.c comparator.h
@@ -30,8 +32,8 @@ cleanbuild:
 	make clean
 	make
 clean:
-	rm -f bstrees.o bst.o vbst.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o bstrees
-test-v:
+	rm -f bstrees.o bst.o vbst.o rbt.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o bstrees
+test-v: bstrees
 	./bstrees -v sampleCorpus1.txt sampleCommands1.txt myOutput1.txt
 	./bstrees -v sampleCorpus2.txt sampleCommands2.txt myOutput2.txt
 	./bstrees -v sampleCorpus3.txt sampleCommands3.txt myOutput3.txt
