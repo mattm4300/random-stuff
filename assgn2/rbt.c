@@ -40,7 +40,7 @@ static rbtValue *newRBTValue(void (*d)(FILE *, void *), int (*c)(void *, void *)
      newVal->compare = c;
      newVal->val = NULL;
      newVal->freq = 1;
-     newVal->color = 1;
+     newVal->color = 0;
      return newVal;
 }
 
@@ -54,20 +54,20 @@ rbt *newRBT(void (*display)(FILE *,void *), int (*compare)(void *,void *)) {
      return newTree;
 }
 
-static bstNode *getUncle(bstNode *n) {
-     if(n->parent->left == n) {
-          return n->parent->parent->right;
-     } else {
-          return n->parent->parent->left;
-     }
-}
-
 static int isLeftChild(bstNode *n) {
      return n->parent->left == n;
 }
 
 static int isRightChild(bstNode *n) {
      return n->parent->right == n;
+}
+
+static bstNode *getUncle(bstNode *n) {
+     if(isLeftChild(n->parent)) {
+          return n->parent->parent->right;
+     } else {
+          return n->parent->parent->left;
+     }
 }
 
 static int isLinear(bstNode *p, bstNode *n) {
@@ -163,6 +163,7 @@ void insertRBT(rbt *tree, void *val) {
      // Allocate a new rbt value.
      rbtValue *newVal = newRBTValue(tree->display, tree->compare);
      newVal->val = val;
+     newVal->color = 1; // *****
      //printf("made new val to search with\n");
      // See if the value is already in the tree.
      //printf("Searching to see if value already present...");

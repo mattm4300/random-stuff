@@ -50,11 +50,8 @@ void readCorpsRBT(rbt *tree, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
           if(str != NULL) {
-               printf("inserting: <%s>\n", getString(str));
+               displayString(stdout, str); printf("\n");
                insertRBT(tree, str);
-               displayRBT(stdout, tree);
-               int x;
-               scanf(" %d", &x);
           }
           str = grabString(fp);
      }

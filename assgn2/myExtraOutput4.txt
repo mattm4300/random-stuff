@@ -1,12 +1,22 @@
-0:
-Words/Phrases: 0
-Nodes: 0
-Minimum depth: 0
-Maximum depth: 0
-0: ="bob saget "-B("bob saget "-B)-
-Words/Phrases: 1
-Nodes: 1
-Minimum depth: 1
-Maximum depth: 1
-0: "bob saget "-B("bob saget "-B)-
-1: ="fred"-R("bob saget "-B)-r
+0: "well"-B("well"-B)-
+1: "reader"-R("well"-B)-l "how"-R("well"-B)-r
+2: "of"-B("reader"-R)-l ="string"-B("reader"-R)-r ="your"-B("how"-R)-l "of"-B("reader"-R)-l
+3: ="abcdefgh"-R("of"-B)-l ="works"-R("of"-B)-r ="abcdefgh"-R("of"-B)-l ="works"-R("of"-B)-r
+Words/Phrases: 9
+Nodes: 9
+Minimum depth: 3
+Maximum depth: 4
+0: "well"-B("well"-B)-
+1: "reader"-B("well"-B)-l "how"-B("well"-B)-r
+2: "of"-R("reader"-B)-l ="string"-B("reader"-B)-r ="your"-B("how"-B)-l "of"-R("reader"-B)-l
+3: "abcdefgh"-B("of"-R)-l ="works"-B("of"-R)-r "abcdefgh"-B("of"-R)-l ="works"-B("of"-R)-r
+4: ="bob saget "-R("abcdefgh"-B)-r ="bob saget "-R("abcdefgh"-B)-r
+Words/Phrases: 10
+Nodes: 10
+Minimum depth: 3
+Maximum depth: 5
+0: "well"-B("well"-B)-
+1: "reader"-B("well"-B)-l "how"-B("well"-B)-r
+2: "of"-R("reader"-B)-l ="string"-B("reader"-B)-r ="your"-B("how"-B)-l "of"-R("reader"-B)-l
+3: "bob saget "-B("of"-R)-l ="works"-B("of"-R)-r "bob saget "-B("of"-R)-l ="works"-B("of"-R)-r
+4: ="abcdefgh"-R("bob saget "-B)-l ="fred"-R("bob saget "-B)-r ="abcdefgh"-R("bob saget "-B)-l ="fred"-R("bob saget "-B)-r
