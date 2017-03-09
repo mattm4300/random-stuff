@@ -1,0 +1,12 @@
+0: "my"-B("my"-B)-
+1: "friend"-B("my"-B)-l "that i could "-R("my"-B)-r
+2: =" very best"-R("friend"-B)-l ="me"-R("friend"-B)-r "pass"-B("that i could "-R)-l "told"-B("that i could "-R)-r
+3: ="test"-R("pass"-B)-r ="this"-R("told"-B)-l
+0: "my"-B("my"-B)-
+1: "friend"-B("my"-B)-l "that i could "-R("my"-B)-r
+2: =" very best"-R("friend"-B)-l ="me"-R("friend"-B)-r "pass"-B("that i could "-R)-l "told"-B("that i could "-R)-r
+3: ="never"-R("pass"-B)-l ="test"-R("pass"-B)-r ="this"-R("told"-B)-l
+0: "my"-B("my"-B)-
+1: "friend"-B("my"-B)-l "that i could "-R("my"-B)-r
+2: =" very best"-R("friend"-B)-l ="me"-R("friend"-B)-r "pass"-B("that i could "-R)-l "told"-B("that i could "-R)-r
+3: ="never"-R("pass"-B)-l ="test"-R("pass"-B)-r ="this"-R("told"-B)-l

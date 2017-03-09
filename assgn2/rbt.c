@@ -125,7 +125,9 @@ static void rotateRBTValue(bst *tree, bstNode *n) {
 
 static void insertionFixupRBT(bst *tree, bstNode *n) {
      bstNode *uncle = NULL, *p = NULL, *gp = NULL, *prevP = NULL, *prevN = NULL;
+     int temploop = 1;
      while(1) {
+          printf("Foever loop: <%d>\n", temploop++);
           if(tree->root == n) break;
           if(color((rbtValue *) n->parent->value) == 0) break;
           uncle = getUncle(n);
@@ -156,11 +158,18 @@ static void insertionFixupRBT(bst *tree, bstNode *n) {
 }
 
 void insertRBT(rbt *tree, void *val) {
+     printf("-----abc----\n");
      // Allocate a new rbt value.
      rbtValue *newVal = newRBTValue(tree->display, tree->compare);
      newVal->val = val;
+     printf("made new val to search with\n");
      // See if the value is already in the tree.
+     printf("Searching to see if value already present...");
+     printf("abc\n");
+     printf("123\n");
      bstNode *n = findBSTNode(tree->tree, newVal);
+     printf("search result: <%d>\n", !(n == NULL));
+     printf("Got my results back\n" );
      // if n is null, then the value is not in the tree so we need to
      // create a new rbtValue and store it in the tree.
      if(n == NULL) {
@@ -168,7 +177,9 @@ void insertRBT(rbt *tree, void *val) {
           // inserted node.
           n = insertBST(tree->tree, newVal);
           // We need to call the fixup routine.
+          printf("running fixup... ");
           insertionFixupRBT(tree->tree, n);
+          printf("fixup done.\n");
           // We put a new node into the rbt, so we need to increment BOTH
           // the rbt size and word count.
           tree->size += 1;
@@ -177,7 +188,7 @@ void insertRBT(rbt *tree, void *val) {
      // the value.
      } else {
           // Increment the freqency inside the underlying node.
-          rbtValue *temp = n->value;
+          rbtValue *temp = (rbtValue *) n->value;
           temp->freq += 1;
           // We didn't put a new node into the underlying bst, so just
           // increment the word count.

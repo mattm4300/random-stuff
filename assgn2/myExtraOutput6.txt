@@ -1,0 +1,23 @@
+0:
+Frequency of "zoo": 0
+0: "gunshot"-B("gunshot"-B)-
+1: ="harambe"-R("gunshot"-B)-r
+Words/Phrases: 2
+Nodes: 2
+Minimum depth: 1
+Maximum depth: 2
+0: "gunshot"-B("gunshot"-B)-
+1: ="harambe"-2-R("gunshot"-B)-r
+Words/Phrases: 3
+Nodes: 2
+Minimum depth: 1
+Maximum depth: 2
+Frequency of "f": 1
+Frequency of "fence": 0
+0: "gunshot"-B("gunshot"-B)-
+1: "copypasta"-3-B("gunshot"-B)-l ="harambe"-2-R("gunshot"-B)-r
+2: ="f"-R("copypasta"-3-B)-r
+Words/Phrases: 7
+Nodes: 4
+Minimum depth: 2
+Maximum depth: 3

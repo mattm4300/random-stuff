@@ -52,3 +52,20 @@ test-v: bstrees
 	diff myExtraOutput3.txt output3.txt
 	diff myExtraOutput5.txt output5.txt
 	diff myExtraOutput7.txt output7.txt
+test-r: bstrees
+	./bstrees -r sampleCorpus1.txt sampleCommands1.txt myOutput5.txt
+	./bstrees -r sampleCorpus2.txt sampleCommands2.txt myOutput6.txt
+	./bstrees -r sampleCorpus3.txt sampleCommands3.txt myOutput7.txt
+	./bstrees -r sampleCorpus4.txt sampleCommands4.txt myOutput8.txt
+	./bstrees -r corpus0.txt commands0.txt myExtraOutput2.txt
+	./bstrees -r corpus1.txt commands2.txt myExtraOutput4.txt
+	./bstrees -r corpus2.txt commands4.txt myExtraOutput6.txt
+	./bstrees -r corpus3.txt commands5.txt myExtraOutput8.txt
+	diff myOutput5.txt out5.txt
+	diff myOutput6.txt out6.txt
+	diff myOutput7.txt out7.txt
+	diff myOutput8.txt out8.txt
+	diff myExtraOutput2.txt output2.txt
+	diff myExtraOutput4.txt output4.txt
+	diff myExtraOutput6.txt output6.txt
+	diff myExtraOutput8.txt output8.txt

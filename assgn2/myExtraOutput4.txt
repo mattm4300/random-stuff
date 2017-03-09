@@ -1,0 +1,12 @@
+0:
+Words/Phrases: 0
+Nodes: 0
+Minimum depth: 0
+Maximum depth: 0
+0: ="bob saget "-B("bob saget "-B)-
+Words/Phrases: 1
+Nodes: 1
+Minimum depth: 1
+Maximum depth: 1
+0: "bob saget "-B("bob saget "-B)-
+1: ="fred"-R("bob saget "-B)-r

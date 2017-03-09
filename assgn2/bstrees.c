@@ -50,7 +50,9 @@ void readCorpsRBT(rbt *tree, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
           if(str != NULL) {
+               printf("inserting: <%s>\n", getString(str));
                insertRBT(tree, str);
+               //displayRBT(stdout, tree);
           }
           str = grabString(fp);
      }
@@ -69,7 +71,6 @@ void readCommands(queue *q, FILE *fp) {
 }
 
 int main(int argc, char **argv) {
-     printf("---Starting Program---\n");
      if(argc != 4 && argc != 5) {
           fprintf(stderr, "Invalid # of command arguments.\n");
           exit(-1);
@@ -82,10 +83,8 @@ int main(int argc, char **argv) {
      if(argc == 5) output = fopen(argv[4], "w");
      else output = stdout;
      // Get the commands.
-     printf("---Reading Commands---\n");
      queue *q = newQueue(displayString);
      readCommands(q, commands);
-     printf("---Commands read---\n");
      // Read the corpus.
      void *tree = NULL;
      switch(treeType) {
@@ -95,6 +94,7 @@ int main(int argc, char **argv) {
                break;
           } case 'r':
                tree = (rbt *) newRBT(displayString, stringComparator);
+               readCorpsRBT(tree, corpus);
                break;
           default: {
                tree = (bst *) newBST(displayString, stringComparator);
@@ -102,21 +102,17 @@ int main(int argc, char **argv) {
                break;
           }
      }
-     printf("---Corpus read---\n");
      // Execute commands.
      if(treeType == 'v') {
-          printf("---Executing vbst commands---\n");
           while(sizeQueue(q)) {
                char command = getString(dequeue(q))[0];
                switch(command) {
                     case 'i': {
-                         printf("inserting\n");
                          string *str = dequeue(q);
                          if(str == NULL) break;
                          insertVBST(tree, str);
                          break;
                     } case 'd': {
-                         printf("delteing\n");
                          string *str = dequeue(q);
                          int n = findVBST(tree, str);
                          if(n == 0) {
