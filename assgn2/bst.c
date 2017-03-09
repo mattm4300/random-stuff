@@ -40,63 +40,36 @@ bstNode *insertBST(bst *tree, void *val) {
 }
 
 int findBST(bst *tree, void *val) {
-     // Empty tree.
-     if(tree->root == NULL) {
-          return 0;
-     // Root value is value.
-     } else if(tree->compare(tree->root->value, val) == 0) {
-          return 1;
-     // Search for value farther down in the tree.
-     } else {
-          // Progress down tree until value is found or null pointer
-          // is reached.
+     if(tree->root == NULL) return 0;
+     else {
           bstNode *spot = tree->root;
-          while(1) {
-               if(tree->compare(val, spot->value) < 0) {
+          while(spot != NULL) {
+               if(tree->compare(val, spot->value) == 0) {
+                    return 1;
+               } else if(tree->compare(val, spot->value) < 0) {
                     spot = spot->left;
                } else {
                     spot = spot->right;
                }
-               if(spot == NULL) {
-                    return 0;
-               } else if(tree->compare(spot->value, val) == 0) {
-                    return 1;
-               } else {
-                    continue;
-               }
           }
+          return 0;
      }
 }
 
 bstNode *findBSTNode(bst *tree, void *val) {
-     // Empty tree.
-     if(tree->root == NULL) {
-          return 0;
-     // Root value is value.
-     } else if(tree->compare(tree->root->value, val) == 0) {
-          return tree->root;
-     // Search for value farther down in the tree.
-     } else {
-          // Progress down tree until value is found or null pointer
-          // is reached.
+     if(tree->root == NULL) return NULL;
+     else {
           bstNode *spot = tree->root;
-          //int temploop = 1;
-          while(1) {
-          //     printf("temploop2: <%d> | ", temploop++);
-          //     tree->display(stdout, spot->value); printf("\n");
-               if(tree->compare(val, spot->value) < 0) {
+          while(spot != NULL) {
+               if(tree->compare(val, spot->value) == 0) {
+                    return spot;
+               } else if(tree->compare(val, spot->value) < 0) {
                     spot = spot->left;
                } else {
                     spot = spot->right;
                }
-               if(spot == NULL) {
-                    return 0;
-               } else if(tree->compare(spot->value, val) == 0) {
-                    return spot;
-               } else {
-                    continue;
-               }
           }
+          return spot;
      }
 }
 

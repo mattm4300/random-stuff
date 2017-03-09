@@ -1,9 +1,8 @@
-0: "fd"-B("fd"-B)-
-1: "ds"-B("fd"-B)-l "b"-B("fd"-B)-r
-2: "c"-R("ds"-B)-l ="st"-B("ds"-B)-r ="s"-B("b"-B)-l "c"-R("ds"-B)-l
-3: "a"-3-B("c"-R)-l ="v"-B("c"-R)-r "a"-3-B("c"-R)-l ="v"-B("c"-R)-r
-4: =" "-R("a"-3-B)-l ="b"-R("a"-3-B)-r =" "-R("a"-3-B)-l ="b"-R("a"-3-B)-r
+0: "b"-2-B("b"-2-B)-
+1: " df a jd "-B("b"-2-B)-l "fd"-R("b"-2-B)-r
+2: =" "-R(" df a jd "-B)-l ="a"-4-R(" df a jd "-B)-r "c"-B("fd"-R)-l "st"-B("fd"-R)-r
+3: ="ds"-R("c"-B)-r ="s"-R("st"-B)-l ="v"-R("st"-B)-r
 Words/Phrases: 14
-Nodes: 12
+Nodes: 10
 Minimum depth: 3
-Maximum depth: 5
+Maximum depth: 4

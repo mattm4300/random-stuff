@@ -95,7 +95,7 @@ static void rotateRBTValue(bst *tree, bstNode *n) {
                n->parent = n;
                tree->root = n;
           } else {
-               if(isLeftChild(p)) {
+               if(gp->left == p) {
                     gp->left = n;
                } else {
                     gp->right = n;
@@ -114,7 +114,7 @@ static void rotateRBTValue(bst *tree, bstNode *n) {
                n->parent = n;
                tree->root = n;
           } else {
-               if(isRightChild(p)) {
+               if(gp->right == p) {
                     gp->right = n;
                } else {
                     gp->left = n;
