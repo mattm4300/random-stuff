@@ -2,6 +2,7 @@
 
 extern void Fatal(char *,...);
 
+/*
 static char cleanChar(char ch) {
      if(ch >= 65 && ch <= 90) {
           return (char)(ch + 32);
@@ -16,7 +17,6 @@ static int isValid(char ch) {
      return cleanChar(ch);
 }
 
-/*
 char *appendCharToString(char *str, char ch) {
      size_t currentSize = strlen(str);
      char *newStr = realloc(str, currentSize + 2);
@@ -74,22 +74,59 @@ string *grabString(FILE *fp) {
 }
 */
 
-
+/* This function was inspired/modified from a Stack
+ overflow post pointed out to me by another student. */
 static void cleanString(char *s) {
-     char *i;
-     char *j;
-
+     int i = 0;
+     int j = 0;
+     // Loop until we hit the null character in the string.
+     while(s[i] != '\0') {
+          // We need to handle spaces.
+          if(isspace(s[i])) {
+               // Skip all the whitespace AND invalid chars here.
+               while(isspace(s[i]) || ispunct(s[i]) || isdigit(s[i])) {
+                    ++i;
+               }
+               // We skipped a bunch of spaces and/or invalid chars, so just
+               // leave a single space char.
+               s[j] = ' ';
+               ++j;
+          // If we encounter a punct or digit simply skip over it.
+          } else if(ispunct(s[i]) || isdigit(s[i])) {
+               ++i;
+          // If char is uppercase, make it lowercase.
+          } else if(isupper(s[i])) {
+               s[j] = tolower(s[i]);
+               ++j;
+               ++i;
+          // If i and j are in the same spot, increment them.
+          } else if(i == j) {
+               ++i;
+               ++j;
+          // Copy the character.
+          } else {
+               s[j] = s[i];
+               ++j;
+               ++i;
+          }
+     }
+     // Set the last spot we're in to the null char.
+     s[j] = '\0';
 }
 
 string *grabString(FILE *fp) {
      char *s;
      if(stringPending(fp)) {
           s = readString(fp);
+          // EOF
+          if(s == NULL) return NULL;
           cleanString(s);
           if(!strcmp("", s)) return NULL;
           else return newString(s);
      } else {
           s = readToken(fp);
+          // EOF
+          if(s == NULL) return NULL;
           cleanString(s);
           if(!strcmp("", s)) return NULL;
           else return newString(s);

@@ -58,18 +58,7 @@ void readCommands(queue *q, FILE *fp) {
 }
 
 int main(int argc, char **argv) {
-     FILE *fp = fopen("test.txt", "r");
-     string *s = grabString(fp);
-     while(s != NULL || !feof(fp)) {
-          if(s != NULL) {
-               displayString(stdout, s); printf("\n");
-          }
-          if(feof(fp)) break;
-          s = grabString(fp);
-     }
-     fclose(fp);
-     exit(0);
-
+     printf("---Starting Program---\n");
      if(argc != 4 && argc != 5) {
           fprintf(stderr, "Invalid # of command arguments.\n");
           exit(-1);
@@ -82,8 +71,10 @@ int main(int argc, char **argv) {
      if(argc == 5) output = fopen(argv[4], "w");
      else output = stdout;
      // Get the commands.
+     printf("---Reading Commands---\n");
      queue *q = newQueue(displayString);
      readCommands(q, commands);
+     printf("---Commands read---\n");
      // Read the corpus.
      void *tree = NULL;
      switch(treeType) {
@@ -99,8 +90,10 @@ int main(int argc, char **argv) {
                break;
           }
      }
+     printf("---Corpus read---\n");
      // Execute commands.
      if(treeType == 'v') {
+          printf("---Executing vbst commands---\n");
           while(sizeQueue(q)) {
                char command = getString(dequeue(q))[0];
                switch(command) {

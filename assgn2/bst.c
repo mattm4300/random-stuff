@@ -156,6 +156,7 @@ static int maxHeight(bstNode *n) {
 }
 
 static int minHeight(bst *tree) {
+     if(tree->root == NULL) return 0;
      queue *q = newQueue(tree->display);
      enqueue(q, tree->root);
      enqueue(q, NULL);
@@ -182,7 +183,10 @@ void statisticsBST(bst *tree, FILE *fp) {
 }
 
 void displayBST(FILE *fp, bst *tree) {
-     if(tree->root == NULL) { return; }
+     if(tree->root == NULL) {
+          fprintf(fp, "0:\n");
+          return;
+     }
      queue *helpQueue = newQueue(tree->display);
      enqueue(helpQueue, tree->root);
      enqueue(helpQueue, NULL);

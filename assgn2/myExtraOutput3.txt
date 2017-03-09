@@ -1,24 +1,23 @@
 0: " this is a test "(" this is a test ")-
 1: "of"(" this is a test ")-r
 2: "how"("of")-l "well"("of")-r
-3: "abcd"("how")-l "string"("well")-l "your"("well")-r
-4: ="efgh"("abcd")-r ="reader"("string")-l ="works"("your")-l
-Words/Phrases: 10
-Nodes: 10
+3: ="abcdefgh"("how")-l "string"("well")-l "your"("well")-r
+4: ="reader"("string")-l ="works"("your")-l
+Words/Phrases: 9
+Nodes: 9
 Minimum depth: 1
 Maximum depth: 5
 0: " this is a test "(" this is a test ")-
 1: "of"(" this is a test ")-r
 2: "how"("of")-l "well"("of")-r
-3: "abcd"("how")-l "string"("well")-l "your"("well")-r
-4: "efgh"("abcd")-r ="reader"("string")-l ="works"("your")-l
-5: ="bob saget "("efgh")-l
-Words/Phrases: 11
-Nodes: 11
+3: "abcdefgh"("how")-l "string"("well")-l "your"("well")-r
+4: ="bob saget "("abcdefgh")-r ="reader"("string")-l ="works"("your")-l
+Words/Phrases: 10
+Nodes: 10
 Minimum depth: 1
-Maximum depth: 6
-0: "abcd"("abcd")-
-1: "of"("abcd")-r
+Maximum depth: 5
+0: "abcdefgh"("abcdefgh")-
+1: "of"("abcdefgh")-r
 2: "how"("of")-l "well"("of")-r
-3: "bob saget "("how")-l "string"("well")-l "your"("well")-r
-4: ="efgh"("bob saget ")-r ="reader"("string")-l ="works"("your")-l
+3: ="bob saget "("how")-l "string"("well")-l "your"("well")-r
+4: ="reader"("string")-l ="works"("your")-l

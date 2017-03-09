@@ -47,6 +47,6 @@ test-v:
 	diff myOutput4.txt out4.txt
 	diff myOutput9.txt out9.txt
 	diff myExtraOutput1.txt output1.txt
-	diff myExtraOutput3.txt output3.txc
+	diff myExtraOutput3.txt output3.txt
 	diff myExtraOutput5.txt output5.txt
 	diff myExtraOutput7.txt output7.txt
