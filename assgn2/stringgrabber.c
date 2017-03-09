@@ -2,7 +2,7 @@
 
 extern void Fatal(char *,...);
 
-char cleanChar(char ch) {
+static char cleanChar(char ch) {
      if(ch >= 65 && ch <= 90) {
           return (char)(ch + 32);
      } else if(ch >= 97 && ch <= 122) {
@@ -12,7 +12,7 @@ char cleanChar(char ch) {
      }
 }
 
-int isValid(char ch) {
+static int isValid(char ch) {
      return cleanChar(ch);
 }
 
@@ -74,25 +74,11 @@ string *grabString(FILE *fp) {
 }
 */
 
+
 static void cleanString(char *s) {
-     int i = 0;
-     int j = 0;
-     while(j < (int) strlen(s)) {
-          if(isValid(s[j])) {
-               s[i] = s[j];
-               ++i; ++j;
-          } else if(isspace(s[j])) {
-               if(isspace(s[i])) {
-                    ++j;
-               } else {
-                    s[i] = ' ';
-                    ++i; ++j;
-               }
-          } else {
-               ++j;
-          }
-     }
-     s[i] = '\0';
+     char *i;
+     char *j;
+
 }
 
 string *grabString(FILE *fp) {
