@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Struct used to make a bst act like a vbst.
 typedef struct vbstValue {
      void *val;
      int freq;
@@ -9,6 +10,7 @@ typedef struct vbstValue {
      int (*compare)(void *,void *);
 } vbstValue;
 
+// Displays a vbstValue with all of its attributes.
 static void displayVBSTValue(FILE *fp, void *val) {
      vbstValue *v = (vbstValue *) val;
      v->display(fp, v->val);
@@ -17,12 +19,15 @@ static void displayVBSTValue(FILE *fp, void *val) {
      }
 }
 
+// A vbst comparator that "unboxes" the vbstValue stored in the bstNode
+// nodes and calls the comparator function stored in the vbstValue structs.
 static int vbstComparator(void *a, void *b) {
      vbstValue *x = a;
      vbstValue *y = b;
      return x->compare(x->val, y->val);
 }
 
+// Returns a newly created vbstValue.
 static vbstValue *newVBSTValue(void (*d)(FILE *, void *), int (*c)(void *, void *)) {
      vbstValue *newVal = malloc(sizeof(vbstValue));
      newVal->display = d;
@@ -32,6 +37,7 @@ static vbstValue *newVBSTValue(void (*d)(FILE *, void *), int (*c)(void *, void 
      return newVal;
 }
 
+// Returns a newly created vbst.
 vbst *newVBST(void (*display)(FILE *,void *), int (*compare)(void *,void *)) {
      vbst *newTree = malloc(sizeof(vbst));
      newTree->tree = newBST(displayVBSTValue, vbstComparator);
@@ -42,6 +48,8 @@ vbst *newVBST(void (*display)(FILE *,void *), int (*compare)(void *,void *)) {
      return newTree;
 }
 
+// Inserts the given value into the vbst. If the value is already in the tree,
+// the frequency of that value is simlpy incremented.
 void insertVBST(vbst *tree, void *val) {
      // Allocate a new vbst value.
      vbstValue *newVal = newVBSTValue(tree->display, tree->compare);
@@ -69,6 +77,8 @@ void insertVBST(vbst *tree, void *val) {
      }
 }
 
+// Returns the freqency of a value in a vbst.  Returns null if the value
+// is not in the tree.
 int findVBST(vbst *tree, void *val) {
      vbstValue *temp = newVBSTValue(tree->display, tree->compare);
      temp->val = val;
@@ -83,11 +93,15 @@ int findVBST(vbst *tree, void *val) {
      }
 }
 
+// If the given value is in the tree, decrements the freqency of that value,
+// otherwise the node is removed.
 void deleteVBST(vbst *tree, void *val) {
      // Get the bst node containing the vbstValue.
      vbstValue *temp = newVBSTValue(tree->display, tree->compare);
      temp->val = val;
      bstNode *n = findBSTNode(tree->tree, temp);
+     // Make sure the value was actually in the tree.
+     if(n == NULL) return;
      temp = n->value;
      // If the freqency of the vbstValue > 1, simply decrement the freqency
      // count of the word.
@@ -104,19 +118,25 @@ void deleteVBST(vbst *tree, void *val) {
      }
 }
 
+
+// Returns the size of the vbst.
 int sizeVBST(vbst *tree) {
      return tree->size;
 }
 
+// Returns the number of words in a tree, which is the sum of every frequency
+// in all the nodes times the number of nodes.
 int wordsVBST(vbst *tree) {
      return tree->words;
 }
 
+// Display the statistics for the vbst.
 void statisticsVBST(vbst *tree, FILE *fp) {
      fprintf(fp, "Words/Phrases: %d\n", tree->words);
      statisticsBST(tree->tree, fp);
 }
 
+// Displays the vbst itself.
 void displayVBST(FILE *fp, vbst *tree) {
      displayBST(fp, tree->tree);
 }

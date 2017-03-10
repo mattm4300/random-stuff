@@ -176,7 +176,8 @@ static void insertionFixupRBT(bst *tree, bstNode *n) {
      ((rbtValue *) tree->root->value)->color = 0;
 }
 
-// Insert a value into an rbt.
+// Insert a value into an rbt. If the value is already in the tree,
+// the frequency of that value is simply incremented.
 void insertRBT(rbt *tree, void *val) {
      // Allocate a new rbt value.
      rbtValue *newVal = newRBTValue(tree->display, tree->compare);
@@ -208,7 +209,8 @@ void insertRBT(rbt *tree, void *val) {
      }
 }
 
-// Returns the frequency of a value in a rbt tree.
+// Returns the frequency of a value in a rbt tree.  Returns null if the value
+// is not in the tree.
 int findRBT(rbt *tree, void *val) {
      rbtValue *temp = newRBTValue(tree->display, tree->compare);
      temp->val = val;
