@@ -1,4 +1,6 @@
 #include "vbst.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct vbstValue {
      void *val;

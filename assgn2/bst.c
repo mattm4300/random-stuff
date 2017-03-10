@@ -3,6 +3,7 @@
 #include "bst.h"
 #include "queue.h"
 
+/* Returns a newly created bst * object. */
 bst *newBST(void (*display)(FILE *, void *), int (*compare)(void *, void *)) {
      bst *newTree = malloc(sizeof(bst));
      newTree->root = NULL;
@@ -12,6 +13,8 @@ bst *newBST(void (*display)(FILE *, void *), int (*compare)(void *, void *)) {
      return newTree;
 }
 
+/* Inserts a value into a bst and returns the node where the value
+   was stored in the tree. */
 bstNode *insertBST(bst *tree, void *val) {
      ++tree->size;
      bstNode *y = NULL;
@@ -39,6 +42,8 @@ bstNode *insertBST(bst *tree, void *val) {
      return z;
 }
 
+/* If the given value is stored within the tree, returns true, else it
+   returns false. */
 int findBST(bst *tree, void *val) {
      if(tree->root == NULL) return 0;
      else {
@@ -56,6 +61,8 @@ int findBST(bst *tree, void *val) {
      }
 }
 
+/* If the given value is stored within the tree, returns the node where
+   it is stored, otherwise returns null. */
 bstNode *findBSTNode(bst *tree, void *val) {
      if(tree->root == NULL) return NULL;
      else {
@@ -73,6 +80,7 @@ bstNode *findBSTNode(bst *tree, void *val) {
      }
 }
 
+/* Swaps the given node a leaf node. */
 bstNode *swapToLeafBSTNode(bstNode *n) {
      bstNode *spot;
      void *val;
@@ -98,6 +106,7 @@ bstNode *swapToLeafBSTNode(bstNode *n) {
      return swapToLeafBSTNode(spot);
 }
 
+/* Deletes the given node from the tree. */
 void pruneBSTNode(bst *tree, bstNode *n) {
      --tree->size;
      if(n == tree->root && n->left == NULL && n->right == NULL) {
@@ -117,10 +126,12 @@ void pruneBSTNode(bst *tree, bstNode *n) {
      }
 }
 
+/* Returns the size of a bst (# of nodes in tree). */
 int sizeBST(bst *tree) {
      return tree->size;
 }
 
+/* Returns the maximum height of a leaf node. */
 static int maxHeight(bstNode *n) {
      if(n == NULL) return 0;
      int leftHeight = maxHeight(n->left);
@@ -132,6 +143,7 @@ static int maxHeight(bstNode *n) {
      }
 }
 
+/* Returns the minimum height of a leaf node. */
 static int minHeight(bst *tree) {
      if(tree->root == NULL) return 0;
      queue *q = newQueue(tree->display);
@@ -153,20 +165,24 @@ static int minHeight(bst *tree) {
      return depth;
 }
 
+/* Displays the statistics for a bst. */
 void statisticsBST(bst *tree, FILE *fp) {
      fprintf(fp, "Nodes: %d\n", sizeBST(tree));
      fprintf(fp, "Minimum depth: %d\n", minHeight(tree));
      fprintf(fp, "Maximum depth: %d\n", maxHeight(tree->root));
 }
 
+/* Returns true if the given node is a left child, otherwise returns false. */
 static int isLeftChild(bstNode *n) {
      return n == n->parent->left;
 }
 
+/* Returns true if the given node is a right child, otherwise returns false. */
 static int isRightChild(bstNode *n) {
      return n == n->parent->right;
 }
 
+/* Displays the given bst using the bst's saved display function. */
 void displayBST(FILE *fp, bst *tree) {
      if(tree->root == NULL) {
           fprintf(fp, "0:\n");

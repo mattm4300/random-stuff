@@ -1,48 +1,33 @@
-/Users/matthewmorgan/cs201/random-stuff/assgn2
-Thu Mar  9 15:11:58 CST 2017
-WORKING				out2.txt
-assign2testing			out3.txt
-backup.txt			out4.txt
-bst.c				out5.txt
-bst.h				out6.txt
-bstrees.c			out7.txt
-commands			out8.txt
-commands0.txt			out9.txt
-commands1.txt			output1.txt
-commands2.txt			output2.txt
-commands3.txt			output3.txt
-commands4.txt			output4.txt
-commands5.txt			output5.txt
-commands6.txt			output6.txt
-comparator.c			output7.txt
-comparator.h			output8.txt
-corpus0.txt			queue.c
-corpus1.txt			queue.h
-corpus2.txt			rbt.c
-corpus3.txt			rbt.h
-corpus4.txt			readme.txt
-empty.txt			real.c
-emptycommands.txt		real.h
-integer.c			sampleCommands1.txt
-integer.h			sampleCommands2.txt
-makefile			sampleCommands3.txt
-mdmorgan1@crimson.ua.edu	sampleCommands4.txt
-myExtraOutput1.txt		sampleCommands5.txt
-myExtraOutput2.txt		sampleCorpus1.txt
-myExtraOutput3.txt		sampleCorpus2.txt
-myExtraOutput4.txt		sampleCorpus3.txt
-myExtraOutput5.txt		sampleCorpus4.txt
-myExtraOutput6.txt		scanner.c
-myExtraOutput7.txt		scanner.h
-myExtraOutput8.txt		shakespeare.txt
-myOutput1.txt			sll.c
-myOutput2.txt			sll.h
-myOutput3.txt			string.c
-myOutput4.txt			string.h
-myOutput5.txt			stringgrabber.c
-myOutput6.txt			stringgrabber.h
-myOutput7.txt			test.txt
-myOutput8.txt			testoutput.txt
-myOutput9.txt			vbst.c
-out1.txt			vbst.h
-out10.txt
+/mnt/c/Users/MORGAN/Desktop/CS201/random-stuff/assgn2
+Fri Mar 10 11:01:31 STD 2017
+backup.txt		  myExtraOutput7.txt  queue.h
+bst.c			  myExtraOutput8.txt  rbt.c
+bst.h			  myOutput1.txt       rbt.h
+bstrees.c		  myOutput2.txt       readme.txt
+commands		  myOutput3.txt       real.c
+commands0.txt		  myOutput4.txt       real.h
+commands1.txt		  myOutput5.txt       sampleCommands1.txt
+commands2.txt		  myOutput6.txt       sampleCommands2.txt
+commands3.txt		  myOutput7.txt       sampleCommands3.txt
+commands4.txt		  myOutput8.txt       sampleCommands4.txt
+commands5.txt		  myOutput9.txt       sampleCommands5.txt
+commands6.txt		  mytestcommands.txt  sampleCorpus1.txt
+comparator.c		  out10.txt	      sampleCorpus2.txt
+comparator.h		  out1.txt	      sampleCorpus3.txt
+corpus0.txt		  out2.txt	      sampleCorpus4.txt
+corpus1.txt		  out3.txt	      scanner.c
+corpus2.txt		  out4.txt	      scanner.h
+corpus3.txt		  out5.txt	      shakespeare.txt
+corpus4.txt		  out6.txt	      sll.c
+emptycommands.txt	  out7.txt	      sll.h
+empty.txt		  out8.txt	      string.c
+integer.c		  out9.txt	      stringgrabber.c
+integer.h		  output1.txt	      stringgrabber.h
+makefile		  output2.txt	      string.h
+mdmorgan1@crimson.ua.edu  output3.txt	      testoutput.txt
+myExtraOutput1.txt	  output4.txt	      test.txt
+myExtraOutput2.txt	  output5.txt	      vbst.c
+myExtraOutput3.txt	  output6.txt	      vbst.h
+myExtraOutput4.txt	  output7.txt	      WORKING
+myExtraOutput5.txt	  output8.txt
+myExtraOutput6.txt	  queue.c

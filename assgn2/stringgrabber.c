@@ -1,81 +1,16 @@
 #include "stringgrabber.h"
 
+// Fatal is written in bstrees.c.  It isn't used in this module, but it is
+// included in case it's needed in the future.
 extern void Fatal(char *,...);
 
-/*
-static char cleanChar(char ch) {
-     if(ch >= 65 && ch <= 90) {
-          return (char)(ch + 32);
-     } else if(ch >= 97 && ch <= 122) {
-          return ch;
-     } else {
-          return 0;
-     }
-}
-
-static int isValid(char ch) {
-     return cleanChar(ch);
-}
-
-char *appendCharToString(char *str, char ch) {
-     size_t currentSize = strlen(str);
-     char *newStr = realloc(str, currentSize + 2);
-     newStr[currentSize] = ch;
-     newStr[currentSize + 1] = '\0';
-     return newStr;
-}
-
-string *grabString(FILE *fp) {
-     char *str = malloc(1);
-     str[0] = '\0';
-     char ch = readChar(fp);
-     // If file empty.
-     if(ch <= 0) {
-          free(str);
-          return NULL;
-     }
-     // Token
-     if(ch != '\"') {
-          while(!isspace(ch)) {
-               ch = cleanChar(ch);
-               if(isValid(ch)) {
-                    str = appendCharToString(str, ch);
-               }
-               ch = readRawChar(fp);
-          }
-     // String
-     } else {
-          char lastCharAppended = ch;
-          // Toss quotation mark.
-          ch = readRawChar(fp);
-          while(ch != '\"') {
-               if(!isspace(ch)) {
-                    if(isValid(ch)) {
-                         ch = cleanChar(ch);
-                         str = appendCharToString(str, ch);
-                         lastCharAppended = ch;
-                    }
-               } else if(isspace(ch) && !isspace(lastCharAppended)) {
-                    str = appendCharToString(str, ' ');
-                    lastCharAppended = ' ';
-               }
-               ch = readRawChar(fp);
-          }
-     }
-     // Make sure we're not returning an empty string.
-     if(strcmp(str, "") == 0) {
-          free(str);
-          return NULL;
-     }
-
-     string *retString = newString(str);
-     free(str);
-     return retString;
-}
-*/
-
 /* This function was inspired/modified from a Stack
- overflow post pointed out to me by another student. */
+   overflow post pointed out to me by another student.
+   It removes all punctuation and digits from a string,
+   converts uppercase characters to lowercase, and
+   shortens spans of whitespace characters into a single
+   space. It does not allocate or deallocate memory.
+ */
 static void cleanString(char *s) {
      int i = 0;
      int j = 0;
@@ -114,6 +49,11 @@ static void cleanString(char *s) {
      s[j] = '\0';
 }
 
+/* This function reads a token or a string from a file and returns
+   a new string * object created from the token or string read from
+   the file. It cleans the string by calling cleanString. If the
+   file is empty or the cleaned string is empty, it returns null.
+*/
 string *grabString(FILE *fp) {
      char *s;
      if(stringPending(fp)) {

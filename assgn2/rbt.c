@@ -1,5 +1,8 @@
 #include "rbt.h"
+#include <stdio.h>
+#include <stdlib.h>
 
+// Struct used to make a bst act as a rbt.
 typedef struct rbtValue {
      void *val;
      int freq;
@@ -9,11 +12,13 @@ typedef struct rbtValue {
      int (*compare)(void *,void *);
 } rbtValue;
 
+// Returns the color of an rbtValue.
 static int color(bstNode *v) {
      if(v == NULL) return 0;
      return ((rbtValue *) v->value)->color;
 }
 
+// Displays an rbtValue with all of its attributes.
 static void displayRBTValue(FILE *fp, void *val) {
      rbtValue *v = (rbtValue *) val;
      v->display(fp, v->val);
@@ -28,12 +33,15 @@ static void displayRBTValue(FILE *fp, void *val) {
      }
 }
 
+// An rbtValue comparator that "unboxes" the rbtValues stored in the bst
+// nodes and calls the comparator function stored in the rbtValue structs.
 static int rbtComparator(void *a, void *b) {
      rbtValue *x = a;
      rbtValue *y = b;
      return x->compare(x->val, y->val);
 }
 
+// Returns a newly created rbtValue.
 static rbtValue *newRBTValue(void (*d)(FILE *, void *), int (*c)(void *, void *)) {
      rbtValue *newVal = malloc(sizeof(rbtValue));
      newVal->display = d;
@@ -44,6 +52,7 @@ static rbtValue *newRBTValue(void (*d)(FILE *, void *), int (*c)(void *, void *)
      return newVal;
 }
 
+// Returns a newly created rbt.
 rbt *newRBT(void (*display)(FILE *,void *), int (*compare)(void *,void *)) {
      rbt *newTree = malloc(sizeof(rbt));
      newTree->tree = newBST(displayRBTValue, rbtComparator);
@@ -54,14 +63,17 @@ rbt *newRBT(void (*display)(FILE *,void *), int (*compare)(void *,void *)) {
      return newTree;
 }
 
+// Returns true if the given node is a left child, otherwise returns false.
 static int isLeftChild(bstNode *n) {
      return n->parent->left == n;
 }
 
+// returns true if the given node is a right child, otherwise returns false.
 static int isRightChild(bstNode *n) {
      return n->parent->right == n;
 }
 
+// Returns the uncle of a node.
 static bstNode *getUncle(bstNode *n) {
      if(isLeftChild(n->parent)) {
           return n->parent->parent->right;
@@ -70,6 +82,8 @@ static bstNode *getUncle(bstNode *n) {
      }
 }
 
+// Returns true if a node and its parent are in a linear format (left left or
+// right right).
 static int isLinear(bstNode *p, bstNode *n) {
      if(isLeftChild(p)) {
           if(isLeftChild(n)) return 1;
@@ -80,6 +94,8 @@ static int isLinear(bstNode *p, bstNode *n) {
      }
 }
 
+// Rotates a node. The function knows which way to rotate based on whether it's
+// a left or right child.
 static void rotateRBTValue(bst *tree, bstNode *n) {
      bstNode *p = n->parent, *gp = n->parent->parent;
      bstNode *left = n->left, *right = n->right;
@@ -124,6 +140,8 @@ static void rotateRBTValue(bst *tree, bstNode *n) {
      }
 }
 
+
+// Makes sure an rbt still has rbt form after a node insertion.
 static void insertionFixupRBT(bst *tree, bstNode *n) {
      bstNode *uncle = NULL, *p = NULL, *gp = NULL, *prevP = NULL, *prevN = NULL;
      //int temploop = 1;
@@ -158,20 +176,14 @@ static void insertionFixupRBT(bst *tree, bstNode *n) {
      ((rbtValue *) tree->root->value)->color = 0;
 }
 
+// Insert a value into an rbt.
 void insertRBT(rbt *tree, void *val) {
-     //printf("-----abc----\n");
      // Allocate a new rbt value.
      rbtValue *newVal = newRBTValue(tree->display, tree->compare);
      newVal->val = val;
      newVal->color = 1; // *****
-     //printf("made new val to search with\n");
      // See if the value is already in the tree.
-     //printf("Searching to see if value already present...");
-     //printf("abc\n");
-     //printf("123\n");
      bstNode *n = findBSTNode(tree->tree, newVal);
-     //printf("search result: <%d>\n", !(n == NULL));
-     //printf("Got my results back\n" );
      // if n is null, then the value is not in the tree so we need to
      // create a new rbtValue and store it in the tree.
      if(n == NULL) {
@@ -179,9 +191,7 @@ void insertRBT(rbt *tree, void *val) {
           // inserted node.
           n = insertBST(tree->tree, newVal);
           // We need to call the fixup routine.
-     //     printf("running fixup... ");
           insertionFixupRBT(tree->tree, n);
-     //     printf("fixup done.\n");
           // We put a new node into the rbt, so we need to increment BOTH
           // the rbt size and word count.
           tree->size += 1;
@@ -198,6 +208,7 @@ void insertRBT(rbt *tree, void *val) {
      }
 }
 
+// Returns the frequency of a value in a rbt tree.
 int findRBT(rbt *tree, void *val) {
      rbtValue *temp = newRBTValue(tree->display, tree->compare);
      temp->val = val;
@@ -212,19 +223,24 @@ int findRBT(rbt *tree, void *val) {
      }
 }
 
+// Returns the size of a rbt (# of nodes).
 int sizeRBT(rbt *tree) {
      return tree->size;
 }
 
+// Returns the number of words in a tree, which is the sum of every frequency
+// in all the nodes times the number of nodes.
 int wordsRBT(rbt *tree) {
      return tree->words;
 }
 
+// Displays the statistics for the rbt.
 void statisticsRBT(rbt *tree, FILE *fp) {
      fprintf(fp, "Words/Phrases: %d\n", tree->words);
      statisticsBST(tree->tree, fp);
 }
 
+// Displays the rbt itself.
 void displayRBT(FILE *fp, rbt *tree) {
      displayBST(fp, tree->tree);
 }

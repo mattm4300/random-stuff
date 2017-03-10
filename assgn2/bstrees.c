@@ -13,8 +13,9 @@
 #include "stringgrabber.h"
 #include "queue.h"
 
-void
-Fatal(char *fmt, ...)
+/* Function copied from Dr. Lusth. Some module may call this function to
+   display error messages. */
+void Fatal(char *fmt, ...)
     {
     va_list ap;
 
@@ -26,6 +27,7 @@ Fatal(char *fmt, ...)
     exit(-1);
     }
 
+/* Reads a corpus of text and inserts the strings and tokens in a bst. */
 void readCorpusBST(bst *tree, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
@@ -36,6 +38,7 @@ void readCorpusBST(bst *tree, FILE *fp) {
      }
 }
 
+/* Reads a corpus of text and inserts the strings and tokens in a vbst. */
 void readCorpusVBST(vbst *tree, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
@@ -46,6 +49,7 @@ void readCorpusVBST(vbst *tree, FILE *fp) {
      }
 }
 
+/* Reads a corpus of text and inserts the strings and tokens in a rbt. */
 void readCorpsRBT(rbt *tree, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
@@ -60,6 +64,7 @@ void readCorpsRBT(rbt *tree, FILE *fp) {
      }
 }
 
+/* Reads the commands from a file and stores them in the given queue. */
 void readCommands(queue *q, FILE *fp) {
      string *str = grabString(fp);
      while(str != NULL || !feof(fp)) {
