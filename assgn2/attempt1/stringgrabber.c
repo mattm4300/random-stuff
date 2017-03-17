@@ -11,7 +11,7 @@ extern void Fatal(char *,...);
    shortens spans of whitespace characters into a single
    space. It does not allocate or deallocate memory.
  */
-static void cleanString(char *s) {
+void cleanString(char *s) {
      int i = 0;
      int j = 0;
      // Loop until we hit the null character in the string.
