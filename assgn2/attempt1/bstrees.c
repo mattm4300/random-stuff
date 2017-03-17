@@ -121,13 +121,6 @@ int main(int argc, char **argv) {
                          break;
                     } case 'd': {
                          string *str = dequeue(q);
-                         int n = findVBST(tree, str);
-                         if(n == 0) {
-                              fprintf(stderr, "Value ");
-                              displayString(stderr, str);
-                              fprintf(stderr, " not found.\n");
-                              break;
-                         }
                          deleteVBST(tree, str);
                          break;
                     } case 'f': {
@@ -154,11 +147,8 @@ int main(int argc, char **argv) {
                          insertRBT(tree, str);
                          break;
                     } case 'd': {
-                         // We're not implementing delete, so just toss the
-                         // value that would be deleted.
                          string *str = dequeue(q);
-                         // Suppress compiler warning for used variable.
-                         free(str);
+                         deleteRBT(tree, str);
                          break;
                     } case 'f': {
                          string *str = dequeue(q);

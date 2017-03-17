@@ -101,7 +101,12 @@ void deleteVBST(vbst *tree, void *val) {
      temp->val = val;
      bstNode *n = findBSTNode(tree->tree, temp);
      // Make sure the value was actually in the tree.
-     if(n == NULL) return;
+     if(n == NULL) {
+          fprintf(stderr, "Value ");
+          temp->display(stderr, temp->val);
+          fprintf(stderr," not found.\n");
+          return;
+     }
      temp = n->value;
      // If the freqency of the vbstValue > 1, simply decrement the freqency
      // count of the word.

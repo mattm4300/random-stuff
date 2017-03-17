@@ -225,6 +225,21 @@ int findRBT(rbt *tree, void *val) {
      }
 }
 
+// Doesn't actually delete from the tree, but it will give the correct stderr
+// message if the value to be deleted is not in the tree.
+void deleteRBT(rbt *tree, void *val) {
+     rbtValue *temp = newRBTValue(tree->display, tree->compare);
+     temp->val = val;
+     bstNode *n = findBSTNode(tree->tree, temp);
+     if(n == NULL) {
+          fprintf(stderr, "Value ");
+          temp->display(stderr, temp->val);
+          fprintf(stderr," not found.\n");
+          return;
+     }
+}
+
+
 // Returns the size of a rbt (# of nodes).
 int sizeRBT(rbt *tree) {
      return tree->size;
