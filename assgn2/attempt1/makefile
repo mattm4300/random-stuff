@@ -77,6 +77,7 @@ ltest: bstrees
 	bstrees -v w17.0 display meout17.txt
 	bstrees -r w18.0 display meout18.txt
 	bstrees -v w19.0 display meout19.txt
+	bstrees -v w21.0 display meout21.txt
 
 	diff meout3.txt eout3.txt
 	diff meout4.txt eout4.txt
@@ -88,3 +89,4 @@ ltest: bstrees
 	diff meout17.txt eout17.txt
 	diff meout18.txt eout18.txt
 	diff meout19.txt eout19.txt
+	#diff meout21.txt eout21.txt

@@ -9,7 +9,7 @@
  * PUBLIC FUNCTIONS:
  *   string *newString(double)
  *   double getString(string *)
- *   double setString(string *, double)
+ *   double setString(string *, char *)
  *   void displayString(FILE *, void *)
  *   int compareString(void *, void *)
  *   void freeString(string *)
@@ -41,8 +41,7 @@ extern void Fatal(char *, ...);
 string *newString(char *x) {
      string *p = malloc(sizeof(string));
      if(p == 0) { Fatal("out of memory\n"); }
-     p->value = malloc(strlen(x) + 1);
-     strcpy(p->value, x);
+     p->value = x;
      return p;
 }
 
@@ -73,11 +72,8 @@ char *getString(string *v) {
  * ============================================================================
 */
 char *setString(string *v, char *x) {
-     char *old = malloc(strlen(v->value) + 1);
-     strcpy(old, v->value);
-     free(v->value);
-     v->value = malloc(strlen(x) + 1);
-     strcpy(v->value, x);
+     char *old = v->value;
+     v->value = x;
      return old;
 }
 
