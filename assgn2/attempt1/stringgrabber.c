@@ -27,7 +27,7 @@ void cleanString(char *s) {
                s[j] = ' ';
                ++j;
           // If we encounter a punct or digit simply skip over it.
-          } else if(ispunct(s[i]) || isdigit(s[i])) {
+          } else if(!isalpha(s[i])) {
                ++i;
           // If char is uppercase, make it lowercase.
           } else if(isupper(s[i])) {

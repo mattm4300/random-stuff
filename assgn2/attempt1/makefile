@@ -73,7 +73,6 @@ ltest: bstrees
 	bstrees -r spaces.0 display meout6.txt
 	bstrees -v empty commands.0 meout7.txt
 	bstrees -r empty commands.0 meout8.txt
-	bstrees -v s9.0 display meout9.txt
 
 	diff meout3.txt eout3.txt
 	diff meout4.txt eout4.txt
@@ -81,4 +80,3 @@ ltest: bstrees
 	diff meout6.txt eout6.txt
 	diff meout7.txt eout7.txt
 	diff meout8.txt eout8.txt
-	diff meout9.txt eout9.txt
