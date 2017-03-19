@@ -33,6 +33,7 @@ cleanbuild:
 	make
 clean:
 	rm -f bstrees.o bst.o vbst.o rbt.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o bstrees
+test-all: test ltest
 test: bstrees
 	./bstrees -v sampleCorpus1.txt sampleCommands1.txt myOutput1.txt
 	./bstrees -v sampleCorpus2.txt sampleCommands2.txt myOutput2.txt
@@ -65,3 +66,19 @@ test: bstrees
 	diff myExtraOutput6.txt output6.txt
 	diff myExtraOutput7.txt output7.txt
 	diff myExtraOutput8.txt output8.txt
+ltest: bstrees
+	bstrees -v clean.0 display meout3.txt
+	bstrees -r clean.0 display meout4.txt
+	bstrees -v spaces.0 display meout5.txt
+	bstrees -r spaces.0 display meout6.txt
+	bstrees -v empty commands.0 meout7.txt
+	bstrees -r empty commands.0 meout8.txt
+	bstrees -v s9.0 display meout9.txt
+
+	diff meout3.txt eout3.txt
+	diff meout4.txt eout4.txt
+	diff meout5.txt eout5.txt
+	diff meout6.txt eout6.txt
+	diff meout7.txt eout7.txt
+	diff meout8.txt eout8.txt
+	diff meout9.txt eout9.txt
