@@ -115,8 +115,11 @@ int main(int argc, char **argv) {
                char command = getString(dequeue(q))[0];
                switch(command) {
                     case 'i': {
-                         string *str = dequeue(q);
+                         string *str = (string *) dequeue(q);
                          if(str == NULL) break;
+                         char *s = getString(str);
+                         cleanString(s);
+                         setString(str, s);
                          insertVBST(tree, str);
                          break;
                     } case 'd': {
@@ -144,6 +147,9 @@ int main(int argc, char **argv) {
                     case 'i': {
                          string *str = dequeue(q);
                          if(str == NULL) break;
+                         char *s = getString(str);
+                         cleanString(s);
+                         setString(str, s);
                          insertRBT(tree, str);
                          break;
                     } case 'd': {
