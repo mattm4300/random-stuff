@@ -21,7 +21,7 @@ void Fatal(char *fmt, ...)
     exit(-1);
     }
 
-// Returns a square matrix filled of ints filled with -1s.
+// Returns a square matrix filled of ints filled with INT_MAX.
 static int **newSquareMatrix(int sideLength) {
      int **mat = malloc(sizeof(int *) * sideLength);
      int index = 0;
