@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "darray.h"
 
-//typedef struct BinomialNode BinomialNode;
+typedef struct BinomialNode BinomialNode;
 
 BinomialNode *newBinomialNode(void (*display)(FILE *,void *), void *value);
 void displayBinomialNode(FILE *fp,void *n);
