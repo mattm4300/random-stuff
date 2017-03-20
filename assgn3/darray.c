@@ -35,7 +35,7 @@ void *removeDArray(DArray *a) {
      --a->size;
 
      // Resize array if necessary.
-     if((double) a->size <= ((double) a->capacity / 4.0)) {
+     if((double) a->size <= ((double) a->capacity / 4.0) && a->capacity != 1) {
           a->array = realloc(a->array, sizeof(void *) * (a->capacity / 2));
           a->capacity /= 2;
      }

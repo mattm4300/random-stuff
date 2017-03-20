@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <time.h>
 #include "edgeReader.h"
 #include "integer.h"
 #include "darray.h"
@@ -62,26 +63,28 @@ int main(int argc, char **argv) {
      printf("Done.\n");
 
      DArray *a = newDArray(displayInteger);
-     displayDArray(stdout, a); printf("\n");
-     insertDArray(a, newInteger(50));
-     displayDArray(stdout, a); printf("\n");
-     insertDArray(a, newInteger(124));
-     displayDArray(stdout, a); printf("\n");
-     insertDArray(a, newInteger(50000));
-     displayDArray(stdout, a); printf("\n");
-     insertDArray(a, newInteger(22));
-     displayDArray(stdout, a); printf("\n");
-     insertDArray(a, newInteger(222));
-     displayDArray(stdout, a); printf("\n");
-     removeDArray(a);
-     displayDArray(stdout, a); printf("\n");
-     removeDArray(a);
-     displayDArray(stdout, a); printf("\n");
-     removeDArray(a);
-     displayDArray(stdout, a); printf("\n");
-     removeDArray(a);
-     displayDArray(stdout, a); printf("\n");
-     removeDArray(a);
-     displayDArray(stdout, a); printf("\n");
+     srand(time(NULL));
+     int counter = 0;
+     while(1) {
+          int in_del = rand() % 2;
+          if(in_del == 0) {
+               insertDArray(a, newInteger(rand() % 100000000));
+          } else {
+               free(removeDArray(a));
+          }
+          if(counter % 10000 == 0) printf("Size: <%d>\n", sizeDArray(a));
+          if(sizeDArray(a) > 15000) {
+               printf("Threshold reached.\n");
+               printf("Deleting objects... ");
+               while(sizeDArray(a) != 0) free(removeDArray(a));
+               printf("Done.\n");
+               printf("Exiting.\n");
+               return 0;
+          }
+          ++counter;
+     }
+     while(sizeDArray(a) != 0) {
+          free(removeDArray(a));
+     }
      return 0;
 }
