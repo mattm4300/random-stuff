@@ -16,6 +16,15 @@ typedef struct Binomial {
      void (*display)(FILE *, void *);
 } Binomial;
 
+BinomialNode *newBinomialNode(void (*display)(FILE *,void *), void *value) {
+     BinomialNode *n = malloc(sizeof(BinomialNode));
+     n->value = value;
+     n->parent = n;
+     n->children = newDArray(display);
+     n->display = display;
+     return n;
+}
+
 Binomial *newBinomial(
           void (*d)(FILE *,void *), // Display
           int (*c)(void *,void *), // Comparator
@@ -28,6 +37,10 @@ Binomial *newBinomial(
      b->extreme = NULL;
      b->size = 0;
      return b;
+}
+
+BinomialNode *insertBinomial(Binomial *b, void *value) {
+     BinomialNode *n = newBinomialNode(value, b->display);
 }
 
 int sizeBinomial(Binomial *b) { return b->size; }
