@@ -34,8 +34,8 @@ void *removeDArray(DArray *a) {
      a->array[a->size - 1] = NULL;
      --a->size;
 
-     // Resize array if necessary.
-     if((double) a->size <= ((double) a->capacity / 4.0) && a->capacity != 1) {
+     // Resize array if STRICTLY LESS THAN 25% capacity.
+     if(a->capacity != 1 && (double) a->size < ((double) a->capacity / 4.0)) {
           a->array = realloc(a->array, sizeof(void *) * (a->capacity / 2));
           a->capacity /= 2;
      }
@@ -50,7 +50,10 @@ void *getDArray(DArray *a, int index) {
 void setDArray(DArray *a, int index, void *value) {
      // If index is the size of the array, call insertDArray instead.
      if(index == a->size) return insertDArray(a, value);
-     else a->array[index] = value;
+     else {
+          free(a->array[index]);
+          a->array[index] = value;
+     }
 }
 
 int sizeDArray(DArray *a) { return a->size; }
