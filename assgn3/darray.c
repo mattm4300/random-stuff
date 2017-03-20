@@ -51,7 +51,6 @@ void setDArray(DArray *a, int index, void *value) {
      // If index is the size of the array, call insertDArray instead.
      if(index == a->size) return insertDArray(a, value);
      else {
-          free(a->array[index]);
           a->array[index] = value;
      }
 }
