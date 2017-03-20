@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include "edgeReader.h"
+#include "integer.h"
+#include "darray.h"
 
 /* Function copied from Dr. Lusth. Some module may call this function to
    display error messages. */
@@ -58,5 +60,26 @@ int main(int argc, char **argv) {
      printf("Populating matrix...");
      populateMatrix(mat, argv[1]);
      printf("Done.\n");
+
+     DArray *a = newDArray(displayInteger);
+     displayDArray(stdout, a); printf("\n");
+     insertDArray(a, newInteger(50));
+     displayDArray(stdout, a); printf("\n");
+     insertDArray(a, newInteger(124));
+     displayDArray(stdout, a); printf("\n");
+     insertDArray(a, newInteger(50000));
+     displayDArray(stdout, a); printf("\n");
+     insertDArray(a, newInteger(22));
+     displayDArray(stdout, a); printf("\n");
+     insertDArray(a, newInteger(222));
+     displayDArray(stdout, a); printf("\n");
+     removeDArray(a);
+     displayDArray(stdout, a); printf("\n");
+     removeDArray(a);
+     displayDArray(stdout, a); printf("\n");
+     removeDArray(a);
+     displayDArray(stdout, a); printf("\n");
+     removeDArray(a);
+     displayDArray(stdout, a); printf("\n");
      return 0;
 }
