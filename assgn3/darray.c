@@ -17,14 +17,12 @@ DArray *newDArray(void (*display)(FILE *, void *)) {
 }
 
 void insertDArray(DArray *a, void *v) {
-     printf("inserting...");
      // Array full, so double array cap.
      if(a->size == a->capacity) {
-          a->array = realloc(a->array, a->capacity * 2);
+          a->array = realloc(a->array, sizeof(void *) * a->capacity * 2);
           a->capacity *= 2;
      }
      a->array[a->size++] = v;
-     printf("done insert.\n");
 }
 
 void *removeDArray(DArray *a) {
@@ -37,11 +35,9 @@ void *removeDArray(DArray *a) {
      --a->size;
 
      // Resize array if necessary.
-     if((double) a->size < ((double) a->capacity / 4.0)) {
-          if(a->capacity > 1) {
-               a->array = realloc(a->array, a->capacity / 2);
-               a->capacity /= 2;
-          }
+     if((double) a->size <= ((double) a->capacity / 4.0)) {
+          a->array = realloc(a->array, sizeof(void *) * (a->capacity / 2));
+          a->capacity /= 2;
      }
 
      return retVal;

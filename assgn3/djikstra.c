@@ -81,5 +81,7 @@ int main(int argc, char **argv) {
      displayDArray(stdout, a); printf("\n");
      removeDArray(a);
      displayDArray(stdout, a); printf("\n");
+     removeDArray(a);
+     displayDArray(stdout, a); printf("\n");
      return 0;
 }
