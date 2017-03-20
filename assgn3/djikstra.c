@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <time.h>
+#include <limits.h>
 #include "edgeReader.h"
 #include "integer.h"
 #include "darray.h"
@@ -30,11 +31,12 @@ static int **newSquareMatrix(int sideLength) {
      int i = 0; int j = 0;
      for(i = 0; i < sideLength; i++) {
           for(j = 0; j < sideLength; j++) {
-               mat[i][j] = -1;
+               mat[i][j] = INT_MAX; // INT_MAX defined in limits.h.
           }
      }
      return mat;
 }
+
 
 static void displaySquareMatrix(int **mat, int sideLength) {
      int i, j;
@@ -62,18 +64,23 @@ int main(int argc, char **argv) {
      populateMatrix(mat, argv[1]);
      printf("Done.\n");
 
+     displaySquareMatrix(mat, sl);
+
      DArray *a = newDArray(displayInteger);
+     /*
      srand(time(NULL));
      int counter = 0;
      while(1) {
-          int in_del = rand() % 2;
+          int in_del = rand() % 3;
           if(in_del == 0) {
                insertDArray(a, newInteger(rand() % 100000000));
-          } else {
+          } else if(in_del == 1) {
                free(removeDArray(a));
+          } else {
+               if(sizeDArray(a) != 0) setDArray(a, rand() % sizeDArray(a), newInteger(rand() % 100000000));
           }
           if(counter % 10000 == 0) printf("Size: <%d>\n", sizeDArray(a));
-          if(sizeDArray(a) > 15000) {
+          if(sizeDArray(a) > 20000) {
                printf("Threshold reached.\n");
                printf("Deleting objects... ");
                while(sizeDArray(a) != 0) free(removeDArray(a));
@@ -86,5 +93,6 @@ int main(int argc, char **argv) {
      while(sizeDArray(a) != 0) {
           free(removeDArray(a));
      }
+     */
      return 0;
 }
