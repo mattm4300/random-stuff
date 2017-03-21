@@ -44,7 +44,14 @@ void *removeDArray(DArray *a) {
 }
 
 void *getDArray(DArray *a, int index) {
-     return a->array[index];
+     if(index >= a->capacity) {
+          fprintf(stderr, "Inalivd DArray index.\n");
+          exit(-1);
+     } else if(index >= a->size) {
+          return NULL; // If the index is valid in terms of capacity but not size.
+     } else {
+          return a->array[index];
+     }
 }
 
 void setDArray(DArray *a, int index, void *value) {
