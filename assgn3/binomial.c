@@ -84,19 +84,35 @@ static BinomialNode *combine(Binomial *b, BinomialNode *x, BinomialNode *y) {
      // If x more extreme than y:
      if(b->compare(x, y) < 0) {
           int i = degree(y);
+          //
+          printf("Degree of y: %d\n", i);
+          printf("Setting array...\n");
+          //
           setDArray(x->children, i, y);
+          //
+          printf("Array set done.\n");
+          //
           y->parent = x;
           //
           printf("Combine done.\n");
+          printf("END_FUNC: combine\n");
           //
           return x;
      // Else y more extreme than x:
      } else {
           int i = degree(x);
+          //
+          printf("Degree of x: %d\n", i);
+          printf("Setting array...\n");
+          //
           setDArray(y->children, i, x);
+          //
+          printf("Array set done.\n");
+          //
           x->parent = y;
           //
           printf("Combine done.\n");
+          printf("END_FUNC: combine\n");
           //
           return y;
      }
@@ -107,16 +123,32 @@ static void consolidate(Binomial *b, BinomialNode *n) {
      printf("START_FUNC: consolidate\n");
      printf("Starting combine loop...\n");
      //
-     int degree = sizeDArray(n->children);
-     while(getDArray(b->rootlist, degree) != NULL) {
-          n = combine(b, n, getDArray(b->rootlist, degree));
-          setDArray(b->rootlist, degree,  NULL);
-          ++degree;
+     int dg = sizeDArray(n->children);
+     while(getDArray(b->rootlist, dg) != NULL) {
+          //
+          printf("Loop beginning hit.\n");
+          printf("Doing a combine...\n");
+          //
+          n = combine(b, n, getDArray(b->rootlist, dg));
+          //
+          printf("Combine finished.\n");
+          printf("Setting array value at index (degree): %d\n", dg);
+          //
+          setDArray(b->rootlist, dg,  NULL);
+          //
+          printf("Array set done.\n");
+          //
+          ++dg;
      }
      //
      printf("Combine loop done.\n");
+     printf("Doing final set...\n");
      //
-     setDArray(b->rootlist, degree, n);
+     setDArray(b->rootlist, dg, n);
+     //
+     printf("final set done.\n");
+     printf("END_FUNC: consolidate\n");
+     //
 }
 
 BinomialNode *insertBinomial(Binomial *b, void *value) {
