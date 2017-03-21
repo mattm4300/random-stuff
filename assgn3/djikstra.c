@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
                if(sizeDArray(a) != 0) setDArray(a, rand() % sizeDArray(a), newInteger(rand() % 100000000));
           }
           if(counter % 10000 == 0) printf("Size: <%d>\n", sizeDArray(a));
-          if(sizeDArray(a) > 200000) {
+          if(sizeDArray(a) > 10000) {
                printf("Threshold reached.\n");
                printf("Deleting objects... ");
                while(sizeDArray(a) != 0) free(removeDArray(a));
