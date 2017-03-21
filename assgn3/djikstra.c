@@ -6,6 +6,8 @@
 #include "edgeReader.h"
 #include "integer.h"
 #include "darray.h"
+#include "binomial.h"
+#include "comparator.h"
 
 /* Function copied from Dr. Lusth. Some module may call this function to
    display error messages. */
@@ -37,7 +39,7 @@ static int **newSquareMatrix(int sideLength) {
      return mat;
 }
 
-
+/*
 static void displaySquareMatrix(int **mat, int sideLength) {
      int i, j;
      for(i = 0; i < sideLength; i++) {
@@ -48,6 +50,7 @@ static void displaySquareMatrix(int **mat, int sideLength) {
           printf("\n");
      }
 }
+*/
 
 int main(int argc, char **argv) {
      if(argc < 2) {
@@ -64,10 +67,11 @@ int main(int argc, char **argv) {
      populateMatrix(mat, argv[1]);
      printf("Done.\n");
 
-     //displaySquareMatrix(mat, sl);
+     Binomial *b = newBinomial(displayInteger, intComparator, NULL);
+     BinomialNode *n = insertBinomial(b, newInteger(100));
+     displayBinomialNode(stdout, n);
 
-     DArray *a = newDArray(displayInteger);
-
+     /*
      srand(time(NULL));
      int counter = 0;
      while(1) {
@@ -93,5 +97,6 @@ int main(int argc, char **argv) {
      while(sizeDArray(a) != 0) {
           free(removeDArray(a));
      }
+     */
      return 0;
 }
