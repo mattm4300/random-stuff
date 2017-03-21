@@ -16,8 +16,16 @@ typedef struct Binomial {
      void (*display)(FILE *, void *);
 } Binomial;
 
-static int degree(BinomialNode *) {
-     
+static int degree(BinomialNode *n) {
+     if(sizeDArray(n->children == 0)) return 0;
+
+     int degree = -1;
+     int index = 0;
+     for(index = 0; index < sizeDArray(n->children); index++) {
+          int temp = degree(n->children[index]);
+          if(temp > degree) degree = temp;
+     }
+     return degree;
 }
 
 BinomialNode *newBinomialNode(void (*display)(FILE *,void *), void *value) {
