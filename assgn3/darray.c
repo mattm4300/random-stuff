@@ -50,7 +50,7 @@ void *getDArray(DArray *a, int index) {
      } else if(index >= a->size) {
           return NULL; // If the index is valid in terms of capacity but not size.
      } else {
-          return a->array[index];
+          return a->array[index]; // Index is valid in terms of both cap. & size.
      }
 }
 
