@@ -64,10 +64,10 @@ int main(int argc, char **argv) {
      populateMatrix(mat, argv[1]);
      printf("Done.\n");
 
-     displaySquareMatrix(mat, sl);
+     //displaySquareMatrix(mat, sl);
 
      DArray *a = newDArray(displayInteger);
-     /*
+
      srand(time(NULL));
      int counter = 0;
      while(1) {
@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
                if(sizeDArray(a) != 0) setDArray(a, rand() % sizeDArray(a), newInteger(rand() % 100000000));
           }
           if(counter % 10000 == 0) printf("Size: <%d>\n", sizeDArray(a));
-          if(sizeDArray(a) > 20000) {
+          if(sizeDArray(a) > 200000) {
                printf("Threshold reached.\n");
                printf("Deleting objects... ");
                while(sizeDArray(a) != 0) free(removeDArray(a));
@@ -93,6 +93,5 @@ int main(int argc, char **argv) {
      while(sizeDArray(a) != 0) {
           free(removeDArray(a));
      }
-     */
      return 0;
 }
