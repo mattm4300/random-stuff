@@ -33,7 +33,7 @@ cleanbuild:
 	make
 clean:
 	rm -f bstrees.o bst.o vbst.o rbt.o scanner.o comparator.o integer.o real.o string.o sll.o queue.o stringgrabber.o bstrees
-test: dtest ltest
+test: dtest ltest btest
 dtest: bstrees
 	./bstrees -v sampleCorpus1.txt sampleCommands1.txt myOutput1.txt
 	./bstrees -v sampleCorpus2.txt sampleCommands2.txt myOutput2.txt

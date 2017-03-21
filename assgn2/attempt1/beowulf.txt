@@ -439,7 +439,7 @@ resolves to go to his assistance.}
 
 {His challenge}
 
-          "Who are ye men here, mail-covered warriors
+          Who are ye men here, mail-covered warriors
           Clad in your corslets, come thus a-driving
        50 A high riding ship o'er the shoals of the waters,
           [3]And hither 'neath helmets have hied o'er the ocean?
@@ -463,7 +463,7 @@ resolves to go to his assistance.}
           What race ye belong to. Ye far-away dwellers,
           Sea-faring sailors, my simple opinion
           Hear ye and hearken: haste is most fitting
-          Plainly to tell me what place ye are come from."
+          Plainly to tell me what place ye are come from.
 
     [1] 'From ham' (194) is much disputed. One rendering is: _Beowulf,
     being away from home, heard of Hrothgar's troubles, etc_. Another,
@@ -509,7 +509,7 @@ THE GEATS REACH HEOROT.
 
 {We are Geats.}
 
-          "We are sprung from the lineage of the people of Geatland,
+          We are sprung from the lineage of the people of Geatland,
           And Higelac's hearth-friends. To heroes unnumbered
 
 {My father Ecgtheow was well-known in his day.}
@@ -545,12 +545,12 @@ THE GEATS REACH HEOROT.
           Comfort come to him, and care-waves grow cooler,
        25 Or ever hereafter he agony suffer
           And troublous distress, while towereth upward
-          The handsomest of houses high on the summit."
+          The handsomest of houses high on the summit.
 
 {The coast-guard reminds Beowulf that it is easier to say than to do.}
 
           Bestriding his stallion, the strand-watchman answered,
-          The doughty retainer: "The difference surely
+          The doughty retainer: The difference surely
        30 'Twixt words and works, the warlike shield-bearer
           Who judgeth wisely well shall determine.
           This band, I hear, beareth no malice
@@ -573,7 +573,7 @@ palace.}
 {He again compliments Beowulf.}
 
           To warrior so great 'twill be granted sure
-          In the storm of strife to stand secure."
+          In the storm of strife to stand secure.
           Onward they fared then (the vessel lay quiet,
           The broad-bosomed bark was bound by its cable,
 [12]   45 Firmly at anchor); the boar-signs glistened[2]
@@ -598,10 +598,10 @@ palace.}
 
 {The coast-guard, having discharged his duty, bids them God-speed.}
 
-          "'Tis time I were faring; Father Almighty
+          'Tis time I were faring; Father Almighty
           Grant you His grace, and give you to journey
        60 Safe on your mission! To the sea I will get me
-          'Gainst hostile warriors as warden to stand."
+          'Gainst hostile warriors as warden to stand.
 
     [1] 'Edwendan' (280) B. takes to be the subs. 'edwenden' (cf. 1775);
     and 'bisigu' he takes as gen. sing., limiting 'edwenden': _If
@@ -640,7 +640,7 @@ BEOWULF INTRODUCES HIMSELF AT THE PALACE.
 
           Were decked with weapons. Then a proud-mooded hero
           Asked of the champions questions of lineage:
-       15 "From what borders bear ye your battle-shields plated,
+       15 From what borders bear ye your battle-shields plated,
           Gilded and gleaming, your gray-colored burnies,
           Helmets with visors and heap of war-lances?--
           To Hrothgar the king I am servant and liegeman.
@@ -650,7 +650,7 @@ BEOWULF INTRODUCES HIMSELF AT THE PALACE.
 
        20 Men so many of mien more courageous.
           I ween that from valor, nowise as outlaws,
-          But from greatness of soul ye sought for King Hrothgar."
+          But from greatness of soul ye sought for King Hrothgar.
 
 {Beowulf replies.}
 
@@ -660,14 +660,14 @@ BEOWULF INTRODUCES HIMSELF AT THE PALACE.
 {We are Higelac's table-companions, and bear an important commission to
 your prince.}
 
-       25 Hardy 'neath helmet: "Higelac's mates are we;
+       25 Hardy 'neath helmet: Higelac's mates are we;
           Beowulf hight I. To the bairn of Healfdene,
           The famous folk-leader, I freely will tell
           To thy prince my commission, if pleasantly hearing
-          He'll grant we may greet him so gracious to all men."
+          He'll grant we may greet him so gracious to all men.
        30 Wulfgar replied then (he was prince of the Wendels,
           His boldness of spirit was known unto many,
-          His prowess and prudence): "The prince of the Scyldings,
+          His prowess and prudence): The prince of the Scyldings,
 
 {Wulfgar, the thane, says that he will go and ask Hrothgar whether he will
 see the strangers.}
@@ -675,13 +675,13 @@ see the strangers.}
           The friend-lord of Danemen, I will ask of thy journey,
           The giver of rings, as thou urgest me do it,
        35 The folk-chief famous, and inform thee early
-          What answer the good one mindeth to render me."
+          What answer the good one mindeth to render me.
           He turned then hurriedly where Hrothgar was sitting,
           [2]Old and hoary, his earlmen attending him;
           The strength-famous went till he stood at the shoulder
        40 Of the lord of the Danemen, of courteous thanemen
           The custom he minded. Wulfgar addressed then
-          His friendly liegelord: "Folk of the Geatmen
+          His friendly liegelord: Folk of the Geatmen
 
 [14]
 
@@ -698,7 +698,7 @@ see the strangers.}
 
           In war-trappings weeded worthy they seem
        50 Of earls to be honored; sure the atheling is doughty
-          Who headed the heroes hitherward coming."
+          Who headed the heroes hitherward coming.
 
     [1] Instead of the punctuation given by H.-So, S. proposed to insert a
     comma after 'scir' (322), and to take 'hring-iren' as meaning
@@ -719,7 +719,7 @@ HROTHGAR AND BEOWULF.
 {Hrothgar remembers Beowulf as a youth, and also remembers his father.}
 
           Hrothgar answered, helm of the Scyldings:
-          "I remember this man as the merest of striplings.
+          I remember this man as the merest of striplings.
           His father long dead now was Ecgtheow titled,
           Him Hrethel the Geatman granted at home his
         5 One only daughter; his battle-brave son
@@ -741,20 +741,20 @@ HROTHGAR AND BEOWULF.
        15 Hasten to bid them hither to speed them,[2]
           To see assembled this circle of kinsmen;
           Tell them expressly they're welcome in sooth to
-          The men of the Danes." To the door of the building
+          The men of the Danes. To the door of the building
 
 [15]
 
 {Wulfgar invites the strangers in.}
 
           Wulfgar went then, this word-message shouted:
-       20 "My victorious liegelord bade me to tell you,
+       20 My victorious liegelord bade me to tell you,
           The East-Danes' atheling, that your origin knows he,
           And o'er wave-billows wafted ye welcome are hither,
           Valiant of spirit. Ye straightway may enter
           Clad in corslets, cased in your helmets,
        25 To see King Hrothgar. Here let your battle-boards,
-          Wood-spears and war-shafts, await your conferring."
+          Wood-spears and war-shafts, await your conferring.
           The mighty one rose then, with many a liegeman,
           An excellent thane-group; some there did await them,
           And as bid of the brave one the battle-gear guarded.
@@ -767,7 +767,7 @@ HROTHGAR AND BEOWULF.
 {Beowulf salutes Hrothgar, and then proceeds to boast of his youthful
 achievements.}
 
-       35 "Hail thou, Hrothgar! I am Higelac's kinsman
+       35 Hail thou, Hrothgar! I am Higelac's kinsman
           And vassal forsooth; many a wonder
           I dared as a stripling. The doings of Grendel,
           In far-off fatherland I fully did know of:
@@ -842,7 +842,7 @@ thanes.}
 
 {Weird is supreme}
 
-          The work of Wayland. Goes Weird as she must go!"
+          The work of Wayland. Goes Weird as she must go!
 
     [1] Some render 'gif-sceattas' by 'tribute.'--'Geata' B. and Th.
     emended to 'Geatum.' If this be accepted, change '_of_ the Geatmen' to
@@ -854,7 +854,7 @@ thanes.}
 
     [3] For 420 (_b_) and 421 (_a_), B. suggests: Þaer ic (on) fifelgeban
     yethde eotena cyn = _where I in the ocean destroyed the
-    eoten-race_.--t.B. accepts B.'s "brilliant" 'fifelgeban,' omits 'on,'
+    eoten-race_.--t.B. accepts B.'s brilliant 'fifelgeban,' omits 'on,'
     emends 'cyn' to 'ham,' arranging: Þaer ic fifelgeban yethde, eotena ham =
     _where I desolated the ocean, the home of the eotens_.--This would be
     better but for changing 'cyn' to 'ham.'--I suggest: Þaer ic fifelgeband
@@ -900,7 +900,7 @@ HROTHGAR AND BEOWULF.--_Continued_.
 {Hrothgar responds.}
 
           Hrothgar discoursed, helm of the Scyldings:
-          "To defend our folk and to furnish assistance,[1]
+          To defend our folk and to furnish assistance,[1]
           Thou soughtest us hither, good friend Beowulf.
 
 {Reminiscences of Beowulf's father, Ecgtheow.}
@@ -944,7 +944,7 @@ HROTHGAR AND BEOWULF.--_Continued_.
 {Sit down to the feast, and give us comfort.}
 
           Sit at the feast now, thy intents unto heroes,[2]
-          Thy victor-fame show, as thy spirit doth urge thee!"
+          Thy victor-fame show, as thy spirit doth urge thee!
 
 {A bench is made ready for Beowulf and his party.}
 
@@ -1003,7 +1003,7 @@ twit him.}
 
 {Did you take part in a swimming-match with Breca?}
 
-          "Art thou that Beowulf with Breca did struggle,
+          Art thou that Beowulf with Breca did struggle,
           On the wide sea-currents at swimming contended,
        10 Where to humor your pride the ocean ye tried,
 
@@ -1034,12 +1034,12 @@ twit him.}
 
           Though ever triumphant in onset of battle,
           A grim grappling, if Grendel thou darest
-       30 For the space of a night near-by to wait for!"
+       30 For the space of a night near-by to wait for!
 
 {Beowulf retaliates.}
 
           Beowulf answered, offspring of Ecgtheow:
-          "My good friend Unferth, sure freely and wildly,
+          My good friend Unferth, sure freely and wildly,
 
 {O friend Unferth, you are fuddled with beer, and cannot talk coherently.}
 
@@ -1099,7 +1099,7 @@ X.
 BEOWULF SILENCES UNFERTH.--GLEE IS HIGH.
 
 
-          "So ill-meaning enemies often did cause me
+          So ill-meaning enemies often did cause me
           Sorrow the sorest. I served them, in quittance,
 
 {My dear sword always served me faithfully.}
@@ -1179,7 +1179,7 @@ land so long.}
 {On the second day, any warrior may go unmolested to the mead-banquet.}
 
           Which the second day bringeth, the sun in its ether-robes,
-          O'er children of men shines from the southward!"
+          O'er children of men shines from the southward!
        50 Then the gray-haired, war-famed giver of treasure
 
 {Hrothgar's spirits are revived.}
@@ -1228,7 +1228,7 @@ land so long.}
 
           Then equipped for combat quoth he in measures,
           Beowulf spake, offspring of Ecgtheow:
-       75 "I purposed in spirit when I mounted the ocean,
+       75 I purposed in spirit when I mounted the ocean,
 
 {I determined to do or die.}
 
@@ -1236,7 +1236,7 @@ land so long.}
           I would work to the fullest the will of your people
           Or in foe's-clutches fastened fall in the battle.
           Deeds I shall do of daring and prowess,
-       80 Or the last of my life-days live in this mead-hall."
+       80 Or the last of my life-days live in this mead-hall.
           These words to the lady were welcome and pleasing,
           The boast of the Geatman; with gold trappings broidered
           Went the freeborn folk-queen her fond-lord to sit by.
@@ -1259,13 +1259,13 @@ land so long.}
           Hrothgar Beowulf, in rhythmical measures,
        95 Wishing him well, and, the wassail-hall giving
           To his care and keeping, quoth he departing:
-[24]      "Not to any one else have I ever entrusted,
+[24]      Not to any one else have I ever entrusted,
           But thee and thee only, the hall of the Danemen,
           Since high I could heave my hand and my buckler.
       100 Take thou in charge now the noblest of houses;
           Be mindful of honor, exhibiting prowess,
           Watch 'gainst the foeman! Thou shalt want no enjoyments,
-          Survive thou safely adventure so glorious!"
+          Survive thou safely adventure so glorious!
 
     [1] The repetition of 'hwaeethere' (574 and 578) is regarded by some
     scholars as a defect. B. suggests 'swa Þaer' for the first: _So there
@@ -1314,7 +1314,7 @@ ALL SLEEP SAVE ONE.
 
 {Beowulf boasts of his ability to cope with Grendel.}
 
-          "I hold me no meaner in matters of prowess,
+          I hold me no meaner in matters of prowess,
           In warlike achievements, than Grendel does himself;
           Hence I seek not with sword-edge to sooth him to slumber,
           Of life to bereave him, though well I am able.
@@ -1330,7 +1330,7 @@ ALL SLEEP SAVE ONE.
 
 {God may decide who shall conquer}
 
-          On which hand soever to him seemeth proper."
+          On which hand soever to him seemeth proper.
           Then the brave-mooded hero bent to his slumber,
           The pillow received the cheek of the noble;
 
@@ -1787,7 +1787,7 @@ HROTHGAR'S GRATITUDE.
 
 {Hrothgar gives thanks for the overthrow of the monster.}
 
-          "For the sight we behold now, thanks to the Wielder
+          For the sight we behold now, thanks to the Wielder
         5 Early be offered! Much evil I bided,
           Snaring from Grendel:[2] God can e'er 'complish
           Wonder on wonder, Wielder of Glory!
@@ -1826,12 +1826,12 @@ HROTHGAR'S GRATITUDE.
           To a weaker in war-strife. By works of distinction
           Thou hast gained for thyself now that thy glory shall flourish
        30 Forever and ever. The All-Ruler quite thee
-          With good from His hand as He hitherto did thee!"
+          With good from His hand as He hitherto did thee!
 
 {Beowulf replies: I was most happy to render thee this service.}
 
           Beowulf answered, Ecgtheow's offspring:
-          "That labor of glory most gladly achieved we,
+          That labor of glory most gladly achieved we,
           The combat accomplished, unquailing we ventured
        35 The enemy's grapple; I would grant it much rather
           Thou wert able to look at the creature in person,
@@ -1862,7 +1862,7 @@ should.}
 
 {God will give him his deserts.}
 
-          How the God of glory shall give him his earnings."
+          How the God of glory shall give him his earnings.
        55 Then the soldier kept silent, son of old Ecglaf,
 
 {Unferth has nothing more to say, for Beowulf's actions speak louder than
@@ -2037,7 +2037,7 @@ BANQUET (_continued_).--THE SCOP'S SONG OF FINN AND HNAEF.
 {Hnaef, the Danish general, is treacherously attacked while staying at
 Finn's castle.}
 
-          "The Half-Danish hero, Hnaef of the Scyldings,
+          The Half-Danish hero, Hnaef of the Scyldings,
        20 On the field of the Frisians was fated to perish.
           Sure Hildeburg needed not mention approving
           The faith of the Jutemen: though blameless entirely,
@@ -2143,7 +2143,7 @@ THE FINN EPISODE (_continued_).--THE BANQUET CONTINUES.
 
 {The survivors go to Friesland, the home of Finn.}
 
-          "Then the warriors departed to go to their dwellings,
+          Then the warriors departed to go to their dwellings,
           Reaved of their friends, Friesland to visit,
           Their homes and high-city. Hengest continued
 
@@ -2195,7 +2195,7 @@ THE FINN EPISODE (_continued_).--THE BANQUET CONTINUES.
 
 {The lay is concluded, and the main story is resumed.}
 
-       35 Led her to their land-folk." The lay was concluded,
+       35 Led her to their land-folk. The lay was concluded,
           The gleeman's recital. Shouts again rose then,
           Bench-glee resounded, bearers then offered
 
@@ -2214,7 +2214,7 @@ nephew.}
           Sat at the feet of the lord of the Scyldings:
           Each trusted his spirit that his mood was courageous,
           Though at fight he had failed in faith to his kinsmen.
-       45 Said the queen of the Scyldings: "My lord and protector,
+       45 Said the queen of the Scyldings: My lord and protector,
           Treasure-bestower, take thou this beaker;
           Joyance attend thee, gold-friend of heroes,
 
@@ -2241,7 +2241,7 @@ nephew.}
        60 I reckon that recompense he'll render with kindness
           Our offspring and issue, if that all he remember,
           What favors of yore, when he yet was an infant,
-          We awarded to him for his worship and pleasure."
+          We awarded to him for his worship and pleasure.
           Then she turned by the bench where her sons were carousing,
        65 Hrethric and Hrothmund, and the heroes' offspring,
 
@@ -2307,7 +2307,7 @@ to Beowulf.}
 
 {Queen Wealhtheow magnifies Beowulf's achievements.}
 
-       25 "This collar enjoy thou, Beowulf worthy,
+       25 This collar enjoy thou, Beowulf worthy,
           Young man, in safety, and use thou this armor,
           Gems of the people, and prosper thou fully,
           Show thyself sturdy and be to these liegemen
@@ -2325,7 +2325,7 @@ to Beowulf.}
           Is true unto other, gentle in spirit,
           Loyal to leader. The liegemen are peaceful,
           The war-troops ready: well-drunken heroes,[3]
-       40 Do as I bid ye." Then she went to the settle.
+       40 Do as I bid ye. Then she went to the settle.
           There was choicest of banquets, wine drank the heroes:
 
 {They little know of the sorrow in store for them.}
@@ -2519,7 +2519,7 @@ HROTHGAR'S ACCOUNT OF THE MONSTERS.
 {Hrothgar laments the death of AEschere, his shoulder-companion.}
 
           Hrothgar rejoined, helm of the Scyldings:
-          "Ask not of joyance! Grief is renewed to
+          Ask not of joyance! Grief is renewed to
           The folk of the Danemen. Dead is AEschere,
           Yrmenlaf's brother, older than he,
         5 My true-hearted counsellor, trusty adviser,
@@ -2599,7 +2599,7 @@ the moors.}
           The sin-laden hero: seek if thou darest!
           For the feud I will fully fee thee with money,
        60 With old-time treasure, as erstwhile I did thee,
-          With well-twisted jewels, if away thou shalt get thee."
+          With well-twisted jewels, if away thou shalt get thee.
 
     [1] For 'gefraegnod' (1334), K. and t.B. suggest 'gefaegnod,' rendering
     '_rejoicing in her fill_.' This gives a parallel to 'aese wlanc'
@@ -2626,7 +2626,7 @@ BEOWULF SEEKS GRENDEL'S MOTHER.
 
 {Beowulf exhorts the old king to arouse himself for action.}
 
-          "Grieve not, O wise one! for each it is better,
+          Grieve not, O wise one! for each it is better,
           His friend to avenge than with vehemence wail him;
           Each of us must the end-day abide of
         5 His earthly existence; who is able accomplish
@@ -2638,7 +2638,7 @@ BEOWULF SEEKS GRENDEL'S MOTHER.
           To embrace of the earth, nor to mountainous forest,
           Nor to depths of the ocean, wherever he wanders.
 [49]      Practice thou now patient endurance
-          Of each of thy sorrows, as I hope for thee soothly!"
+          Of each of thy sorrows, as I hope for thee soothly!
 
 {Hrothgar rouses himself. His horse is brought.}
 
@@ -2750,7 +2750,7 @@ BEOWULF'S FIGHT WITH GRENDEL'S MOTHER.
 {Beowulf makes a parting speech to Hrothgar.}
 
           Beowulf spake, Ecgtheow's son:
-          "Recall now, oh, famous kinsman of Healfdene,
+          Recall now, oh, famous kinsman of Healfdene,
           Prince very prudent, now to part I am ready,
           Gold-friend of earlmen, what erst we agreed on,
 
@@ -2775,7 +2775,7 @@ BEOWULF'S FIGHT WITH GRENDEL'S MOTHER.
        15 And the ancient heirloom Unferth permit thou,
           The famed one to have, the heavy-sword splendid[1]
           The hard-edged weapon; with Hrunting to aid me,
-          I shall gain me glory, or grim-death shall take me."
+          I shall gain me glory, or grim-death shall take me.
 
 {Beowulf is eager for the fray.}
 
@@ -3049,7 +3049,7 @@ BEOWULF IS DOUBLE-CONQUEROR.
     note.
 
     [3] 'Cyning-balde' (1635) is the much-disputed reading of K. and Th.
-    To render this, "_nobly bold_," "_excellently bold_," have been
+    To render this, _nobly bold_, _excellently bold_, have been
     suggested. B. would read 'cyning-holde' (cf. 290), and render: _Men
     well-disposed towards the king carried the head, etc._ 'Cynebealde,'
     says t.B., endorsing Gr.
@@ -3065,7 +3065,7 @@ BEOWULF BRINGS HIS TROPHIES.--HROTHGAR'S GRATITUDE.
 {Beowulf relates his last exploit.}
 
           Beowulf spake, offspring of Ecgtheow:
-          "Lo! we blithely have brought thee, bairn of Healfdene,
+          Lo! we blithely have brought thee, bairn of Healfdene,
           Prince of the Scyldings, these presents from ocean
           Which thine eye looketh on, for an emblem of glory.
         5 I came off alive from this, narrowly 'scaping:
@@ -3095,7 +3095,7 @@ BEOWULF BRINGS HIS TROPHIES.--HROTHGAR'S GRATITUDE.
           Every and each, of greater and lesser,
           And thou needest not fear for them from the selfsame direction
        25 As thou formerly fearedst, oh, folk-lord of Scyldings,
-[58]     End-day for earlmen." To the age-hoary man then,
+[58]     End-day for earlmen. To the age-hoary man then,
 
 {The famous sword is presented to Hrothgar.}
 
@@ -3130,7 +3130,7 @@ BEOWULF BRINGS HIS TROPHIES.--HROTHGAR'S GRATITUDE.
 
 {Hrothgar praises Beowulf.}
 
-          Son of old Healfdene: "He may say unrefuted
+          Son of old Healfdene: He may say unrefuted
        50 Who performs 'mid the folk-men fairness and truth
           (The hoary old ruler remembers the past),
           That better by birth is this bairn of the nobles!
@@ -3201,7 +3201,7 @@ HROTHGAR MORALIZES.--REST AFTER LABOR.
 
 {A wounded spirit.}
 
-          "Then bruised in his bosom he with bitter-toothed missile
+          Then bruised in his bosom he with bitter-toothed missile
           Is hurt 'neath his helmet: from harmful pollution
           He is powerless to shield him by the wonderful mandates
           Of the loath-cursed spirit; what too long he hath holden
@@ -3250,7 +3250,7 @@ HROTHGAR MORALIZES.--REST AFTER LABOR.
           Head with mine eyes, after long-lasting sorrow!
           Go to the bench now, battle-adorned
           Joy in the feasting: of jewels in common
-          We'll meet with many when morning appeareth."
+          We'll meet with many when morning appeareth.
        40 The Geatman was gladsome, ganged he immediately
           To go to the bench, as the clever one bade him.
           Then again as before were the famous-for-prowess,
@@ -3320,7 +3320,7 @@ SORROW AT PARTING.
 {Beowulf's farewell.}
 
           Beowulf spake, Ecgtheow's offspring:
-          "We men of the water wish to declare now
+          We men of the water wish to declare now
           Fared from far-lands, we're firmly determined
           To seek King Higelac. Here have we fitly
         5 Been welcomed and feasted, as heart would desire it;
@@ -3347,8 +3347,8 @@ SORROW AT PARTING.
 [63]   20 Bairn of the king, at the court of the Geatmen,
           He thereat may find him friends in abundance:
           Faraway countries he were better to seek for
-          Who trusts in himself." Hrothgar discoursed then,
-          Making rejoinder: "These words thou hast uttered
+          Who trusts in himself. Hrothgar discoursed then,
+          Making rejoinder: These words thou hast uttered
        25 All-knowing God hath given thy spirit!
 
 {O Beowulf, thou art wise beyond thy years.}
@@ -3382,7 +3382,7 @@ wouldst make.}
        45 The ring-adorned bark shall bring o'er the currents
           Presents and love-gifts. This people I know
           Tow'rd foeman and friend firmly established,[1]
-          After ancient etiquette everywise blameless."
+          After ancient etiquette everywise blameless.
           Then the warden of earlmen gave him still farther,
 
 {Parting gifts}
@@ -3424,8 +3424,8 @@ wouldst make.}
     rendering: _I know this people with firm thought every way blameless
     towards foe and friends_.
 
-    [2] S. and B. emend so as to negative the verb 'meet.' "Why should
-    Hrothgar weep if he expects to meet Beowulf again?" both these
+    [2] S. and B. emend so as to negative the verb 'meet.' Why should
+    Hrothgar weep if he expects to meet Beowulf again? both these
     scholars ask. But the weeping is mentioned before the 'expectations':
     the tears may have been due to many emotions, especially gratitude,
     struggling for expression.
@@ -3603,7 +3603,7 @@ BEOWULF AND HIGELAC.
           Pleasantly plying his companion with questions
           In the high-towering palace. A curious interest
           Tormented his spirit, what meaning to see in
-       25 The Sea-Geats' adventures: "Beowulf worthy,
+       25 The Sea-Geats' adventures: Beowulf worthy,
 
 {Give an account of thy adventures, Beowulf dear.}
 
@@ -3620,12 +3620,12 @@ BEOWULF AND HIGELAC.
           By no means to seek out the murderous spirit,
           To suffer the South-Danes themselves to decide on[2]
        35 Grappling with Grendel. To God I am thankful
-          To be suffered to see thee safe from thy journey."
+          To be suffered to see thee safe from thy journey.
 
 {Beowulf narrates his adventures.}
 
           Beowulf answered, bairn of old Ecgtheow:
-          "'Tis hidden by no means, Higelac chieftain,
+          'Tis hidden by no means, Higelac chieftain,
           From many of men, the meeting so famous,
        40 What mournful moments of me and of Grendel
           Were passed in the place where he pressing affliction
@@ -3708,7 +3708,7 @@ XXX.
 BEOWULF NARRATES HIS ADVENTURES TO HIGELAC.
 
 
-          "It well may discomfit the prince of the Heathobards
+          It well may discomfit the prince of the Heathobards
           And each of the thanemen of earls that attend him,
 [70]      When he goes to the building escorting the woman,
           That a noble-born Daneman the knights should be feasting:
@@ -3877,7 +3877,7 @@ XXXI.
 GIFT-GIVING IS MUTUAL.
 
 
-          "So the beloved land-prince lived in decorum;
+          So the beloved land-prince lived in decorum;
           I had missed no rewards, no meeds of my prowess,
           But he gave me jewels, regarding my wishes,
           Healfdene his bairn; I'll bring them to thee, then,
@@ -3887,19 +3887,19 @@ GIFT-GIVING IS MUTUAL.
         5 Atheling of earlmen, offer them gladly.
           And still unto thee is all my affection:[1]
           But few of my folk-kin find I surviving
-          But thee, dear Higelac!" Bade he in then to carry[2]
+          But thee, dear Higelac! Bade he in then to carry[2]
           The boar-image, banner, battle-high helmet,
        10 Iron-gray armor, the excellent weapon,
 
 {This armor I have belonged of yore to Heregar.}
 
-          In song-measures said: "This suit-for-the-battle
+          In song-measures said: This suit-for-the-battle
           Hrothgar presented me, bade me expressly,
           Wise-mooded atheling, thereafter to tell thee[3]
           The whole of its history, said King Heregar owned it,
        15 Dane-prince for long: yet he wished not to give then
 [74]      The mail to his son, though dearly he loved him,
-          Hereward the hardy. Hold all in joyance!"
+          Hereward the hardy. Hold all in joyance!
           I heard that there followed hard on the jewels
           Two braces of stallions of striking resemblance,
        20 Dappled and yellow; he granted him usance
@@ -4037,7 +4037,7 @@ THE HOARD AND THE DRAGON.
 
 {The ring-giver bewails the loss of retainers.}
 
-          "Hold thou, O Earth, now heroes no more may,
+          Hold thou, O Earth, now heroes no more may,
           The earnings of earlmen. Lo! erst in thy bosom
           Worthy men won them; war-death hath ravished,
           Perilous life-bale, all my warriors,
@@ -4056,7 +4056,7 @@ THE HOARD AND THE DRAGON.
           The rapture of glee-wood, no excellent falcon
           Swoops through the building, no swift-footed charger
           Grindeth the gravel. A grievous destruction
-       45 No few of the world-folk widely hath scattered!"
+       45 No few of the world-folk widely hath scattered!
           So, woful of spirit one after all
           Lamented mournfully, moaning in sadness
           By day and by night, till death with its billows
@@ -4328,7 +4328,7 @@ BEOWULF SEEKS THE DRAGON.--BEOWULF'S REMINISCENCES.
 
 {Beowulf's retrospect.}
 
-       35 "I survived in my youth-days many a conflict,
+       35 I survived in my youth-days many a conflict,
           Hours of onset: that all I remember.
           I was seven-winters old when the jewel-prince took me,
           High-lord of heroes, at the hands of my father,
@@ -4405,7 +4405,7 @@ XXXV.
 REMINISCENCES (_continued_).--BEOWULF'S LAST BATTLE.
 
 
-          "He seeks then his chamber, singeth a woe-song
+          He seeks then his chamber, singeth a woe-song
           One for the other; all too extensive
           Seemed homesteads and plains. So the helm of the Weders
 
@@ -4467,22 +4467,22 @@ REMINISCENCES (_continued_).--BEOWULF'S LAST BATTLE.
 [85]   45 No weapon was slayer, but war-grapple broke then
           The surge of his spirit, his body destroying.
           Now shall weapon's edge make war for the treasure,
-          And hand and firm-sword." Beowulf spake then,
+          And hand and firm-sword. Beowulf spake then,
           Boast-words uttered--the latest occasion:
 
 {He boasts of his youthful prowess, and declares himself still fearless.}
 
-       50 "I braved in my youth-days battles unnumbered;
+       50 I braved in my youth-days battles unnumbered;
           Still am I willing the struggle to look for,
           Fame-deeds perform, folk-warden prudent,
           If the hateful despoiler forth from his cavern
-          Seeketh me out!" Each of the heroes,
+          Seeketh me out! Each of the heroes,
        55 Helm-bearers sturdy, he thereupon greeted
 
 {His last salutations.}
 
           Beloved co-liegemen--his last salutation:
-          "No brand would I bear, no blade for the dragon,
+          No brand would I bear, no blade for the dragon,
           Wist I a way my word-boast to 'complish[1]
           Else with the monster, as with Grendel I did it;
        60 But fire in the battle hot I expect there,
@@ -4505,7 +4505,7 @@ REMINISCENCES (_continued_).--BEOWULF'S LAST BATTLE.
           But me and me only, to measure his strength with
           The monster of malice, might-deeds to 'complish.
           I with prowess shall gain the gold, or the battle,
-[86]      Direful death-woe will drag off your ruler!"
+[86]      Direful death-woe will drag off your ruler!
        75 The mighty champion rose by his shield then,
           Brave under helmet, in battle-mail went he
           'Neath steep-rising stone-cliffs, the strength he relied on
@@ -4670,7 +4670,7 @@ WIGLAF THE TRUSTY.--BEOWULF IS DESERTED BY FRIENDS AND BY SWORD.
 
 {Wiglaf appeals to the pride of the cowards.}
 
-       30 "I remember the time when, tasting the mead-cup,
+       30 I remember the time when, tasting the mead-cup,
           We promised in the hall the lord of us all
 [89]      Who gave us these ring-treasures, that this battle-equipment,
           Swords and helmets, we'd certainly quite him,
@@ -4708,12 +4708,12 @@ WIGLAF THE TRUSTY.--BEOWULF IS DESERTED BY FRIENDS AND BY SWORD.
           Earned by his exploits, he only of Geatmen
           Sorrow should suffer, sink in the battle:
        55 Brand and helmet to us both shall be common,
-          [1]Shield-cover, burnie." Through the bale-smoke he stalked then,
+          [1]Shield-cover, burnie. Through the bale-smoke he stalked then,
           Went under helmet to the help of his chieftain,
 
 {Wiglaf reminds Beowulf of his youthful boasts.}
 
-          Briefly discoursing: "Beowulf dear,
+          Briefly discoursing: Beowulf dear,
           Perform thou all fully, as thou formerly saidst,
        60 In thy youthful years, that while yet thou livedst
 [90]      Thou wouldst let thine honor not ever be lessened.
@@ -4722,7 +4722,7 @@ WIGLAF THE TRUSTY.--BEOWULF IS DESERTED BY FRIENDS AND BY SWORD.
 
 {The monster advances on them.}
 
-          I'll give thee assistance." The dragon came raging,
+          I'll give thee assistance. The dragon came raging,
        65 Wild-mooded stranger, when these words had been uttered
           ('Twas the second occasion), seeking his enemies,
           Men that were hated, with hot-gleaming fire-waves;
@@ -4762,8 +4762,8 @@ WIGLAF THE TRUSTY.--BEOWULF IS DESERTED BY FRIENDS AND BY SWORD.
     half-verses.--'Urum' (2660), being a peculiar form, has been much
     discussed. 'Byrdu-scrud' is also a crux. B. suggests 'bywdu-scrud' =
     _splendid vestments_. Nor is 'bam' accepted by all, 'beon' being
-    suggested. Whatever the individual words, the passage must mean, "_I
-    intend to share with him my equipments of defence_."
+    suggested. Whatever the individual words, the passage must mean, _I
+    intend to share with him my equipments of defence_.
 
     [2] B. would render: _Which, as I heard, excelled in stroke every
     sword that he carried to the strife, even the strongest (sword)._ For
@@ -4836,7 +4836,7 @@ THE FATAL STRUGGLE.--BEOWULF'S LAST MOMENTS.
 
 {Beowulf regrets that he has no son.}
 
-          "My son I would give now my battle-equipments,
+          My son I would give now my battle-equipments,
           Had any of heirs been after me granted,
           Along of my body. This people I governed
           Fifty of winters: no king 'mong my neighbors
@@ -4863,7 +4863,7 @@ sight of it.}
           Gold-wealth may gaze on, together see lying
 [93]      The ether-bright jewels, be easier able,
        55 Having the heap of hoard-gems, to yield my
-          Life and the land-folk whom long I have governed."
+          Life and the land-folk whom long I have governed.
 
     [1] B. renders: _He_ (_W_.) did not regard his (_the dragon's_) _head_
     (since Beowulf had struck it without effect), _but struck the dragon a
@@ -4947,7 +4947,7 @@ WIGLAF PLUNDERS THE DRAGON'S DEN.--BEOWULF'S DEATH.
 
 {Beowulf is rejoiced to see the jewels.}
 
-          The old one in sorrow: "For the jewels I look on
+          The old one in sorrow: For the jewels I look on
           Thanks do I utter for all to the Ruler,
           Wielder of Worship, with words of devotion,
           The Lord everlasting, that He let me such treasures
@@ -4964,7 +4964,7 @@ WIGLAF PLUNDERS THE DRAGON'S DEN.--BEOWULF'S DEATH.
 [95]      Aloft it shall tower on Whale's-Ness uprising,
           That earls of the ocean hereafter may call it
           Beowulf's barrow, those who barks ever-dashing
-       55 From a distance shall drive o'er the darkness of waters."
+       55 From a distance shall drive o'er the darkness of waters.
 
 {The hero's last gift}
 
@@ -4975,10 +4975,10 @@ WIGLAF PLUNDERS THE DRAGON'S DEN.--BEOWULF'S DEATH.
 
 {and last words.}
 
-       60 "Thou art latest left of the line of our kindred,
+       60 Thou art latest left of the line of our kindred,
           Of Waegmunding people: Weird hath offcarried
           All of my kinsmen to the Creator's glory,
-          Earls in their vigor: I shall after them fare."
+          Earls in their vigor: I shall after them fare.
           'Twas the aged liegelord's last-spoken word in
        65 His musings of spirit, ere he mounted the fire,
           The battle-waves burning: from his bosom departed
@@ -5070,7 +5070,7 @@ THE DEAD FOES.--WIGLAF'S BITTER TAUNTS.
 
 {He begins to taunt them.}
 
-          Looked on the hated: "He who soothness will utter
+          Looked on the hated: He who soothness will utter
           Can say that the liegelord who gave you the jewels,
           The ornament-armor wherein ye are standing,
        45 When on ale-bench often he offered to hall-men
@@ -5112,7 +5112,7 @@ THE DEAD FOES.--WIGLAF'S BITTER TAUNTS.
 {What is life without honor?}
 
           The dastardly deed. Death is more pleasant
-          To every earlman than infamous life is!"
+          To every earlman than infamous life is!
 
     [1] For 'daedum raedan' (2859) B. suggests 'deaeth araedan,' and renders:
     _The might (or judgment) of God would determine death for every man,
@@ -5146,7 +5146,7 @@ THE MESSENGER OF DEATH.
 
 {The messenger speaks.}
 
-          "Now the free-giving friend-lord of the folk of the Weders,
+          Now the free-giving friend-lord of the folk of the Weders,
        10 The folk-prince of Geatmen, is fast in his death-bed,
           By the deeds of the dragon in death-bed abideth;
           Along with him lieth his life-taking foeman
@@ -5217,7 +5217,7 @@ THE MESSENGER'S RETROSPECT.
 
 {The messenger continues, and refers to the feuds of Swedes and Geats.}
 
-          "The blood-stained trace of Swedes and Geatmen,
+          The blood-stained trace of Swedes and Geatmen,
           The death-rush of warmen, widely was noticed,
           How the folks with each other feud did awaken.
           The worthy one went then[1] with well-beloved comrades,
@@ -5326,7 +5326,7 @@ THE MESSENGER'S RETROSPECT.
        80 Waken the warriors, but the wan-coated raven
           Fain over fey ones freely shall gabble,
           Shall say to the eagle how he sped in the eating,
-          When, the wolf his companion, he plundered the slain."
+          When, the wolf his companion, he plundered the slain.
           So the high-minded hero was rehearsing these stories
        85 Loathsome to hear; he lied as to few of
 
@@ -5370,7 +5370,7 @@ THE MESSENGER'S RETROSPECT.
           E'en to such among mortals as seemed to Him proper.
 
     [1] For 'goda,' which seems a surprising epithet for a Geat to apply
-    to the "terrible" Ongentheow, B. suggests 'gomela.' The passage would
+    to the terrible Ongentheow, B. suggests 'gomela.' The passage would
     then stand: '_The old one went then,' etc._
 
     [2] For 'segn Higelace,' K., Th., and B. propose 'segn Higelaces,'
@@ -5434,7 +5434,7 @@ WIGLAF'S SAD STORY.--THE HOARD CARRIED OFF.
 {Wiglaf addresses his comrades.}
 
           Wiglaf discoursed then, Wihstan his son:
-       20 "Oft many an earlman on one man's account must
+       20 Oft many an earlman on one man's account must
           Sorrow endure, as to us it hath happened.
           The liegelord beloved we could little prevail on,
           Kingdom's keeper, counsel to follow,
@@ -5470,7 +5470,7 @@ WIGLAF'S SAD STORY.--THE HOARD CARRIED OFF.
           And gold in abundance. Let the bier with promptness
           Fully be fashioned, when forth we shall come,
           And lift we our lord, then, where long he shall tarry,
-       50 Well-beloved warrior, 'neath the Wielder's protection."
+       50 Well-beloved warrior, 'neath the Wielder's protection.
 
 {Wiglaf charges them to build a funeral-pyre.}
 
@@ -5478,12 +5478,12 @@ WIGLAF'S SAD STORY.--THE HOARD CARRIED OFF.
           Mood-valiant man, to many of heroes,
           Holders of homesteads, that they hither from far,
           [6]Leaders of liegemen, should look for the good one
-       55 With wood for his pyre: "The flame shall now swallow
+       55 With wood for his pyre: The flame shall now swallow
           (The wan fire shall wax[7]) the warriors' leader
           Who the rain of the iron often abided,
           When, sturdily hurled, the storm of the arrows
           Leapt o'er linden-wall, the lance rendered service,
-       60 Furnished with feathers followed the arrow."
+       60 Furnished with feathers followed the arrow.
           Now the wise-mooded son of Wihstan did summon
           The best of the braves from the band of the ruler
 

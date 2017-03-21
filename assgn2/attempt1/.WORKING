@@ -1,54 +1,115 @@
-/mnt/c/Users/MORGAN/Desktop/CS201/random-stuff/assgn2/attempt1
-Mon Mar 20 14:59:46 DST 2017
-backup.txt	   integer.h		     output8.txt
-beowulf.txt	   makefile		     queue.c
-bst.c		   mdmorgan1@crimson.ua.edu  queue.h
-bst.h		   meout17.txt		     rbt.c
-bstrees.c	   meout18.txt		     rbt.h
-c25.0		   meout19.txt		     readme.txt
-c26.0		   meout21.txt		     real.c
-c27.0		   meout23.txt		     real.h
-c28.0		   meout24.txt		     removetests.sh
-c29.0		   meout3.txt		     s10.0
-c30.0		   meout4.txt		     s11.0
-c31.0		   meout5.txt		     s12.0
-c32.0		   meout6.txt		     s13.0
-c35.0		   meout7.txt		     s14.0
-c36.0		   meout8.txt		     s15.0
-c37.0		   meout9.txt		     s9.0
-clean.0		   myExtraOutput1.txt	     sampleCommands1.txt
-commands	   myExtraOutput2.txt	     sampleCommands2.txt
-commands.0	   myExtraOutput3.txt	     sampleCommands3.txt
-commands0.txt	   myExtraOutput4.txt	     sampleCommands4.txt
-commands1.txt	   myExtraOutput5.txt	     sampleCommands5.txt
-commands2.txt	   myExtraOutput6.txt	     sampleCorpus1.txt
-commands3.txt	   myExtraOutput7.txt	     sampleCorpus2.txt
-commands4.txt	   myExtraOutput8.txt	     sampleCorpus3.txt
-commands5.txt	   myOutput1.txt	     sampleCorpus4.txt
-commands6.txt	   myOutput2.txt	     scanner.c
-comparator.c	   myOutput3.txt	     scanner.h
-comparator.h	   myOutput4.txt	     shakespeare.display
-corpus0.txt	   myOutput5.txt	     shakespeare.txt
-corpus1.txt	   myOutput6.txt	     shakespeare.txt.1
-corpus2.txt	   myOutput7.txt	     sll.c
-corpus3.txt	   myOutput8.txt	     sll.h
-corpus4.txt	   myOutput9.txt	     spaces.0
-display		   mytestcommands.txt	     string.c
-empty		   NOTES.md		     stringgrabber.c
-emptycommands.txt  out10.txt		     stringgrabber.h
-empty.txt	   out1.txt		     string.h
-eout17.txt	   out2.txt		     temp.txt
-eout18.txt	   out3.txt		     testoutput.txt
-eout19.txt	   out4.txt		     test.txt
-eout21.txt	   out5.txt		     vbst.c
-eout23.txt	   out6.txt		     vbst.h
-eout24.txt	   out7.txt		     w16.0
-eout3.txt	   out8.txt		     w17.0
-eout4.txt	   out9.txt		     w18.0
-eout5.txt	   output1.txt		     w19.0
-eout6.txt	   output2.txt		     w20.0
-eout7.txt	   output3.txt		     w21.0
-eout8.txt	   output4.txt		     w22.0
-eout9.txt	   output5.txt		     w23.0
-grabtests.sh	   output6.txt		     w24.0
-integer.c	   output7.txt		     WORKING
+/Users/matthewmorgan/cs201/random-stuff/assgn2/attempt1
+Tue Mar 21 10:27:01 CDT 2017
+NOTES.md			myOutput1.txt
+WORKING				myOutput2.txt
+backup.txt			myOutput3.txt
+beowulf.txt			myOutput4.txt
+bst.c				myOutput5.txt
+bst.h				myOutput6.txt
+bstrees.c			myOutput7.txt
+btest10.txt			myOutput8.txt
+btest11.txt			myOutput9.txt
+btest12.txt			mytestcommands.txt
+btest13.txt			out1.txt
+btest14.txt			out10.txt
+btest15.txt			out2.txt
+btest16.txt			out3.txt
+btest17.txt			out4.txt
+btest18.txt			out5.txt
+btest19.txt			out6.txt
+btest20.txt			out7.txt
+btest21.txt			out8.txt
+btest22.txt			out9.txt
+btest23.txt			output1.txt
+btest24.txt			output2.txt
+btest25.txt			output3.txt
+btest26.txt			output4.txt
+btest27.txt			output5.txt
+btest28.txt			output6.txt
+btest29.txt			output7.txt
+btest3.txt			output8.txt
+btest30.txt			queue.c
+btest31.txt			queue.h
+btest32.txt			rbt.c
+btest33.txt			rbt.h
+btest34.txt			readme.txt
+btest35.txt			real.c
+btest36.txt			real.h
+btest37.txt			removetests.sh
+btest4.txt			s10.0
+btest5.txt			s11.0
+btest6.txt			s12.0
+btest7.txt			s13.0
+btest8.txt			s14.0
+btest9.txt			s15.0
+c25.0				s9.0
+c26.0				sampleCommands1.txt
+c27.0				sampleCommands2.txt
+c28.0				sampleCommands3.txt
+c29.0				sampleCommands4.txt
+c30.0				sampleCommands5.txt
+c31.0				sampleCorpus1.txt
+c32.0				sampleCorpus2.txt
+c35.0				sampleCorpus3.txt
+c36.0				sampleCorpus4.txt
+c37.0				scanner.c
+clean.0				scanner.h
+commands			shakespeare.display
+commands.0			shakespeare.txt
+commands0.txt			shakespeare.txt.1
+commands1.txt			sll.c
+commands2.txt			sll.h
+commands3.txt			spaces.0
+commands4.txt			string.c
+commands5.txt			string.h
+commands6.txt			stringgrabber.c
+comparator.c			stringgrabber.h
+comparator.h			temp.txt
+corpus0.txt			test.txt
+corpus1.txt			test10.txt
+corpus2.txt			test11.txt
+corpus3.txt			test12.txt
+corpus4.txt			test13.txt
+display				test14.txt
+empty				test15.txt
+empty.txt			test16.txt
+emptycommands.txt		test17.txt
+eout17.txt			test18.txt
+eout18.txt			test19.txt
+eout19.txt			test20.txt
+eout21.txt			test21.txt
+eout23.txt			test22.txt
+eout24.txt			test23.txt
+eout3.txt			test24.txt
+eout4.txt			test25.txt
+eout5.txt			test26.txt
+eout6.txt			test27.txt
+eout7.txt			test28.txt
+eout8.txt			test29.txt
+eout9.txt			test3.txt
+grabtests.sh			test30.txt
+integer.c			test31.txt
+integer.h			test32.txt
+makefile			test33.txt
+mdmorgan1@crimson.ua.edu	test34.txt
+meout17.txt			test35.txt
+meout18.txt			test36.txt
+meout19.txt			test37.txt
+meout21.txt			test4.txt
+meout23.txt			test5.txt
+meout24.txt			test6.txt
+meout3.txt			test7.txt
+meout4.txt			test8.txt
+meout5.txt			test9.txt
+meout6.txt			testoutput.txt
+meout7.txt			vbst.c
+meout8.txt			vbst.h
+meout9.txt			w16.0
+myExtraOutput1.txt		w17.0
+myExtraOutput2.txt		w18.0
+myExtraOutput3.txt		w19.0
+myExtraOutput4.txt		w20.0
+myExtraOutput5.txt		w21.0
+myExtraOutput6.txt		w22.0
+myExtraOutput7.txt		w23.0
+myExtraOutput8.txt		w24.0
