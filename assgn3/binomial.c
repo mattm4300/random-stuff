@@ -57,8 +57,8 @@ void displayBinomialNode(FILE *fp,void *n) {
           fprintf(fp, ")");
      }
      //
-     printf("Display done.\n");
-     printf("END_FUNC: displayBinomialNode\nm");
+     printf("\nDisplay done.\n");
+     printf("END_FUNC: displayBinomialNode\n");
 }
 
 Binomial *newBinomial(
