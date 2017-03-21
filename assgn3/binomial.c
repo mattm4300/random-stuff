@@ -40,11 +40,14 @@ BinomialNode *newBinomialNode(void (*display)(FILE *,void *), void *value) {
 void displayBinomialNode(FILE *fp,void *n) {
      BinomialNode *x = (BinomialNode *) n; // "Unbox" the value.
      x->display(fp, x->value);
-     fprintf(fp, "-N"); // Add order sometime.
-     x->display(fp )
+     fprintf(fp, "-%d", degree(x));
+     if(x->parent != x) {
+          fprintf(fp, "(");
+          x->display(fp, x->parent->value);
+          fprintf(fp, "-%d", degree(x->parent));
+          fprintf(fp, ")");
+     }
 }
-
-
 
 Binomial *newBinomial(
           void (*d)(FILE *,void *), // Display
@@ -61,17 +64,29 @@ Binomial *newBinomial(
 }
 
 static BinomialNode *combine(Binomial *b, BinomialNode *x, BinomialNode *y) {
-     // If x < y:
+     // If x more extreme than y:
      if(b->compare(x, y) < 0) {
-
+          int i = degree(y);
+          setDArray(x->children, i, y);
+          y->parent = x;
+          return x;
+     // Else y more extreme than x:
+     } else {
+          int i = degree(x);
+          setDArray(y->children, i, x);
+          x->parent = y;
+          return y;
      }
 }
 
 static consolidate(Binomial *b, BinomialNode *n) {
      int degree = sizeDArray(n->children);
      while(getDArray(b->rootlist, degree) != NULL) {
-
+          n = combine(b, n, b->rootlist[degree]);
+          b->rootlist[degree] = NULL;
+          ++degree;
      }
+     setDArray(b->rootlist, degree, n);
 }
 
 BinomialNode *insertBinomial(Binomial *b, void *value) {
