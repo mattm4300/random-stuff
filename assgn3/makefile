@@ -27,4 +27,4 @@ build:
 	make clean
 	make
 clean:
-	rm -f djikstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o
+	rm -f djikstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o djikstra
