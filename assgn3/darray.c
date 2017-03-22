@@ -13,6 +13,9 @@ DArray *newDArray(void (*display)(FILE *, void *)) {
      a->capacity = 1;
      a->size = 0;
      a->display = display;
+     // test case: Initialize the only spot to NULL;
+     a->array[0] = NULL;
+     //
      return a;
 }
 
@@ -23,6 +26,12 @@ void insertDArray(DArray *a, void *v) {
           a->capacity *= 2;
      }
      a->array[a->size++] = v;
+     // test case: Initialize all empty spots to NULL.
+     int index = 0;
+     for(index = a->size; index < a->capacity; index++) {
+          a->array[index] = NULL;
+     }
+     //
 }
 
 void *removeDArray(DArray *a) {
@@ -45,7 +54,7 @@ void *removeDArray(DArray *a) {
 
 void *getDArray(DArray *a, int index) {
      if(index >= a->capacity) {
-          fprintf(stderr, "Inalivd DArray index.\n");
+          fprintf(stderr, "Invalid DArray index.\n");
           exit(-1);
      } else if(index >= a->size) {
           return NULL; // If the index is valid in terms of capacity but not size.
@@ -59,7 +68,7 @@ void setDArray(DArray *a, int index, void *value) {
      if(index == a->capacity) return insertDArray(a, value);
      else {
           // Make sure to free the old value in memory or memory leak WILL occur.
-          free(a->array[index]);
+          if(a->array[index] != NULL) free(a->array[index]);
           a->array[index] = value;
      }
 }

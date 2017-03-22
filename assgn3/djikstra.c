@@ -67,16 +67,19 @@ int main(int argc, char **argv) {
      populateMatrix(mat, argv[1]);
      printf("Done.\n");
 
+
      Binomial *b = newBinomial(displayInteger, intComparator, NULL);
      srand(time(NULL));
      int counter = (rand() % 10) + 5;
      while(counter != 0) {
           BinomialNode *n = insertBinomial(b, newInteger(rand() % 1000));
           displayBinomialNode(stdout, n);
+          counter--;
      }
 
 
      /*
+     DArray *a = newDArray(displayInteger);
      srand(time(NULL));
      int counter = 0;
      while(1) {

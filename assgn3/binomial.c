@@ -143,6 +143,7 @@ static void consolidate(Binomial *b, BinomialNode *n) {
      //
      printf("Combine loop done.\n");
      printf("Doing final set...\n");
+     printf("Inserting @ dg: %d\n", dg);
      //
      setDArray(b->rootlist, dg, n);
      //
@@ -167,8 +168,14 @@ BinomialNode *insertBinomial(Binomial *b, void *value) {
      consolidate(b, n);
      //
      printf("Done Consolidating.\n");
+     printf("Printing rootlist:\n");
+     int temp = 0;
+     for(temp = 0; temp < sizeDArray(b->rootlist); temp++) {
+          printf("\t%d: ", temp);
+          displayBinomialNode(stdout, getDArray(b->rootlist, temp));
+     }
+     printf("Done printing rootlist.\n");
      printf("END_FUNC: insertBinomial\n");
-     displayBinomialNode(stdout, n);
      //
      ++b->size;
      return n;
