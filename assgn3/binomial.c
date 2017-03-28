@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "binomial.h"
 
 struct BinomialNode {
@@ -37,12 +39,12 @@ BinomialNode *newBinomialNode(void (*display)(FILE *,void *), void *value) {
      return n;
 }
 
-void displayBinomialNode(FILE *fp,void *n) {
+void displayBinomialNode(FILE *fp, BinomialNode *n) {
      //
      printf("START_FUNC: displayBinomialNode\n");
      printf("Casting node...\n");
      //
-     BinomialNode *x = (BinomialNode *) n; // "Unbox" the value.
+     BinomialNode *x = n; // "Unbox" the value.
      //
      printf("Done casting.\n");
      printf("NODE VALUE: "); x->display(stdout, x->value); printf("\n");
