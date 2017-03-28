@@ -49,6 +49,9 @@ int largestVertex(char *fileName) {
 static void placeEdge(int **mat, edgeDefinition *ed) {
      int x = ed->verta;
      int y = ed->vertb;
+     // Our graphs are simple, so a vertex won't have an edge to itself.
+     // Therefore, skip if edge is a self-referencing edge.
+     if(x == y) return;
      // x, y and y, x have not been set yet-- set both.
      if(mat[x][y] == INT_MAX) mat[x][y] = mat[y][x] = ed->weight;
      // x, y & y, x have been set, but see if new weight is smaller.
