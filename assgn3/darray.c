@@ -70,7 +70,12 @@ void setDArray(DArray *a, int index, void *value) {
      if(index == a->capacity) return insertDArray(a, value);
      else {
           // Make sure to free the old value in memory or memory leak WILL occur.
+          // Note that we're overriding an existing spot in the array, so it's
+          // unnecessary to increment the size.
           if(a->array[index] != NULL) free(a->array[index]);
+          // If the spot is NULL, we're adding a value to the array in a
+          // previously unused spot, so we must increment the size.
+          else a->size++;
           a->array[index] = value;
      }
 }
