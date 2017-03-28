@@ -1,9 +1,9 @@
 FLAGS = -Wall -Wextra -std=c99 -O3
 
-djikstra: djikstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o
-	gcc $(FLAGS) djikstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o -o djikstra
-djikstra.o: djikstra.c edgeReader.h integer.h darray.h binomial.h comparator.h
-	gcc $(FLAGS) -c djikstra.c
+dijkstra: dijkstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o
+	gcc $(FLAGS) dijkstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o -o dijkstra
+dijkstra.o: dijkstra.c edgeReader.h integer.h darray.h binomial.h comparator.h
+	gcc $(FLAGS) -c dijkstra.c
 scanner.o: scanner.c scanner.h
 	gcc $(FLAGS) -c scanner.c
 edgeReader.o: edgeReader.c edgeReader.h scanner.h
@@ -20,11 +20,11 @@ binomial.o: binomial.c binomial.h darray.h
 	gcc $(FLAGS) -c binomial.c
 comparator.o: comparator.c comparator.h integer.h real.h string.h
 	gcc $(FLAGS) -c comparator.c
-test: djikstra
-	./djikstra verts.txt
+test: dijkstra
+	./dijkstra verts.txt
 build:
 	clear
 	make clean
 	make
 clean:
-	rm -f djikstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o djikstra
+	rm -f dijkstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o dijkstra

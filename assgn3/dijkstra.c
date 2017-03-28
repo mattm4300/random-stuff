@@ -68,6 +68,7 @@ int main(int argc, char **argv) {
      printf("Done.\n");
 
 
+     /*
      Binomial *b = newBinomial(displayInteger, intComparator, NULL);
      srand(time(NULL));
      int counter = (rand() % 10) + 5;
@@ -76,9 +77,10 @@ int main(int argc, char **argv) {
           displayBinomialNode(stdout, n);
           counter--;
      }
+     */
 
 
-     /*
+
      DArray *a = newDArray(displayInteger);
      srand(time(NULL));
      int counter = 0;
@@ -105,6 +107,6 @@ int main(int argc, char **argv) {
      while(sizeDArray(a) != 0) {
           free(removeDArray(a));
      }
-     */
+     
      return 0;
 }
