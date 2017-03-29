@@ -36,6 +36,11 @@
  * ============================================================================
 */
 int intComparator(void *a, void *b) {
+     // Updated for assign3:
+     if(a == NULL && b == NULL) return 0;
+     else if(a == NULL) return -1;
+     else if(b == NULL) return 1;
+
      int v1, v2;
      v1 = ((integer *) a)->value;
      v2 = ((integer *) b)->value;

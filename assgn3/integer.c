@@ -14,13 +14,13 @@ newInteger(int x)
     return p;
     }
 
-int 
+int
 getInteger(integer *v)
     {
     return v->value;
     }
 
-int 
+int
 setInteger(integer *v,int x)
     {
     int old = v->value;
@@ -28,7 +28,7 @@ setInteger(integer *v,int x)
     return old;
     }
 
-void 
+void
 displayInteger(FILE *fp,void *v)
     {
     fprintf(fp,"%d",getInteger((integer *) v));
