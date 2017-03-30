@@ -1,6 +1,16 @@
-/mnt/c/Users/MORGAN/Desktop/CS201/random-stuff/assgn3
-Mon Mar 20 14:15:37 DST 2017
-binomial.c  djikstra	  integer.c		    NOTES.md   WORKING
-binomial.h  djikstra.c	  integer.h		    scanner.c
-darray.c    edgeReader.c  makefile		    scanner.h
-darray.h    edgeReader.h  mdmorgan1@crimson.ua.edu  verts.txt
+/Users/matthewmorgan/cs201/random-stuff/assgn3
+Thu Mar 30 15:30:34 CDT 2017
+NOTES.md			makefile
+WORKING				mdmorgan1@crimson.ua.edu
+binomial.c			queue.c
+binomial.h			queue.h
+comparator.c			real.c
+comparator.h			real.h
+darray.c			scanner.c
+darray.h			scanner.h
+dijkstra.c			sll.c
+djikstra			sll.h
+edgeReader.c			string.c
+edgeReader.h			string.h
+integer.c			verts.txt
+integer.h

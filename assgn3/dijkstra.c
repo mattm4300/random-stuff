@@ -57,25 +57,23 @@ int main(int argc, char **argv) {
           fprintf(stderr, "Not enough arguments.\n");
           exit(1);
      }
-     printf("Reading largest vertex...");
      int sl = largestVertex(argv[1]) + 1;
-     printf("Done => lv: <%d> | sl: <%d>\n", sl-1, sl);
-     printf("Building square matrix...");
      int **mat = newSquareMatrix(sl);
-     printf("Done.\n");
-     printf("Populating matrix...");
      populateMatrix(mat, argv[1]);
-     printf("Done.\n");
 
-     /*
-     Binomial *b = newBinomial(displayInteger, intComparator, NULL);
-     insertBinomial(b, newInteger(4)); printf("\n");
-     insertBinomial(b, newInteger(8)); printf("\n");
-     insertBinomial(b, newInteger(16)); printf("\n");
-     insertBinomial(b, newInteger(5)); printf("\n");
-     insertBinomial(b, newInteger(1)); printf("\n");
-     displayBinomial(stdout, b);
-     */
+
+     DArray *array = newDArray(displayInteger);
+     insertDArray(array,newInteger(3));
+     removeDArray(array);
+     displayDArray(stdout,array);
+     insertDArray(array,newInteger(4));
+     insertDArray(array,newInteger(7));
+     insertDArray(array,newInteger(2));
+     displayDArray(stdout,array);
+     for (int i = 0; i < 5000; i++) insertDArray(array,newInteger(7));
+     for (int i = 0; i < 4999; i++) removeDArray(array);
+     displayDArray(stdout,array);
+     fprintf(stdout,"%d\n",getInteger(getDArray(array,0)));
 
      Binomial *heap = newBinomial(displayInteger,compareInteger,NULL);
      fprintf(stdout,"Inserting...\n");
