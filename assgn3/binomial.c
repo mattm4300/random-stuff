@@ -18,6 +18,11 @@ struct Binomial {
      void (*display)(FILE *, void *);
 };
 
+// Returns the degree of a node.
+static int degreeBinomialNode(BinomialNode *n) {
+     return sizeDArray(n->children);
+}
+
 // =============================================================================
 
 BinomialNode *newBinomialNode(void (*display)(FILE *,void *), void *value) {
@@ -30,7 +35,17 @@ BinomialNode *newBinomialNode(void (*display)(FILE *,void *), void *value) {
 }
 
 void displayBinomialNode(FILE *fp, BinomialNode *n) {
-     return;
+     if(n == NULL) {
+          fprintf(stderr, "Something wrong. NULL passed to displayNode.");
+          exit(-1);
+     }
+     n->display(fp, n->value);
+     fprintf(fp, "-%d ", degreeBinomialNode(n));
+     if(n->parent != n) {
+          fprintf(fp, "(");
+          n->parent->display(fp, n->parent->value);
+          fprintf(fp, "-%d)", degreeBinomialNode(n->parent));
+     }
 }
 
 // =============================================================================
@@ -50,10 +65,7 @@ Binomial *newBinomial(
      return b;
 }
 
-// Returns the degree of a node.
-static int degreeBinomialNode(BinomialNode *n) {
-     return sizeDArray(n->children);
-}
+
 
 static BinomialNode *combine(Binomial *b, BinomialNode *x, BinomialNode *y) {
      // [NOTE]: We're using a min-heap, so if x < y, y will become a child of x.
@@ -215,8 +227,42 @@ void deleteBinomial(Binomial *b, BinomialNode *n) {
      extractBinomial(b);
 }
 
-void displayBinomial(FILE *fp, Binomial *b) {
+static void printLevelOrder(FILE *fp, BinomialNode *n) {
+     queue *q = newQueue(n->display);
+     enqueue(q, n);
+     enqueue(q, NULL);
+     int level = 0;
+     fprintf(fp, "%d: ", level);
+     while(sizeQueue(q) != 0) {
+          BinomialNode *temp = dequeue(q);
+          if(temp == NULL) {
+               fprintf(fp, "\n");
+               if(sizeQueue(q) != 0) {
+                    ++level;
+                    enqueue(q, NULL);
+                    fprintf(fp, "%d: ", level);
+               }
+          } else {
+               displayBinomialNode(fp, temp);
+               if(peekQueue(q) != NULL) {
+                    fprintf(fp, "\n");
+                    int index = 0;
+                    for(index = 0; index < sizeDArray(temp->children); index++) {
+                         enqueue(q, (BinomialNode *) getDArray(temp->children, index));
+                    }
+               }
+          }
+     }
+}
 
+void displayBinomial(FILE *fp, Binomial *b) {
+     int index = 0;
+     for(index = 0; index < sizeDArray(b->rootlist); index++) {
+          if(getDArray(b->rootlist, index) != NULL) {
+               printLevelOrder(fp, (BinomialNode *) getDArray(b->rootlist, index));
+               fprintf(fp, "----\n");
+          }
+     }
 }
 
 

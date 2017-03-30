@@ -51,6 +51,7 @@ void *removeDArray(DArray *a) {
 void *getDArray(DArray *a, int index) {
      if(index >= a->capacity) {
           fprintf(stderr, "Invalid DArray index.\n");
+          fprintf(stderr, "Size: %d | Cap: %d | Invalid index: %d\n", a->size, a->capacity, index);
           exit(-1);
      } else if(index >= a->size) {
           return NULL; // If the index is valid in terms of capacity but not size.

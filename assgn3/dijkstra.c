@@ -68,8 +68,13 @@ int main(int argc, char **argv) {
      printf("Done.\n");
 
 
-     /*
+
      Binomial *b = newBinomial(displayInteger, intComparator, NULL);
+     insertBinomial(b, newInteger(100));
+     //insertBinomial(b, newInteger(1000));
+
+
+     /*
      srand(time(NULL));
      int counter = (rand() % 10) + 5;
      while(counter != 0) {
