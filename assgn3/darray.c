@@ -89,4 +89,6 @@ void displayDArray(FILE *fp, DArray *a) {
      fprintf(fp, "]");
      // Print the extra spaces.
      fprintf(fp, "[%d]", a->capacity - a->size);
+
+     fprintf(fp, "\n");
 }

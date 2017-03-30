@@ -92,13 +92,20 @@ static void consolidate(Binomial *b, BinomialNode *n) {
      // Set degree to the number of n's children.
      int degree = degreeBinomialNode(n);
      // While b's rootlist at index degree is not empty.. loop.
+     printf("n's deg: %d\n", degree);
      while(getDArray(b->rootlist, degree) != NULL) {
-          // Set n to the comboination of n and the subtree stored at the index.
+          printf("Looping...\n");
+          // Set n to the combination of n and the subtree stored at the index.
+          printf("Combining...\n");
           n = combine(b, n, getDArray(b->rootlist, degree));
+          printf("Done combining.\n");
           // Set b's slot at index degree to NULL.
           setDArray(b->rootlist, degree, NULL);
           // Increment the degree.
           ++degree;
+          // [NOTE]: I'm pretty sure this if statement is mandatory.
+          if(degree == sizeDArray(b->rootlist)) insertDArray(b->rootlist, NULL);
+          printf("Done looping.\n");
      }
      // Degree now indexes an empty slot, so place n at index degree, growing
      // the root list if necessary (handled by DArray class).
@@ -232,7 +239,7 @@ static void printLevelOrder(FILE *fp, BinomialNode *n) {
      enqueue(q, n);
      enqueue(q, NULL);
      int level = 0;
-     fprintf(fp, "%d: ", level);
+     fprintf(fp, "%d : ", level);
      while(sizeQueue(q) != 0) {
           BinomialNode *temp = dequeue(q);
           if(temp == NULL) {
@@ -240,7 +247,7 @@ static void printLevelOrder(FILE *fp, BinomialNode *n) {
                if(sizeQueue(q) != 0) {
                     ++level;
                     enqueue(q, NULL);
-                    fprintf(fp, "%d: ", level);
+                    fprintf(fp, "%d : ", level);
                }
           } else {
                displayBinomialNode(fp, temp);
@@ -256,6 +263,7 @@ static void printLevelOrder(FILE *fp, BinomialNode *n) {
 }
 
 void displayBinomial(FILE *fp, Binomial *b) {
+     // [TODO]: Add empty heap print here!
      int index = 0;
      for(index = 0; index < sizeDArray(b->rootlist); index++) {
           if(getDArray(b->rootlist, index) != NULL) {
