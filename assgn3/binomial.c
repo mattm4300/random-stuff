@@ -104,50 +104,30 @@ static void checkExtreme(Binomial *b, BinomialNode *n) {
      }
 }
 
-static BinomialNode *extreme(Binomial *b) {
-     printf("Rootlist size: %d\n", sizeDArray(b->rootlist));
-     // get the starting index.
-     int extremeIndex = 0;
+static void setNewExtreme(Binomial *b) {
+     b->extreme = NULL;
      int index = 0;
      for(index = 0; index < sizeDArray(b->rootlist); index++) {
-          if((BinomialNode *) getSubHeap(b->rootlist, index) != NULL) {
-               extremeIndex = index;
-               printf("Extreme index: %d\n", extremeIndex);
-               break;
+          BinomialNode *n = getSubHeap(b->rootlist, index);
+          if(n != NULL) {
+               checkExtreme(b, n);
           }
      }
-     // Get the most extreme node.
-     printf("Scanning for most extreme...\n");
-     for(index = extremeIndex + 1; index < sizeDArray(b->rootlist); index++) {
-          printf("Trying index: %d\n", index);
-          BinomialNode *extreme = getSubHeap(b->rootlist, extremeIndex);
-          BinomialNode *spot = getSubHeap(b->rootlist, index);
-          if(b->compare(spot->value, extreme->value) < 0) {
-               extremeIndex = index;
-          }
-     }
-     printf("Final extremeIndex: %d\n", extremeIndex);
-     return (BinomialNode *) getSubHeap(b->rootlist, extremeIndex);
 }
 
 static void consolidate(Binomial *b, BinomialNode *n) {
      // Set degree to the number of n's children.
      int degree = degreeBinomialNode(n);
      // While b's rootlist at index degree is not empty.. loop.
-     printf("n's deg: %d\n", degree);
      while(getSubHeap(b->rootlist, degree) != NULL) {
-          printf("Looping...\n");
           // Set n to the combination of n and the subtree stored at the index.
-          printf("Combining...\n");
           n = combine(b, n, getSubHeap(b->rootlist, degree));
-          printf("Done combining.\n");
           // Set b's slot at index degree to NULL.
           setDArray(b->rootlist, degree, NULL);
           // Increment the degree.
           ++degree;
           // [NOTE]: I'm pretty sure this if statement is mandatory.
           if(degree == sizeDArray(b->rootlist)) insertDArray(b->rootlist, NULL);
-          printf("Done looping.\n");
      }
      // Degree now indexes an empty slot, so place n at index degree, growing
      // the root list if necessary (handled by DArray class).
@@ -220,8 +200,7 @@ void decreaseKeyBinomial(Binomial *b, BinomialNode *n, void *value) {
      // Bubble up the new value using b's comparator.
      bubbleUp(b, n);
      // Update b's extreme value pointer, if necessary.
-     if(b->extreme == NULL) b->extreme = n;
-     else if(b->compare(n->value, b->extreme->value) < 0) b->extreme = n;
+     checkExtreme(b, n);
 }
 
 
@@ -247,18 +226,17 @@ void *extractBinomial(Binomial *b) {
      // Free the extreme node.
      free(y);
      // Find the new extreme value.
-     b->extreme = extreme(b);
+     setNewExtreme(b);
      // Return the value that was in y.
      return val;
 }
 
 void deleteBinomial(Binomial *b, BinomialNode *n) {
      decreaseKeyBinomial(b, n, NULL);
-     extractBinomial(b);
+     (void) extractBinomial(b);
 }
 
 static void printLevelOrder(FILE *fp, BinomialNode *n) {
-     printf("Starting level order print.\n");
      queue *q = newQueue(n->display);
      enqueue(q, n);
      enqueue(q, NULL);
@@ -290,8 +268,6 @@ void displayBinomial(FILE *fp, Binomial *b) {
           fprintf(fp, "0:\n");
           return;
      }
-
-     printf("Starting print:\n");
 
      int index = 0;
      for(index = 0; index < sizeDArray(b->rootlist); index++) {

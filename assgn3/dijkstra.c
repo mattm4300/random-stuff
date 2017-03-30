@@ -67,6 +67,7 @@ int main(int argc, char **argv) {
      populateMatrix(mat, argv[1]);
      printf("Done.\n");
 
+     /*
      Binomial *b = newBinomial(displayInteger, intComparator, NULL);
      insertBinomial(b, newInteger(4)); printf("\n");
      insertBinomial(b, newInteger(8)); printf("\n");
@@ -74,7 +75,33 @@ int main(int argc, char **argv) {
      insertBinomial(b, newInteger(5)); printf("\n");
      insertBinomial(b, newInteger(1)); printf("\n");
      displayBinomial(stdout, b);
+     */
 
+     Binomial *heap = newBinomial(displayInteger,compareInteger,NULL);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(4));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(8));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(16));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(5));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(1));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Extracting...\n");
+     (void) extractBinomial(heap);
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Extracting...\n");
+     (void) extractBinomial(heap);
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Extracting...\n");
+     (void) extractBinomial(heap);
+     displayBinomial(stdout,heap);
 
      return 0;
 }
