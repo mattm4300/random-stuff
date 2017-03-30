@@ -22,8 +22,6 @@ DArray *newDArray(void (*display)(FILE *, void *)) {
 }
 
 void insertDArray(DArray *a, void *v) {
-     // Bool value.
-     int capIncreased = 0;
      // Array full, so double array cap.
      if(a->size == a->capacity) {
           a->array = realloc(a->array, sizeof(void *) * a->capacity * 2);
@@ -31,14 +29,6 @@ void insertDArray(DArray *a, void *v) {
           capIncreased = 1;
      }
      a->array[a->size++] = v;
-
-     // Initialize the newly allocated spots to NULL if cap is increased.
-     if(capIncreased) {
-          int index = 0;
-          for(index = a->size; index < a->capacity; index++) {
-               a->array[index] = NULL;
-          }
-     }
 }
 
 void *removeDArray(DArray *a) {

@@ -187,9 +187,7 @@ void *extractBinomial(Binomial *b) {
      // To find the new extreme value, one seraches the root list from degree
      // 0 to degree log(size of b) / log(2), inclusive.
      index = 0;
-     while(index <= (int)(log((double) b->size)/log(2))) {
-          // [TODO]: finish this up here.
-     }
+     
 
 
      return val;
