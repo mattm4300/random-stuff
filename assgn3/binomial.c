@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "binomial.h"
+#include "queue.h"
 
 struct BinomialNode {
      void *value;
