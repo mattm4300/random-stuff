@@ -67,21 +67,6 @@ int main(int argc, char **argv) {
      populateMatrix(mat, argv[1]);
      printf("Done.\n");
 
-
-     DArray *array = newDArray(displayInteger);
-     insertDArray(array,newInteger(3));
-     removeDArray(array);
-     displayDArray(stdout,array);
-     insertDArray(array,newInteger(4));
-     insertDArray(array,newInteger(7));
-     insertDArray(array,newInteger(2));
-     displayDArray(stdout,array);
-     for (int i = 0; i < 5000; i++) insertDArray(array,newInteger(7));
-     for (int i = 0; i < 4999; i++) removeDArray(array);
-     displayDArray(stdout,array);
-     fprintf(stdout,"%d\n",getInteger(getDArray(array,0)));
-
-
      Binomial *b = newBinomial(displayInteger, intComparator, NULL);
      insertBinomial(b, newInteger(4)); printf("\n");
      insertBinomial(b, newInteger(8)); printf("\n");
@@ -90,46 +75,6 @@ int main(int argc, char **argv) {
      insertBinomial(b, newInteger(1)); printf("\n");
      displayBinomial(stdout, b);
 
-
-
-     /*
-     srand(time(NULL));
-     int counter = (rand() % 10) + 5;
-     while(counter != 0) {
-          BinomialNode *n = insertBinomial(b, newInteger(rand() % 1000));
-          displayBinomialNode(stdout, n);
-          counter--;
-     }
-     */
-
-     /*
-     DArray *a = newDArray(displayInteger);
-     srand(time(NULL));
-     int counter = 0;
-     while(1) {
-          int in_del = rand() % 3;
-          if(in_del == 0) {
-               insertDArray(a, newInteger(rand() % 100000000));
-          } else if(in_del == 1) {
-               free(removeDArray(a));
-          } else {
-               if(sizeDArray(a) != 0) setDArray(a, rand() % sizeDArray(a), newInteger(rand() % 100000000));
-          }
-          if(counter % 10000 == 0) printf("Size: <%d>\n", sizeDArray(a));
-          if(sizeDArray(a) > 10000) {
-               printf("Threshold reached.\n");
-               printf("Deleting objects... ");
-               while(sizeDArray(a) != 0) free(removeDArray(a));
-               printf("Done.\n");
-               printf("Exiting.\n");
-               return 0;
-          }
-          ++counter;
-     }
-     while(sizeDArray(a) != 0) {
-          free(removeDArray(a));
-     }
-     */
 
      return 0;
 }

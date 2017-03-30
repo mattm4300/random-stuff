@@ -97,6 +97,13 @@ static BinomialNode *combine(Binomial *b, BinomialNode *x, BinomialNode *y) {
      }
 }
 
+static void checkExtreme(Binomial *b, BinomialNode *n) {
+     if(b->extreme == NULL) b->extreme = n;
+     else if(b->compare(n->value, b->extreme->value) < 0) {
+          b->extreme = n;
+     }
+}
+
 static BinomialNode *extreme(Binomial *b) {
      printf("Rootlist size: %d\n", sizeDArray(b->rootlist));
      // get the starting index.
@@ -111,7 +118,7 @@ static BinomialNode *extreme(Binomial *b) {
      }
      // Get the most extreme node.
      printf("Scanning for most extreme...\n");
-     for(index = index + 1; index < sizeDArray(b->rootlist); index++) {
+     for(index = extremeIndex + 1; index < sizeDArray(b->rootlist); index++) {
           printf("Trying index: %d\n", index);
           BinomialNode *extreme = getSubHeap(b->rootlist, extremeIndex);
           BinomialNode *spot = getSubHeap(b->rootlist, index);
@@ -148,9 +155,7 @@ static void consolidate(Binomial *b, BinomialNode *n) {
 
      // [NOTE]: "The most extreme value is updated after the consolidation
      // routine runs."
-     //if(b->extreme == NULL) b->extreme = n;
-     //else if(b->compare(n->value, b->extreme->value) < 0) b->extreme = n;
-     b->extreme = extreme(b);
+     checkExtreme(b, n);
 }
 
 static void merge(Binomial *b, DArray *a) {
