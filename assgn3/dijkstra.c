@@ -83,14 +83,13 @@ int main(int argc, char **argv) {
 
 
      Binomial *b = newBinomial(displayInteger, intComparator, NULL);
-     insertBinomial(b, newInteger(100));
-     printf("Insert finished.\n");
+     insertBinomial(b, newInteger(4));
+     insertBinomial(b, newInteger(8));
+     insertBinomial(b, newInteger(16));
+     insertBinomial(b, newInteger(5));
+     insertBinomial(b, newInteger(1));
      displayBinomial(stdout, b);
-     printf("Display finished.\n");
-     insertBinomial(b, newInteger(200));
-     printf("Insert finished.\n");
-     displayBinomial(stdout, b);
-     printf("Display finished.\n");
+
 
 
      /*

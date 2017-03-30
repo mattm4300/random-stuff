@@ -65,10 +65,6 @@ void setDArray(DArray *a, int index, void *value) {
           // [NOTE]: I'm starting to think you should never change the size
           // unless you insert or delete --> Confirmed by Lusth!
 
-          // Make sure to free the old value in memory or memory leak WILL occur.
-          // Note that we're overriding an existing spot in the array, so it's
-          // unnecessary to increment the size.
-          if(a->array[index] != NULL) free(a->array[index]);
 
           a->array[index] = value;
      }

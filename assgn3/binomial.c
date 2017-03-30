@@ -65,7 +65,16 @@ Binomial *newBinomial(
      return b;
 }
 
-
+static BinomialNode *getSubHeap(DArray *a, int degree) {
+     if(degree > sizeDArray(a)) {
+          fprintf(stderr, "Error in getSubHeap!\n");
+          exit(-1);
+     } else if(degree == sizeDArray(a)) {
+          return NULL;
+     } else {
+          return getDArray(a, degree);
+     }
+}
 
 static BinomialNode *combine(Binomial *b, BinomialNode *x, BinomialNode *y) {
      // [NOTE]: We're using a min-heap, so if x < y, y will become a child of x.
@@ -88,27 +97,16 @@ static BinomialNode *combine(Binomial *b, BinomialNode *x, BinomialNode *y) {
      }
 }
 
-static BinomialNode *getSubHeap(DArray *a, int degree) {
-     if(degree > sizeDArray(a)) {
-          fprintf(stderr, "Error in getSubHeap!\n");
-          exit(-1);
-     } else if(degree == sizeDArray(a)) {
-          return NULL;
-     } else {
-          return getDArray(a, degree);
-     }
-}
-
 static void consolidate(Binomial *b, BinomialNode *n) {
      // Set degree to the number of n's children.
      int degree = degreeBinomialNode(n);
      // While b's rootlist at index degree is not empty.. loop.
      printf("n's deg: %d\n", degree);
-     while(getDArray(b->rootlist, degree) != NULL) {
+     while(getSubHeap(b->rootlist, degree) != NULL) {
           printf("Looping...\n");
           // Set n to the combination of n and the subtree stored at the index.
           printf("Combining...\n");
-          n = combine(b, n, getDArray(b->rootlist, degree));
+          n = combine(b, n, getSubHeap(b->rootlist, degree));
           printf("Done combining.\n");
           // Set b's slot at index degree to NULL.
           setDArray(b->rootlist, degree, NULL);
@@ -153,16 +151,6 @@ BinomialNode *insertBinomial(Binomial *b, void *value) {
      consolidate(b, n);
 
      b->size++;
-
-     fprintf(stdout, "Current root list:\n");
-     int index = 0;
-     for(index= 0; index < sizeDArray(b->rootlist); index++) {
-          if(getDArray(b->rootlist, index) != NULL) {
-               b->display(stdout, ((BinomialNode *) getDArray(b->rootlist, index))->value);
-               fprintf(stdout, " ");
-          }
-     }
-     fprintf(stdout, "\nEnd rootlist print.\n");
 
      return n;
 }
@@ -209,20 +197,20 @@ static BinomialNode *extreme(Binomial *b) {
      int extremeIndex = 0;
      int index = 0;
      for(index = 0; index < sizeDArray(b->rootlist); index++) {
-          if((BinomialNode *) getDArray(b->rootlist, index) != NULL) {
+          if((BinomialNode *) getSubHeap(b->rootlist, index) != NULL) {
                extremeIndex = index;
                break;
           }
      }
      // Get the most extreme node.
      for(index = index + 1; index < sizeDArray(b->rootlist); index++) {
-          BinomialNode *extreme = getDArray(b->rootlist, extremeIndex);
-          BinomialNode *spot = getDArray(b->rootlist, index);
+          BinomialNode *extreme = getSubHeap(b->rootlist, extremeIndex);
+          BinomialNode *spot = getSubHeap(b->rootlist, index);
           if(b->compare(spot->value, extreme->value) < 0) {
                extremeIndex = index;
           }
      }
-     return (BinomialNode *) getDArray(b->rootlist, extremeIndex);
+     return (BinomialNode *) getSubHeap(b->rootlist, extremeIndex);
 }
 
 void *extractBinomial(Binomial *b) {
@@ -231,7 +219,7 @@ void *extractBinomial(Binomial *b) {
      // Remove y from b's root list by placing a NULL pointer in y's spot.
      int index = 0;
      for(index = 0; index < sizeDArray(b->rootlist); index++) {
-          if(y == getDArray(b->rootlist, index)) {
+          if(y == getSubHeap(b->rootlist, index)) {
                setDArray(b->rootlist, index, NULL);
                break;
           }
@@ -257,11 +245,12 @@ void deleteBinomial(Binomial *b, BinomialNode *n) {
 }
 
 static void printLevelOrder(FILE *fp, BinomialNode *n) {
+     printf("Starting level order print.\n");
      queue *q = newQueue(n->display);
      enqueue(q, n);
      enqueue(q, NULL);
      int level = 0;
-     fprintf(fp, "%d : ", level);
+     fprintf(fp, "%d: ", level);
      while(sizeQueue(q) != 0) {
           BinomialNode *temp = dequeue(q);
           if(temp == NULL) {
@@ -269,16 +258,14 @@ static void printLevelOrder(FILE *fp, BinomialNode *n) {
                if(sizeQueue(q) != 0) {
                     ++level;
                     enqueue(q, NULL);
-                    fprintf(fp, "%d : ", level);
+                    fprintf(fp, "%d: ", level);
                }
           } else {
                displayBinomialNode(fp, temp);
-               if(peekQueue(q) != NULL) {
-                    fprintf(fp, "\n");
-                    int index = 0;
-                    for(index = 0; index < sizeDArray(temp->children); index++) {
-                         enqueue(q, (BinomialNode *) getDArray(temp->children, index));
-                    }
+               if(peekQueue(q) != NULL) fprintf(fp, " ");
+               int index = 0;
+               for(index = 0; index < sizeDArray(temp->children); index++) {
+                    enqueue(q, (BinomialNode *) getSubHeap(temp->children, index));
                }
           }
      }
@@ -286,10 +273,17 @@ static void printLevelOrder(FILE *fp, BinomialNode *n) {
 
 void displayBinomial(FILE *fp, Binomial *b) {
      // [TODO]: Add empty heap print here!
+     if(sizeBinomial(b) == 0) {
+          fprintf(fp, "0:\n");
+          return;
+     }
+
+     printf("Starting print:\n");
+
      int index = 0;
      for(index = 0; index < sizeDArray(b->rootlist); index++) {
-          if(getDArray(b->rootlist, index) != NULL) {
-               printLevelOrder(fp, (BinomialNode *) getDArray(b->rootlist, index));
+          if(getSubHeap(b->rootlist, index) != NULL) {
+               printLevelOrder(fp, (BinomialNode *) getSubHeap(b->rootlist, index));
                fprintf(fp, "----\n");
           }
      }
