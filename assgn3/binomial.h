@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "darray.h"
+#include "queue.h"
 
 #ifndef __BINHEAP_INCLUDED__
 #define __BINHEAP_INCLUDED__

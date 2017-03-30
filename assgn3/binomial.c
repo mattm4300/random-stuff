@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include "binomial.h"
 
 struct BinomialNode {
@@ -164,6 +163,27 @@ void decreaseKeyBinomial(Binomial *b, BinomialNode *n, void *value) {
      else if(b->compare(n->value, b->extreme->value) < 0) b->extreme = n;
 }
 
+static BinomialNode *extreme(Binomial *b) {
+     // get the starting index.
+     int extremeIndex = 0;
+     int index = 0;
+     for(index = 0; index < sizeDArray(b->rootlist); index++) {
+          if((BinomialNode *) getDArray(b->rootlist, index) != NULL) {
+               extremeIndex = index;
+               break;
+          }
+     }
+     // Get the most extreme node.
+     for(index = index + 1; index < sizeDArray(b->rootlist); index++) {
+          BinomialNode *extreme = getDArray(b->rootlist, extremeIndex);
+          BinomialNode *spot = getDArray(b->rootlist, index);
+          if(b->compare(spot->value, extreme->value) < 0) {
+               extremeIndex = index;
+          }
+     }
+     return (BinomialNode *) getDArray(b->rootlist, extremeIndex);
+}
+
 void *extractBinomial(Binomial *b) {
      // Set y to b's extreme.
      BinomialNode *y = b->extreme;
@@ -184,12 +204,9 @@ void *extractBinomial(Binomial *b) {
      void *val = y->value;
      // Free the extreme node.
      free(y);
-     // To find the new extreme value, one seraches the root list from degree
-     // 0 to degree log(size of b) / log(2), inclusive.
-     index = 0;
-     
-
-
+     // Find the new extreme value.
+     b->extreme = extreme(b);
+     // Return the value that was in y.
      return val;
 }
 
@@ -197,5 +214,10 @@ void deleteBinomial(Binomial *b, BinomialNode *n) {
      decreaseKeyBinomial(b, n, NULL);
      extractBinomial(b);
 }
+
+void displayBinomial(FILE *fp, Binomial *b) {
+
+}
+
 
 // EOF

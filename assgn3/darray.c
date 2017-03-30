@@ -26,7 +26,6 @@ void insertDArray(DArray *a, void *v) {
      if(a->size == a->capacity) {
           a->array = realloc(a->array, sizeof(void *) * a->capacity * 2);
           a->capacity *= 2;
-          capIncreased = 1;
      }
      a->array[a->size++] = v;
 }
