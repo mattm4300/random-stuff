@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
      printf("Done.\n");
 
 
-     /*DArray *array = newDArray(displayInteger);
+     DArray *array = newDArray(displayInteger);
      insertDArray(array,newInteger(3));
      removeDArray(array);
      displayDArray(stdout,array);
@@ -79,15 +79,15 @@ int main(int argc, char **argv) {
      for (int i = 0; i < 5000; i++) insertDArray(array,newInteger(7));
      for (int i = 0; i < 4999; i++) removeDArray(array);
      displayDArray(stdout,array);
-     fprintf(stdout,"%d\n",getInteger(getDArray(array,0)));*/
+     fprintf(stdout,"%d\n",getInteger(getDArray(array,0)));
 
 
      Binomial *b = newBinomial(displayInteger, intComparator, NULL);
-     insertBinomial(b, newInteger(4));
-     insertBinomial(b, newInteger(8));
-     insertBinomial(b, newInteger(16));
-     insertBinomial(b, newInteger(5));
-     insertBinomial(b, newInteger(1));
+     insertBinomial(b, newInteger(4)); printf("\n");
+     insertBinomial(b, newInteger(8)); printf("\n");
+     insertBinomial(b, newInteger(16)); printf("\n");
+     insertBinomial(b, newInteger(5)); printf("\n");
+     insertBinomial(b, newInteger(1)); printf("\n");
      displayBinomial(stdout, b);
 
 

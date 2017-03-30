@@ -97,6 +97,32 @@ static BinomialNode *combine(Binomial *b, BinomialNode *x, BinomialNode *y) {
      }
 }
 
+static BinomialNode *extreme(Binomial *b) {
+     printf("Rootlist size: %d\n", sizeDArray(b->rootlist));
+     // get the starting index.
+     int extremeIndex = 0;
+     int index = 0;
+     for(index = 0; index < sizeDArray(b->rootlist); index++) {
+          if((BinomialNode *) getSubHeap(b->rootlist, index) != NULL) {
+               extremeIndex = index;
+               printf("Extreme index: %d\n", extremeIndex);
+               break;
+          }
+     }
+     // Get the most extreme node.
+     printf("Scanning for most extreme...\n");
+     for(index = index + 1; index < sizeDArray(b->rootlist); index++) {
+          printf("Trying index: %d\n", index);
+          BinomialNode *extreme = getSubHeap(b->rootlist, extremeIndex);
+          BinomialNode *spot = getSubHeap(b->rootlist, index);
+          if(b->compare(spot->value, extreme->value) < 0) {
+               extremeIndex = index;
+          }
+     }
+     printf("Final extremeIndex: %d\n", extremeIndex);
+     return (BinomialNode *) getSubHeap(b->rootlist, extremeIndex);
+}
+
 static void consolidate(Binomial *b, BinomialNode *n) {
      // Set degree to the number of n's children.
      int degree = degreeBinomialNode(n);
@@ -122,8 +148,9 @@ static void consolidate(Binomial *b, BinomialNode *n) {
 
      // [NOTE]: "The most extreme value is updated after the consolidation
      // routine runs."
-     if(b->extreme == NULL) b->extreme = n;
-     else if(b->compare(n->value, b->extreme->value) < 0) b->extreme = n;
+     //if(b->extreme == NULL) b->extreme = n;
+     //else if(b->compare(n->value, b->extreme->value) < 0) b->extreme = n;
+     b->extreme = extreme(b);
 }
 
 static void merge(Binomial *b, DArray *a) {
@@ -192,26 +219,7 @@ void decreaseKeyBinomial(Binomial *b, BinomialNode *n, void *value) {
      else if(b->compare(n->value, b->extreme->value) < 0) b->extreme = n;
 }
 
-static BinomialNode *extreme(Binomial *b) {
-     // get the starting index.
-     int extremeIndex = 0;
-     int index = 0;
-     for(index = 0; index < sizeDArray(b->rootlist); index++) {
-          if((BinomialNode *) getSubHeap(b->rootlist, index) != NULL) {
-               extremeIndex = index;
-               break;
-          }
-     }
-     // Get the most extreme node.
-     for(index = index + 1; index < sizeDArray(b->rootlist); index++) {
-          BinomialNode *extreme = getSubHeap(b->rootlist, extremeIndex);
-          BinomialNode *spot = getSubHeap(b->rootlist, index);
-          if(b->compare(spot->value, extreme->value) < 0) {
-               extremeIndex = index;
-          }
-     }
-     return (BinomialNode *) getSubHeap(b->rootlist, extremeIndex);
-}
+
 
 void *extractBinomial(Binomial *b) {
      // Set y to b's extreme.
