@@ -88,6 +88,17 @@ static BinomialNode *combine(Binomial *b, BinomialNode *x, BinomialNode *y) {
      }
 }
 
+static BinomialNode *getSubHeap(DArray *a, int degree) {
+     if(index > sizeDArray(a)) {
+          fprintf("Error in getSubHeap!\n");
+          exit(-1);
+     } else if(index == sizeDArray(a)) {
+          return NULL;
+     } else {
+          return getDArray(a, degree);
+     }
+}
+
 static void consolidate(Binomial *b, BinomialNode *n) {
      // Set degree to the number of n's children.
      int degree = degreeBinomialNode(n);
@@ -142,6 +153,17 @@ BinomialNode *insertBinomial(Binomial *b, void *value) {
      consolidate(b, n);
 
      b->size++;
+
+     fprintf(stdout, "Current root list:\n");
+     int index = 0;
+     for(index= 0; index < sizeDArray(b->rootlist); index++) {
+          if(getDArray(b->rootlist, index) != NULL) {
+               b->display(stdout, ((BinomialNode *) getDArray(b->rootlist, index))->value);
+               fprintf(stdout, " ");
+          }
+     }
+     fprintf(stdout, "\nEnd rootlist print.\n");
+
      return n;
 }
 
