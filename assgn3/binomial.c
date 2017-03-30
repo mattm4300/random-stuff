@@ -210,13 +210,7 @@ void *extractBinomial(Binomial *b) {
      // Set y to b's extreme.
      BinomialNode *y = b->extreme;
      // Remove y from b's root list by placing a NULL pointer in y's spot.
-     int index = 0;
-     for(index = 0; index < sizeDArray(b->rootlist); index++) {
-          if(y == getSubHeap(b->rootlist, index)) {
-               setDArray(b->rootlist, index, NULL);
-               break;
-          }
-     }
+     setDArray(b->rootlist, degreeBinomialNode(y), NULL);
      // The children of y are an array.. so Merge them into b's root list
      // via Merge.
      merge(b, y->children);
