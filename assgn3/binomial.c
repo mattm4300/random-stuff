@@ -89,10 +89,10 @@ static BinomialNode *combine(Binomial *b, BinomialNode *x, BinomialNode *y) {
 }
 
 static BinomialNode *getSubHeap(DArray *a, int degree) {
-     if(index > sizeDArray(a)) {
-          fprintf("Error in getSubHeap!\n");
+     if(degree > sizeDArray(a)) {
+          fprintf(stderr, "Error in getSubHeap!\n");
           exit(-1);
-     } else if(index == sizeDArray(a)) {
+     } else if(degree == sizeDArray(a)) {
           return NULL;
      } else {
           return getDArray(a, degree);
