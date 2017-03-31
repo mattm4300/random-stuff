@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
 #include "vertex.h"
 
 edgeDefinition *readDefinition(FILE *fp) {
@@ -28,7 +25,7 @@ edgeDefinition *readDefinition(FILE *fp) {
      return ed;
 }
 
-void dispayVert(FILE *fp, void *val) {
+void displayVertex(FILE *fp, void *val) {
      Vertex *v = (Vertex *) val;
      fprintf(fp, "%d", v->value);
      return;
@@ -41,6 +38,7 @@ Vertex *newVertex(int vert) {
      new->distance = INT_MAX;
      new->steps = 0;
      new->bnode = NULL;
+     new->prev = new;
      return new;
 }
 
@@ -95,6 +93,18 @@ void insertVertex(DArray *list, int a, int b, int w) {
                }
           }
      }
+}
+
+void update(void *v, BinomialNode *n) {
+     Vertex *x = (Vertex *) v;
+     x->bnode = n;
+
+
+}
+
+Vertex * findNeighborVertex(DArray *adjList, Neighbor *n) {
+     Vertex *v = vertInList(adjList, n->vert->value);
+     return v;
 }
 
 void fillAdjList(DArray *list, FILE *fp) {

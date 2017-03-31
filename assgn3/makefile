@@ -2,7 +2,7 @@ FLAGS = -Wall -Wextra -std=c99
 
 dijkstra: dijkstra.o scanner.o vertex.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o
 	gcc $(FLAGS) scanner.o vertex.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o dijkstra.o -o dijkstra
-dijkstra.o: dijkstra.c vertex.h integer.h darray.h binomial.h comparator.h
+dijkstra.o: dijkstra.c vertex.h integer.h darray.h binomial.h comparator.h queue.h
 	gcc $(FLAGS) -c dijkstra.c
 scanner.o: scanner.c scanner.h
 	gcc $(FLAGS) -c scanner.c
