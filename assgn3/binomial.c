@@ -134,16 +134,15 @@ static void consolidate(Binomial *b, BinomialNode *n) {
      // the root list if necessary (handled by DArray class).
      setDArray(b->rootlist, degree, n);
 
-     // [NOTE]: "The most extreme value is updated after the consolidation
-     // routine runs."
-     checkExtreme(b, n);
 }
 
 static void merge(Binomial *b, DArray *a) {
      // Loop through every node in the array.
      // [NOTE]: I think we go from right to left, i.e. use removeDArray.
-     while(sizeDArray(a) != 0) {
-          BinomialNode *n = removeDArray(a);
+     int size =  sizeDArray(a);
+     int index = 0;
+     for(index = 0; index < size; index++){
+          BinomialNode *n = (BinomialNode *) getDArray(a, index);
           n->parent = n;
           // Consolidate b and node n.
           consolidate(b, n);
@@ -159,6 +158,8 @@ BinomialNode *insertBinomial(Binomial *b, void *value) {
      BinomialNode *n = newBinomialNode(b->display, value);
      // [NOTE]: newBinomialNode sets the node's parent to itself
      // and sets children to a newDarray.
+
+     checkExtreme(b, n);
 
      // Consolidate b and the new node.
      consolidate(b, n);
@@ -199,9 +200,9 @@ void decreaseKeyBinomial(Binomial *b, BinomialNode *n, void *value) {
      // Set n's value to the new value.
      n->value = value;
      // Bubble up the new value using b's comparator.
-     bubbleUp(b, n);
+     BinomialNode *np = bubbleUp(b, n);
      // Update b's extreme value pointer, if necessary.
-     checkExtreme(b, n);
+     checkExtreme(b, np);
 }
 
 

@@ -1,13 +1,13 @@
 FLAGS = -Wall -Wextra -std=c99 -O3
 
-dijkstra: dijkstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o
-	gcc $(FLAGS) dijkstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o -o dijkstra
-dijkstra.o: dijkstra.c edgeReader.h integer.h darray.h binomial.h comparator.h
+dijkstra: dijkstra.o scanner.o vertex.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o
+	gcc $(FLAGS) dijkstra.o scanner.o vertex.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o -o dijkstra
+dijkstra.o: dijkstra.c vertex.h integer.h darray.h binomial.h comparator.h
 	gcc $(FLAGS) -c dijkstra.c
 scanner.o: scanner.c scanner.h
 	gcc $(FLAGS) -c scanner.c
-edgeReader.o: edgeReader.c edgeReader.h scanner.h
-	gcc $(FLAGS) -c edgeReader.c
+vertex.o: vertex.c vertex.h scanner.h integer.h darray.h binomial.h
+	gcc $(FLAGS) -c vertex.c
 darray.o: darray.c darray.h
 	gcc $(FLAGS) -c darray.c
 integer.o: integer.c integer.h
@@ -34,4 +34,4 @@ clean-test:
 	make build
 	make test
 clean:
-	rm -f dijkstra.o scanner.o edgeReader.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o dijkstra
+	rm -f dijkstra.o scanner.o vertex.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o dijkstra
