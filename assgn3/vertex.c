@@ -28,6 +28,12 @@ edgeDefinition *readDefinition(FILE *fp) {
      return ed;
 }
 
+void dispayVert(FILE *fp, void *val) {
+     Vertex *v = (Vertex *) val;
+     fprintf(fp, "%d", v->value);
+     return;
+}
+
 Vertex *newVertex(int vert) {
      Vertex *new = malloc(sizeof(Vertex));
      new->value = vert;
@@ -132,4 +138,20 @@ int compareVertex(void *a, void *b) {
      else if(x->value < y->value) return -1;
      else return 1;
 
+}
+
+
+
+Vertex *getMinVertex(DArray *a) {
+     if(sizeDArray(a) == 0) return NULL;
+
+     int i = 0;
+     Vertex *min = (Vertex *) getDArray(a, 0);
+     for(i = 1; i < sizeDArray(a); i++) {
+          Vertex *spot = getDArray(a, i);
+          if(spot->value < min->value) {
+               min = spot;
+          }
+     }
+     return min;
 }

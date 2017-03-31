@@ -1,5 +1,5 @@
-#ifndef __INFO_GATHER__H
-#define __INFO_GATHER__H
+#ifndef __VERTEX__H___
+#define __VERTEX__H___
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -30,6 +30,7 @@ typedef struct Neighbor {
 } Neighbor;
 
 extern edgeDefinition *readDefinition(FILE *);
+extern void displayVert(FILE *, void *);
 extern Vertex *newVertex(int vert);
 extern Neighbor *newNeighbor(int vert, int weight);
 extern void fillAdjList(DArray *list, FILE *fp);
@@ -38,6 +39,6 @@ extern Neighbor * neighborInList(DArray *list, int vert);
 extern Vertex *vertInList(DArray *list, int vert);
 extern void debugList(FILE *fp, DArray *list);
 extern int compareVertex(void *, void *);
-extern void displayVertex(FILE *, Vertex *);
+extern Vertex *getMinVertex(DArray *);
 
 #endif

@@ -59,7 +59,6 @@ Binomial *newBinomial(
      b->display = d; // This will be something like displayInteger!
      b->compare = c;
      b->update = u;
-     // [NOTE]: unsure what getss passed as display...
      b->rootlist = newDArray(d);
      b->extreme = NULL;
      b->size = 0;
@@ -259,7 +258,6 @@ static void printLevelOrder(FILE *fp, BinomialNode *n) {
 }
 
 void displayBinomial(FILE *fp, Binomial *b) {
-     // [TODO]: Add empty heap print here!
      if(sizeBinomial(b) == 0) {
           fprintf(fp, "0:\n");
           return;
