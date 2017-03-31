@@ -69,6 +69,7 @@ static void sortVertsForPrint(DArray *arr) {
 
 static void displayTree(FILE *fp, DArray *arr, int maxSteps) {
      printf("DISPLAY TIME NOW: \n");
+     fprintf(fp, "test.\n");
      sortVertsForPrint(arr);
      int index = 0;
      for(index = 0; index < maxSteps; index++) {
