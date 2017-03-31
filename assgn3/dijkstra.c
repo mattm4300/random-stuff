@@ -30,12 +30,39 @@ int main(int argc, char **argv) {
           exit(1);
      }
 
+     Binomial *heap = newBinomial(displayInteger,compareInteger,NULL);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(4));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(8));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(16));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(5));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Inserting...\n");
+     (void) insertBinomial(heap,newInteger(1));
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Extracting...\n");
+     (void) extractBinomial(heap);
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Extracting...\n");
+     (void) extractBinomial(heap);
+     displayBinomial(stdout,heap);
+     fprintf(stdout,"Extracting...\n");
+     (void) extractBinomial(heap);
+     displayBinomial(stdout,heap);
+
+     /*
      FILE *fp = fopen(argv[1], "r");
      DArray *adjList = newDArray(displayInteger);
      fillAdjList(adjList, fp);
      fclose(fp);
      debugList(stdout, adjList);
-
+     */
 
 
 
