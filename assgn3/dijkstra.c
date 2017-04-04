@@ -29,6 +29,14 @@ static void displayTree(FILE *fp, queue *visited) {
      displayQueue(fp, visited);
      printf("\n");
      fflush(stdout);
+
+     DArray *arr = newDArray(displayVertex);
+     while(sizeQueue(visited) != 0) {
+          insertDArray(arr, dequeue(visited));
+     }
+
+     
+
 }
 
 static void dijstra(FILE *fp, DArray *adjList, Binomial *heap) {
