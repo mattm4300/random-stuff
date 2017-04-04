@@ -101,9 +101,8 @@ int main(int argc, char **argv) {
           exit(1);
      }
 
-
      FILE *fp = fopen(argv[1], "r");
-     DArray *adjList = newDArray(displayInteger);
+     DArray *adjList = newDArray(displayVertex);
      fillAdjList(adjList, fp);
      fclose(fp);
 
