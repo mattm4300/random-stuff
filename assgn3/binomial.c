@@ -41,7 +41,7 @@ void displayBinomialNode(FILE *fp, BinomialNode *n) {
           exit(-1);
      }
      n->display(fp, n->value);
-     fprintf(fp, "-%d ", degreeBinomialNode(n));
+     fprintf(fp, "-%d", degreeBinomialNode(n));
      if(n->parent != n) {
           fprintf(fp, "(");
           n->parent->display(fp, n->parent->value);
