@@ -25,18 +25,39 @@ void Fatal(char *fmt, ...)
     }
 
 static void displayTree(FILE *fp, queue *visited) {
-     printf("visited queue: ");
-     displayQueue(fp, visited);
-     printf("\n");
-     fflush(stdout);
+     if(sizeQueue(visited) == 0) return;
 
-     DArray *arr = newDArray(displayVertex);
-     while(sizeQueue(visited) != 0) {
-          insertDArray(arr, dequeue(visited));
+     Binomial *b = newBinomial(displayVertex, compareVertex, update);
+     int s = sizeQueue(visited);
+     int maxSteps = 0;
+
+     int i = 0;
+     for(i = 0; i < s; i++) {
+          Vertex *v =  (Vertex *) dequeue(visited);
+          if(v->steps > maxSteps) maxSteps = v->steps;
+          insertBinomial(b, v);
      }
 
-     
+     queue *level[maxSteps];
+     for(i = 0; i <= maxSteps; i++) {
+          level[i] = newQueue(displayVertex);
+     }
 
+     for(i = 0; i < s; i++) {
+          Vertex *v = (Vertex *) extractBinomial(b);
+          enqueue(level[v->steps], v);
+     }
+
+     for(i = 0; i <= maxSteps; i++) {
+          fprintf(fp, "%d : ", i);
+          while(sizeQueue(level[i]) != 0) {
+               Vertex *v = (Vertex *) dequeue(level[i]);
+               displayVertex(stdout, v);
+               if(sizeQueue(level[i]) > 0) fprintf(fp, " ");
+          }
+          fprintf(fp, "\n");
+     }
+     fprintf(fp, "----\n");
 }
 
 static void dijstra(FILE *fp, DArray *adjList, Binomial *heap) {
