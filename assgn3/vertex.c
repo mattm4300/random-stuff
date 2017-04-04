@@ -30,8 +30,7 @@ void displayVertex(FILE *fp, void *val) {
      fprintf(fp, "%d", v->value);
      if(v->prev != NULL && v->prev != v) {
           fprintf(fp, "(%d)", v->prev->value);
-          Neighbor *n = neighborInList(v->neighbors, v->prev->value);
-          fprintf(fp, "%d", n->weight);
+          fprintf(fp, "%d", v->distance);
      }
      return;
 }

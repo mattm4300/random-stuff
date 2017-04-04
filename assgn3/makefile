@@ -1,4 +1,4 @@
-FLAGS = -Wall -Wextra -std=c99
+FLAGS = -Wall -Wextra -std=c99 -O3
 
 dijkstra: dijkstra.o scanner.o vertex.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o
 	gcc $(FLAGS) scanner.o vertex.o darray.o integer.o real.o string.o binomial.o comparator.o queue.o sll.o dijkstra.o -o dijkstra

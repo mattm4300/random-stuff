@@ -110,15 +110,12 @@ int main(int argc, char **argv) {
      // Make a new heap.
      Binomial *heap = newBinomial(displayVertex, compareVertex, update);
 
-     printf("Filling heap.\n");
      // Populate the heap with the vertices.
      int index = 0;
      for(index = 0; index < sizeDArray(adjList); index++) {
           Vertex *v = getDArray(adjList, index);
           v->bnode = insertBinomial(heap, v);
      }
-
-     displayBinomial(stdout, heap);
 
      dijstra(stdout, adjList, heap);
 
