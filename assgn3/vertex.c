@@ -38,7 +38,8 @@ Vertex *newVertex(int vert) {
      new->distance = INT_MAX;
      new->steps = 0;
      new->bnode = NULL;
-     new->prev = new;
+     new->prev = NULL;
+     new->visited = 0;
      return new;
 }
 

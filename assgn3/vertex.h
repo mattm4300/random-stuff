@@ -22,6 +22,7 @@ typedef struct Vertex {
      int distance;
      int steps;
      BinomialNode *bnode;
+     int visited;
      struct Vertex *prev;
 } Vertex;
 

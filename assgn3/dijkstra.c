@@ -67,14 +67,52 @@ static void sortVertsForPrint(DArray *arr) {
      printf("Done.\n");
 }
 
-static void displayTree(FILE *fp, DArray *arr, int maxSteps) {
-     printf("DISPLAY TIME NOW: \n");
+static void displayTree(FILE *fp, queue *visited) {
+     printf("visited queue: ");
+     displayQueue(fp, visited);
+     printf("\n");
+     fflush(stdout);
+     /*printf("DISPLAY TIME NOW: \n");
      fprintf(fp, "test.\n");
      sortVertsForPrint(arr);
      int index = 0;
      for(index = 0; index < maxSteps; index++) {
 
+     }*/
+}
+
+static void dijstra(FILE *fp, DArray *adjList, Binomial *heap) {
+     queue *visited = newQueue(displayVertex);
+     Vertex *min = getMinVertex(adjList);
+     min->distance = 0;
+     min->prev = min;
+     min->steps =  0;
+     while(sizeBinomial(heap) != 0) {
+          Vertex *u = (Vertex *) extractBinomial(heap);
+          if(u->prev == NULL) {
+               u->distance = 0;
+               displayTree(fp, visited);
+               visited = newQueue(displayVertex);
+          } else {
+               enqueue(visited, u);
+               u->visited = 1;
+               int i = 0;
+               for(i = 0; i < sizeDArray(u->neighbors); i++) {
+                    Neighbor *n = (Neighbor *) getDArray(u->neighbors, i);
+                    Vertex *v = findNeighborVertex(adjList, n);
+                    if(v->visited != 1) {
+                         int distance = u->distance + n->weight;
+                         if(distance < v->distance) {
+                              v->prev = u;
+                              v->distance = distance;
+                              v->steps = v->prev->steps + 1;
+                              decreaseKeyBinomial(heap, v->bnode, v);
+                         }
+                    }
+               }
+          }
      }
+     displayTree(fp, visited);
 }
 
 int main(int argc, char **argv) {
@@ -83,20 +121,14 @@ int main(int argc, char **argv) {
           exit(1);
      }
 
+
      FILE *fp = fopen(argv[1], "r");
      DArray *adjList = newDArray(displayInteger);
      fillAdjList(adjList, fp);
      fclose(fp);
-     //debugList(stdout, adjList);
-
-     Vertex *min = getMinVertex(adjList);
-     // Set the starting vertex's distance to 0 (it'll be the most)
-     // extreme value in the heap.
-     min->distance = 0;
 
      // Make a new heap.
      Binomial *heap = newBinomial(displayVertex, compareVertex, update);
-
 
      printf("Filling heap.\n");
      // Populate the heap with the vertices.
@@ -108,9 +140,9 @@ int main(int argc, char **argv) {
 
      displayBinomial(stdout, heap);
 
-     printf("Looping.\n");
+     dijstra(stdout, adjList, heap);
 
-
+     /*
      DArray *vertsVisited = newDArray(displayVertex);
      int maxSteps = 0;
      while(sizeBinomial(heap) != 0) {
@@ -120,7 +152,7 @@ int main(int argc, char **argv) {
           printf("Vert: "); displayVertex(stdout, u); printf("\n");
           if(u->prev == NULL) {
                printf("Going to print: \n");
-               displayTree(stdout, vertsVisited, maxSteps);
+               //displayTree(stdout, vertsVisited, maxSteps);
                vertsVisited = newDArray(displayVertex);
                u->distance = 0;
                u->steps = 0;
@@ -144,7 +176,7 @@ int main(int argc, char **argv) {
           insertDArray(vertsVisited, u);
      }
      // Make sure to print the final tree!!!
-     displayTree(stdout, vertsVisited, maxSteps);
-     printf("DONE.\n");
+     //displayTree(stdout, vertsVisited, maxSteps);
+     printf("DONE.\n"); */
      return 0;
 }
