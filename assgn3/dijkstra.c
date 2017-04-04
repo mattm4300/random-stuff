@@ -24,61 +24,11 @@ void Fatal(char *fmt, ...)
     exit(-1);
     }
 
-static void sortVertsForPrint(DArray *arr) {
-     printf("STARTING THE SORT:");
-     printf("Sorting...\n");
-     // Sort by weight, smallest to largest.
-     // [NOTE]: ties are broken in favor of the smaller destination vertex.
-     int i = 0;
-     int j = 0;
-     int size = sizeDArray(arr);
-
-     for(j = 1; j < size; j++) {
-          printf("a\n");
-          int swapped = 0;
-          for(i = 0; i < size - j; i++) {
-               printf("b\n");
-               Vertex *a = getDArray(arr, i);
-               Vertex *b = getDArray(arr, i + 1);
-               printf("Got verts.\n");
-               printf("a: %d | prev: %d\n", a->value, a->prev->value);
-               printf("b: %d | prev: %d\n", b->value, b->prev->value);
-               Neighbor *an = neighborInList(a->neighbors, a->prev->value);
-               Neighbor *bn = neighborInList(b->neighbors, b->prev->value);
-               printf("Got neighbors.\n");
-               printf("Neighbor a weight: %d\n", an->weight);
-               printf("Neighbor b weight: %d\n", bn->weight);
-               if(an->weight > bn->weight) {
-                    printf("Swap need for case 1.\n");
-                    setDArray(arr, i, b);
-                    setDArray(arr, i + 1, a);
-                    swapped = 1;
-               // Tie case.
-               } else if(an->weight == bn->weight) {
-                    if(b->value < a->value) {
-                         printf("Swap needed for tie.\n");
-                         setDArray(arr, i, b);
-                         setDArray(arr, i + 1, a);
-                    }
-               }
-          }
-          if(!swapped) break;
-     }
-     printf("Done.\n");
-}
-
 static void displayTree(FILE *fp, queue *visited) {
      printf("visited queue: ");
      displayQueue(fp, visited);
      printf("\n");
      fflush(stdout);
-     /*printf("DISPLAY TIME NOW: \n");
-     fprintf(fp, "test.\n");
-     sortVertsForPrint(arr);
-     int index = 0;
-     for(index = 0; index < maxSteps; index++) {
-
-     }*/
 }
 
 static void dijstra(FILE *fp, DArray *adjList, Binomial *heap) {
@@ -89,25 +39,26 @@ static void dijstra(FILE *fp, DArray *adjList, Binomial *heap) {
      min->steps =  0;
      while(sizeBinomial(heap) != 0) {
           Vertex *u = (Vertex *) extractBinomial(heap);
+          // If we hit the end of a tree in the forest, print the tree then
+          // continue as normal.
           if(u->prev == NULL) {
                u->distance = 0;
                displayTree(fp, visited);
                visited = newQueue(displayVertex);
-          } else {
-               enqueue(visited, u);
-               u->visited = 1;
-               int i = 0;
-               for(i = 0; i < sizeDArray(u->neighbors); i++) {
-                    Neighbor *n = (Neighbor *) getDArray(u->neighbors, i);
-                    Vertex *v = findNeighborVertex(adjList, n);
-                    if(v->visited != 1) {
-                         int distance = u->distance + n->weight;
-                         if(distance < v->distance) {
-                              v->prev = u;
-                              v->distance = distance;
-                              v->steps = v->prev->steps + 1;
-                              decreaseKeyBinomial(heap, v->bnode, v);
-                         }
+          }
+          enqueue(visited, u);
+          u->visited = 1;
+          int i = 0;
+          for(i = 0; i < sizeDArray(u->neighbors); i++) {
+               Neighbor *n = (Neighbor *) getDArray(u->neighbors, i);
+               Vertex *v = findNeighborVertex(adjList, n);
+               if(v->visited != 1) {
+                    int distance = u->distance + n->weight;
+                    if(distance < v->distance) {
+                         v->prev = u;
+                         v->distance = distance;
+                         v->steps = v->prev->steps + 1;
+                         decreaseKeyBinomial(heap, v->bnode, v);
                     }
                }
           }
@@ -142,41 +93,5 @@ int main(int argc, char **argv) {
 
      dijstra(stdout, adjList, heap);
 
-     /*
-     DArray *vertsVisited = newDArray(displayVertex);
-     int maxSteps = 0;
-     while(sizeBinomial(heap) != 0) {
-          printf("%d\n", maxSteps);
-          // Get a vertex.
-          Vertex *u = extractBinomial(heap);
-          printf("Vert: "); displayVertex(stdout, u); printf("\n");
-          if(u->prev == NULL) {
-               printf("Going to print: \n");
-               //displayTree(stdout, vertsVisited, maxSteps);
-               vertsVisited = newDArray(displayVertex);
-               u->distance = 0;
-               u->steps = 0;
-               maxSteps = 0;
-          }
-
-          // Loop through that vertex's neighbors.
-          int j = 0;
-          for(j = 0; j < sizeDArray(u->neighbors); j++) {
-               Neighbor *n = getDArray(u->neighbors, j);
-               Vertex *v = findNeighborVertex(adjList, n);
-               if(u->distance + n->weight < v->distance) {
-                    v->distance = u->distance + n->weight;
-                    v->prev = u;
-                    decreaseKeyBinomial(heap, v->bnode, v);
-                    v->steps = v->prev->steps + 1;
-                    if(v->steps > maxSteps) maxSteps = v->steps;
-               }
-          }
-          printf("Inserting => vert: %d | prev vert: %d\n", u->value, u->prev->value);
-          insertDArray(vertsVisited, u);
-     }
-     // Make sure to print the final tree!!!
-     //displayTree(stdout, vertsVisited, maxSteps);
-     printf("DONE.\n"); */
      return 0;
 }

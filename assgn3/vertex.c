@@ -145,10 +145,17 @@ int compareVertex(void *a, void *b) {
 
      Vertex *x = (Vertex *) a;
      Vertex *y = (Vertex *) b;
-     if(x->value == y->value) return 0;
-     else if(x->value < y->value) return -1;
-     else return 1;
-
+     if(x->distance == y->distance) {
+          if(x->value < y->value) {
+               return -1;
+          } else {
+               return 1;
+          }
+     } else if(x->distance < y->distance) {
+          return -1;
+     } else {
+          return 1;
+     }
 }
 
 
