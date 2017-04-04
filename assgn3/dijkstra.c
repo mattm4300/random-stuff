@@ -100,11 +100,12 @@ int main(int argc, char **argv) {
           fprintf(stderr, "Not enough arguments.\n");
           exit(1);
      }
-
+     
      FILE *fp = fopen(argv[1], "r");
      DArray *adjList = newDArray(displayVertex);
      fillAdjList(adjList, fp);
      fclose(fp);
+
 
      // Make a new heap.
      Binomial *heap = newBinomial(displayVertex, compareVertex, update);
