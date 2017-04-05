@@ -1,40 +1,21 @@
-/Users/matthewmorgan/cs201/random-stuff/assgn3
-Tue Apr  4 17:08:46 CDT 2017
-NOTES.md			myOutG9.txt
-README.md			myOutSingle.txt
-WORKING				myOutTwo.txt
-binomial.c			myOutUnweighted.txt
-binomial.h			outG10.txt
-comparator.c			outG11.txt
-comparator.h			outG12.txt
-darray.c			outG13.txt
-darray.h			outG14.txt
-dijkstra.c			outG15.txt
-djikstra			outG16.txt
-g10.0				outG17.txt
-g11.0				outG6.txt
-g12.0				outG7.txt
-g13.0				outG8.txt
-g14.0				outG9.txt
-g15.0				outSingle.txt
-g16.0				outTwo.txt
-g17.0				outUnweighted.txt
-g6.0				queue.c
-g7.0				queue.h
-g8.0				real.c
-g9.0				real.h
-integer.c			scanner.c
-integer.h			scanner.h
-makefile			single.0
-mdmorgan1@crimson.ua.edu	sll.c
-myOutG10.txt			sll.h
-myOutG11.txt			string.c
-myOutG12.txt			string.h
-myOutG13.txt			temp1.txt
-myOutG14.txt			temp2.txt
-myOutG15.txt			two.0
-myOutG16.txt			unweighted.0
-myOutG17.txt			vertex.c
-myOutG6.txt			vertex.h
-myOutG7.txt			verts.txt
-myOutG8.txt
+/mnt/c/Users/MORGAN/Desktop/CS201/random-stuff/assgn3
+Tue Apr  4 19:01:55 DST 2017
+binomial.c    g9.0			myOutUnweighted.txt  README.md
+binomial.h    integer.c			NOTES.md	     real.c
+comparator.c  integer.h			outG10.txt	     real.h
+comparator.h  makefile			outG11.txt	     scanner.c
+darray.c      mdmorgan1@crimson.ua.edu	outG12.txt	     scanner.h
+darray.h      myOutG10.txt		outG13.txt	     single.0
+dijkstra.c    myOutG11.txt		outG14.txt	     sll.c
+djikstra      myOutG12.txt		outG15.txt	     sll.h
+g10.0	      myOutG13.txt		outG16.txt	     string.c
+g11.0	      myOutG14.txt		outG17.txt	     string.h
+g12.0	      myOutG15.txt		outG6.txt	     two.0
+g13.0	      myOutG16.txt		outG7.txt	     unweighted.0
+g14.0	      myOutG17.txt		outG8.txt	     vertex.c
+g15.0	      myOutG6.txt		outG9.txt	     vertex.h
+g16.0	      myOutG7.txt		outSingle.txt	     verts.txt
+g17.0	      myOutG8.txt		outTwo.txt	     WORKING
+g6.0	      myOutG9.txt		outUnweighted.txt
+g7.0	      myOutSingle.txt		queue.c
+g8.0	      myOutTwo.txt		queue.h

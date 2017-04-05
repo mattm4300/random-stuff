@@ -1,3 +1,12 @@
+/*
+ Author: Matthew Morgan
+
+ Binomial heap implementation.
+
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "binomial.h"

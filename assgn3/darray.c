@@ -1,3 +1,12 @@
+/*
+ Author: Matthew Morgan
+
+ DArray implementation.
+
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "darray.h"

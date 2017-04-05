@@ -1,5 +1,12 @@
 #include "vertex.h"
 
+/* Read a vertex definition from the given file pointer.
+   A vertex can either be 3 integers followed by a semi-colon,
+   or two integers followed by a semi-colon. In the case of two integers,
+   the third integer is assumed to be 1.
+   The first two (or the only two) integers are vertices, and the third
+   integer is the weight bewteen the first two.
+*/
 edgeDefinition *readDefinition(FILE *fp) {
      // Make sure there's another definition to read.
      char x = readChar(fp);
@@ -25,6 +32,8 @@ edgeDefinition *readDefinition(FILE *fp) {
      return ed;
 }
 
+// Shows the vertex in the format:
+// currentVertex(previous vertex)weightBetweenVertices
 void displayVertex(FILE *fp, void *val) {
      Vertex *v = (Vertex *) val;
      fprintf(fp, "%d", v->value);
@@ -54,6 +63,9 @@ Neighbor *newNeighbor(int vert, int weight) {
      return n;
 }
 
+// Returns the vertices given by the "vert" argument in a DArray.
+// [NOTE]: This is different than neighborInList; this function returns
+//         a VERTEX.
 Vertex *vertInList(DArray *list, int vert) {
      int index = 0;
      for(index = 0; index < sizeDArray(list); index++) {
@@ -65,6 +77,9 @@ Vertex *vertInList(DArray *list, int vert) {
      return NULL;
 }
 
+// Returns the neighbor given by the "vert" argument in a DArray.
+// [NOTE]: This is different than vertInList; this function returns
+//         a Neighbor.
 Neighbor * neighborInList(DArray *list, int vert) {
      int index = 0;
      for(index = 0; index < sizeDArray(list); index++) {
@@ -76,6 +91,7 @@ Neighbor * neighborInList(DArray *list, int vert) {
      return NULL;
 }
 
+// Insert a new vertex into an adjacency list.
 void insertVertex(DArray *list, int a, int b, int w) {
      Vertex *v = vertInList(list, a);
      // vert a isn't already in big vertex list.
@@ -100,18 +116,23 @@ void insertVertex(DArray *list, int a, int b, int w) {
      }
 }
 
+// This is needed for the binomial heap.  The vertex objects have a bnode
+// pointer that points to the node that they are in, in the heap, so if you
+// bubble up, you need to update the bnode pointers.
 void update(void *v, BinomialNode *n) {
      Vertex *x = (Vertex *) v;
      x->bnode = n;
-
-
 }
 
+// Given the main adjaceny list and a neighbor, finds the vertex that the
+// neighbor object points to.
 Vertex * findNeighborVertex(DArray *adjList, Neighbor *n) {
      Vertex *v = vertInList(adjList, n->vert->value);
      return v;
 }
 
+// Initializes the adjaceny list. This is the first function called for
+// dijkstra implementation.
 void fillAdjList(DArray *list, FILE *fp) {
      edgeDefinition *ed = readDefinition(fp);
      while(ed != NULL) {
@@ -126,6 +147,7 @@ void fillAdjList(DArray *list, FILE *fp) {
      }
 }
 
+// Just prints the adjaceny list to help debug.
 void debugList(FILE *fp, DArray *list) {
      int a, b;
      for(a = 0; a < sizeDArray(list); a++) {
@@ -142,6 +164,8 @@ void debugList(FILE *fp, DArray *list) {
      }
 }
 
+// Compare function for vertices.
+// [NOTE]: NULL values are to be treated as MORE EXTREME than non-null values.
 int compareVertex(void *a, void *b) {
      if(a == NULL && b == NULL) return 0;
      else if(a == NULL) return -1;
@@ -163,7 +187,8 @@ int compareVertex(void *a, void *b) {
 }
 
 
-
+// Loops through the adjaceny list and finds the minimum vertex, which will
+// be the starting point for dijkstra's algorithm implementation.
 Vertex *getMinVertex(DArray *a) {
      if(sizeDArray(a) == 0) return NULL;
 

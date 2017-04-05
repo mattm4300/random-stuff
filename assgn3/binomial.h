@@ -1,3 +1,11 @@
+/*
+ Author: Matthew Morgan
+
+ Biniomial heap interface.
+
+
+*/
+
 #include <stdio.h>
 #include "darray.h"
 

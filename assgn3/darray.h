@@ -1,3 +1,10 @@
+/*
+ Author: Matthew Morgan
+
+ DArray interface.
+
+*/
+
 #include <stdio.h>
 
 #ifndef __DARRAY_INCLUDED__
