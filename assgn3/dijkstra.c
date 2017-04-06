@@ -126,6 +126,9 @@ int main(int argc, char **argv) {
           v->bnode = insertBinomial(heap, v);
      }
 
+     //displayBinomial(stdout, heap);
+
+
      // Run dijkstra's algorithm on the heap.
      dijkstra(stdout, adjList, heap);
 
