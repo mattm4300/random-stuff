@@ -31,6 +31,7 @@ static void displayTree(FILE *fp, queue *visited) {
      int s = sizeQueue(visited);
      int maxSteps = 0;
 
+     // Put all of the vertices into a heap.
      int i = 0;
      for(i = 0; i < s; i++) {
           Vertex *v =  (Vertex *) dequeue(visited);
@@ -38,16 +39,21 @@ static void displayTree(FILE *fp, queue *visited) {
           insertBinomial(b, v);
      }
 
+     // Put each level into its own queue.
      queue *level[maxSteps];
      for(i = 0; i <= maxSteps; i++) {
           level[i] = newQueue(displayVertex);
      }
 
+     // Put each vertex from the heap into its corresponding queue in level.
+     // Since we put the vertices in the min-heap, they're inserted into the
+     // queues in the correct print order.
      for(i = 0; i < s; i++) {
           Vertex *v = (Vertex *) extractBinomial(b);
           enqueue(level[v->steps], v);
      }
 
+     // For each level, go through and print out the queues.
      for(i = 0; i <= maxSteps; i++) {
           fprintf(fp, "%d : ", i);
           while(sizeQueue(level[i]) != 0) {
@@ -60,7 +66,7 @@ static void displayTree(FILE *fp, queue *visited) {
      fprintf(fp, "----\n");
 }
 
-static void dijstra(FILE *fp, DArray *adjList, Binomial *heap) {
+static void dijkstra(FILE *fp, DArray *adjList, Binomial *heap) {
      queue *visited = newQueue(displayVertex);
      Vertex *min = getMinVertex(adjList);
      min->distance = 0;
@@ -92,6 +98,7 @@ static void dijstra(FILE *fp, DArray *adjList, Binomial *heap) {
                }
           }
      }
+     // Make sure to print out the final tree after the alg. is done.
      displayTree(fp, visited);
 }
 
@@ -100,24 +107,27 @@ int main(int argc, char **argv) {
           fprintf(stderr, "Not enough arguments.\n");
           exit(1);
      }
-     
+
+     // Read the vertices from the given file into and adjacency list.
      FILE *fp = fopen(argv[1], "r");
      DArray *adjList = newDArray(displayVertex);
      fillAdjList(adjList, fp);
+     // Make sure to close that file!
      fclose(fp);
 
 
      // Make a new heap.
      Binomial *heap = newBinomial(displayVertex, compareVertex, update);
 
-     // Populate the heap with the vertices.
+     // Populate the heap with the vertices from the adjacency list.
      int index = 0;
      for(index = 0; index < sizeDArray(adjList); index++) {
           Vertex *v = getDArray(adjList, index);
           v->bnode = insertBinomial(heap, v);
      }
 
-     dijstra(stdout, adjList, heap);
+     // Run dijkstra's algorithm on the heap.
+     dijkstra(stdout, adjList, heap);
 
      return 0;
 }
